@@ -1,32 +1,57 @@
 package com.company.realestate.controllers;
 
+import com.company.realestate.domains.User;
+import com.company.realestate.repos.PostRepo;
+import com.company.realestate.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
-import java.util.Map;
 
 @Controller
 public class HomeController {
 
+    @Autowired
+    UserRepo userRepo;
+
+    @Autowired
+    PostRepo postRepo;
+
     @GetMapping(value = {"/", "/home"})
-    public String home(Locale locale, Map<String, Object> model) {
+    public String home(Locale locale, Model model) {
         System.out.println("Home: " + locale.getLanguage());
         System.out.println("HOME");
+
+//        User user = new User();
+//        user.setUsername("admin");
+//        user.setFirst_name("admin");
+//        user.setLast_name("admin");
+//        user.setPassword("admin");
+//        user.setEmail("admin@mail.ru");
+//        userRepo.save(user);
+//
+//        Post post = new Post();
+//        post.setAuthor(user);
+//        post.setDescription("Описание 1");
+//        postRepo.save(post);
+
+        Iterable<User> users = userRepo.findAll();
+        for(User user : users) {
+            System.out.println(user.toString());
+        }
         return "home";
     }
 
     @GetMapping("/admin")
-    public String admin(Map<String, Object> model) {
+    public String admin(Model model) {
         System.out.println("ADMIN");
         return "home";
     }
 
     @GetMapping("/test")
-    public String test(Map<String, Object> model) {
+    public String test(Model model) {
         System.out.println("TEST");
         return "home";
     }

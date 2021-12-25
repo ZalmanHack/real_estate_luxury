@@ -8,6 +8,9 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 
+//TODO Реализовать преобразование сущностей через DTO объект
+// https://stackoverflow.com/questions/48808163/convert-spring-entity-objects-to-modified-json-object
+
 @SpringBootApplication
 public class RealestateApplication {
 

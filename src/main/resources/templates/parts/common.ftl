@@ -9,13 +9,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-lg-0 ms-auto me-4">
                     <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="#"><@spring.message "navbar.main"/></a>
+                        <a class="nav-link active" aria-current="page" href="/"><@spring.message "navbar.main"/></a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="#"><@spring.message "navbar.immigration"/></a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#"><@spring.message "navbar.real_estate"/></a>
+                        <a class="nav-link" href="/real_estate"><@spring.message "navbar.real_estate"/></a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="#"><@spring.message "navbar.about"/></a>
@@ -30,9 +30,9 @@
                            data-bs-toggle="dropdown"
                            aria-expanded="false"><@spring.message "navbar.language"/></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">English <!></a></li>
-                            <li><a class="dropdown-item" href="#">Español <!></a></li>
-                            <li><a class="dropdown-item" href="#">Русский <!></a></li>
+                            <li><a class="dropdown-item" href="?language=en">English <!></a></li>
+                            <li><a class="dropdown-item" href="?language=es">Español <!></a></li>
+                            <li><a class="dropdown-item" href="?language=ru">Русский <!></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -60,6 +60,7 @@
         <!-- Для корректного отображения на рэкранах с разной плотностью -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/node_modules/@splidejs/splide/dist/css/splide.min.css">
     </head>
     <body>
 
@@ -71,6 +72,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/static/js/script.js"></script>
+    <script src="/static/node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
     </body>
     </html>
 </#macro>

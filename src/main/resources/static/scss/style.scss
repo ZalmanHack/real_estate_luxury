@@ -6,17 +6,17 @@
 
 $primary: #ffd700;
 
-$btn-border-radius: .6rem;
+//$btn-border-radius: .6rem;
 $card-border-radius: .6rem;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
 
 $sm: 575.98px;
 $md: 767.98px;
 $lg: 991.98px;
 $xl: 1199.98px;
 $xxl: 1399.98px;
-
 
 
 html {
@@ -41,7 +41,7 @@ body {
 h1, h2 {
     text-align: center;
     margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 #navbar {
@@ -60,7 +60,7 @@ h1, h2 {
         transition: 0.2s;
         background: #fff;
         border-bottom: 1px solid rgba(240, 240, 240, .8);
-        box-shadow: 0 0 60px 0 rgba(0, 0, 0, .2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -98,8 +98,9 @@ $container-max-widths: (
     margin: 0 auto;
 
     &_container {
+        box-sizing: border-box;
         // для того, чтобы работал overflow
-        position: relative;
+        //position: relative;
         // overflow: hidden; //закоменчено, чтобы можно было выводить карточки за рамки блока 
         
         &.after_navbar {
@@ -141,7 +142,7 @@ $container-max-widths: (
         }
 
         &.light-100 {
-            background: tint-color($primary, 95%);
+            background: #fff;
             h1, h2, h3, p {
                 color: black;
             }
@@ -218,21 +219,23 @@ $container-max-widths: (
 
 .card {
     position: relative;
-    height: 10rem;
+    min-height: 10rem;
     min-width: 11.5rem;
     flex-shrink: 1;
     margin: 1rem;
     border: none;
-    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, .2);
     z-index: 1;
 
     &_container {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin: 0;
+        margin-left: -1rem;
+        margin-right: -1rem;
         flex-wrap: wrap;
-        margin-bottom: -6rem;
+        &.overflow_bottom {
+            margin-bottom: -6rem;
+        }
     }
     &_title {
         position: absolute;
@@ -244,7 +247,6 @@ $container-max-widths: (
         padding-bottom: 1rem;
     }
     img {
-        position: absolute;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -253,5 +255,33 @@ $container-max-widths: (
         bottom: 0;
         z-index: 0;
     }
+    .img_rect {
+        position: absolute;
+    }
+}
 
+.carousel {
+    height: 24rem;
+    margin-bottom: -6rem;
+    &-inner {
+        border-radius: $card-border-radius;
+        height: 100%;
+    }
+    &-item {
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.real_estate_control {
+    background: #fff;
+    width: 100vw;
+}
+
+.shadow, .shadow-none {
+    transition: box-shadow 0.2s;
 }

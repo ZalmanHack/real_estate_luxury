@@ -24,10 +24,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/admin/**").authenticated()
                 .antMatchers("/admin/login", "/admin/logout").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority()
                 .antMatchers("/**", "/static/**", "/activate/*").permitAll()
-
                 .anyRequest().authenticated()
             .and()
                 .formLogin()
@@ -38,17 +37,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
 
-        http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
-            @Override
-            public void commence  (HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-                if (authException != null) {
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
-//                    response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//                    response.getWriter().print("Unauthorizated....");
-//                    throw new ResourceNotFoundException();
-                }
-            }
-        });
+//        http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
+//            @Override
+//            public void commence  (HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+//                if (authException != null) {
+//                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+////                    response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+////                    response.getWriter().print("Unauthorizated....");
+////                    throw new ResourceNotFoundException();
+//                }
+//            }
+//        });
     }
 
 

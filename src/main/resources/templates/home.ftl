@@ -4,9 +4,11 @@
 <#--Также можно еще:-->
 <#--<#assign title> <@spring.message code="home.title"/> + какой то текст </#assign>-->
 <#assign title><@spring.message code="home.title"/></#assign>
+
 <@common.page title>
     <div class="img_parallax" style="background-image: url('/static/img/bg.jpg');">
-        <div class="block_container dark-50 after_navbar screen-50">
+        <#-- в диве был screen-50 -->
+        <div class="block_container dark-50 after_navbar">
             <div class="container_center block">
                 <h1><@spring.message "home.title.h1"/></h1>
                 <p><@spring.message "home.title.text"/></p>
@@ -22,10 +24,10 @@
         <div class="container-xl">
             <h2><@spring.message "home.real_estate"/></h2>
             <@spring.message "home.real_estate.text"/>
-            <div class="card_container">
+            <div class="card_container overflow_bottom">
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.apartments"/></h5>
@@ -33,8 +35,8 @@
                     </div>
                 </div>
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.houses"/></h5>
@@ -42,8 +44,8 @@
                     </div>
                 </div>
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.villas"/></h5>
@@ -51,8 +53,8 @@
                     </div>
                 </div>
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.land"/></h5>
@@ -60,8 +62,8 @@
                     </div>
                 </div>
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.ready_business"/></h5>
@@ -69,8 +71,8 @@
                     </div>
                 </div>
 
-                <div class="card text-white">
-                    <img src="/static/img/bg.jpg" class="card-img">
+                <div class="card shadow text-white">
+                    <img src="/static/img/bg.jpg" class="card-img img_rect">
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.rent"/></h5>
