@@ -6,7 +6,6 @@ import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -38,12 +37,13 @@ public class Post {
     @Enumerated(EnumType.STRING)
     private PostStatus postStatus;
 
+    @ToString.Exclude
     @JsonIgnore
     @OneToMany(mappedBy = "post")
     private List<LocalizedBody> localizedBodies = new ArrayList<>();
 
     @OneToMany(mappedBy = "post")
-    private List<PostImages> postImages = new ArrayList<>();
+    private List<PostImage> postImages = new ArrayList<>();
 
     @Column(columnDefinition = "DATE")
     private LocalDate publicationDate;

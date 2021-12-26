@@ -8,11 +8,12 @@ import javax.persistence.*;
 @ToString(includeFieldNames = true)
 @Data
 @Entity
-public class PostImages {
+public class PostImage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "postId")
     private Post post;

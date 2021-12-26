@@ -23,7 +23,6 @@ public class AliasRestController {
 
     @GetMapping("/all")
     public ResponseEntity<Object> all(Locale locale) {
-        System.out.println(locale.getLanguage());
-        return new ResponseEntity<>(aliasService.getAliases(localeCodeService.get(locale.getLanguage())), HttpStatus.OK);
+        return new ResponseEntity<>(aliasService.getAliasesDto(locale), HttpStatus.OK);
     }
 }

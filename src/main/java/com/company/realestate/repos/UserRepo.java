@@ -4,6 +4,8 @@ import com.company.realestate.domains.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepo extends CrudRepository<User, Long> {
+import java.util.List;
 
+public interface UserRepo extends CrudRepository<User, Long> {
+    List<User> findAll();
 }

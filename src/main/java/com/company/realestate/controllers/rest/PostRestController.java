@@ -2,6 +2,7 @@ package com.company.realestate.controllers.rest;
 
 import com.company.realestate.services.LocaleCodeService;
 import com.company.realestate.services.LocalizedBodyService;
+import com.company.realestate.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,15 @@ public class PostRestController {
     @Autowired
     LocaleCodeService localeCodeService;
 
+    @Autowired
+    UserService userService;
+
     @GetMapping("all")
     public ResponseEntity<Object> all(Locale locale) {
-        return new ResponseEntity<>(
-                localizedBodyService.getAll(localeCodeService.get(locale.getLanguage().toLowerCase(Locale.ROOT))),
-                HttpStatus.OK);
+//        return new ResponseEntity<>(
+//                localizedBodyService.getAll(localeCodeService.get(locale.getLanguage().toLowerCase(Locale.ROOT))),
+//                HttpStatus.OK);
+
+        return new ResponseEntity<>(userService.getAllDto(locale), HttpStatus.OK);
     }
 }
