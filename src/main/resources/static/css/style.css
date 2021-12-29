@@ -11259,6 +11259,16 @@ h1, .h1, h2, .h2 {
     flex-direction: column-reverse;
   }
 }
+.container_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: -1rem;
+  flex-wrap: wrap;
+}
+.container_control {
+  margin: -1rem;
+}
 
 .content_img {
   width: 100%;
@@ -11285,6 +11295,17 @@ h1, .h1, h2, .h2 {
 }
 .card_container.overflow_bottom {
   margin-bottom: -6rem;
+}
+.card_item {
+  min-width: 280px;
+  max-width: 410px;
+}
+@media screen and (max-width: 991.98px) {
+  .card_item {
+    min-width: auto;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 .card_title {
   position: absolute;

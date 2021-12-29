@@ -1,30 +1,37 @@
 package com.company.realestate.configs;
 
-import com.company.realestate.domains.localizations.Alias;
+import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
-import com.company.realestate.dtos.AliasDto;
-import com.company.realestate.dtos.PostShortDto;
+import com.company.realestate.assets.domainDtos.PostShortDto;
+import com.company.realestate.services.AliasService;
+import com.company.realestate.utils.CustomSessionLocaleResolver;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
-import org.modelmapper.convention.MatchingStrategies;
 import org.modelmapper.spi.MappingContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 @Configuration
 public class ModelMapperDtoConfig {
 
+    @Autowired
+    CustomSessionLocaleResolver localeResolver;
+
+    @Autowired
+    AliasService aliasService;
+
     @Bean
     public ModelMapper modelMapper() {
+
         ModelMapper modelMapper = new ModelMapper();
 
 //        PropertyMap<User, UserDto> userMap = new PropertyMap<User, UserDto>() {
@@ -50,13 +57,29 @@ public class ModelMapperDtoConfig {
             }
         };
 
+        Converter<RealEstateType, String> realEstateTypeStringConverter = new Converter<RealEstateType, String>() {
+            public String convert(MappingContext<RealEstateType, String> context) {
+                return context.getSource() == null ? null : aliasService.getAlias(
+                        context.getSource().name(),
+                        localeResolver.getLastRequestLocale());
+            }
+        };
 
 
+//        PropertyMap<Post, PostShortDto> postShortMap = new PropertyMap<Post, PostShortDto>() {
+//            @Override
+//            protected void configure() {
+//                map().setRealEstateType(aliasService.getAliase(source.getR);
+//            }
+//        };
+//
 
         PropertyMap<Post, PostShortDto> postShortMap = new PropertyMap<Post, PostShortDto>() {
             @Override
             protected void configure() {
-                map().setLatitude(source.getLocation().getLatitude());
+//                map().setRealEstateType(
+//                        aliasService.getAlias(source.getRealEstateType().name(),
+//                        localeResolver.getLastRequestLocale()));
             }
         };
 
@@ -64,6 +87,7 @@ public class ModelMapperDtoConfig {
 
         modelMapper.addConverter(localDateConverter);
         modelMapper.addConverter(postImageStringConverter);
+        modelMapper.addConverter(realEstateTypeStringConverter);
 //        modelMapper.addConverter(aliasDtoConverter);
 
         modelMapper.addMappings(postShortMap);

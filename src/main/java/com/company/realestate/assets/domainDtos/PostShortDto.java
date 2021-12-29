@@ -1,11 +1,7 @@
-package com.company.realestate.dtos;
+package com.company.realestate.assets.domainDtos;
 
-import com.company.realestate.domains.Location;
-import com.company.realestate.domains.enums.PostStatus;
-import com.company.realestate.domains.posts.LocalizedBody;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -15,7 +11,7 @@ public class PostShortDto {
 
     private String locationCityValue;
     private String locationName;
-    private double latitude;
+    private double locationLatitude;
     private double locationLongitude;
 
     private String realEstateType;
@@ -35,5 +31,5 @@ public class PostShortDto {
     private short terrace;
     private short swimmingPool;
     private short parking;
-    private long cost;
+    private long price;
 }

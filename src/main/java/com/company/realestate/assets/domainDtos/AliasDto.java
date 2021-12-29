@@ -1,4 +1,4 @@
-package com.company.realestate.dtos;
+package com.company.realestate.assets.domainDtos;
 
 import lombok.Data;
 

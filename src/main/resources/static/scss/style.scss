@@ -205,6 +205,16 @@ $container-max-widths: (
             flex-direction: column-reverse;
         }
     }
+    &_item {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        margin: -1rem;
+        flex-wrap: wrap;
+    }
+    &_control {
+        margin: -1rem;
+    }
 }
 
 .content {
@@ -214,6 +224,7 @@ $container-max-widths: (
         object-fit: contain;
     }
 }
+
 
 
 
@@ -237,6 +248,17 @@ $container-max-widths: (
             margin-bottom: -6rem;
         }
     }
+
+    &_item {
+        min-width: 280px;
+        max-width: 410px;
+        @media screen and (max-width:$lg) {
+            min-width: auto;
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
     &_title {
         position: absolute;
         top: 50%;

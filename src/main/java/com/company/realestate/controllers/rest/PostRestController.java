@@ -1,14 +1,15 @@
 package com.company.realestate.controllers.rest;
 
+import com.company.realestate.assets.requestDtos.RequestPostBody;
 import com.company.realestate.services.LocaleCodeService;
 import com.company.realestate.services.LocalizedBodyService;
-import com.company.realestate.services.UserService;
+import com.company.realestate.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
 
@@ -23,14 +24,12 @@ public class PostRestController {
     LocaleCodeService localeCodeService;
 
     @Autowired
-    UserService userService;
+    PostService postService;
 
-    @GetMapping("all")
-    public ResponseEntity<Object> all(Locale locale) {
-//        return new ResponseEntity<>(
-//                localizedBodyService.getAll(localeCodeService.get(locale.getLanguage().toLowerCase(Locale.ROOT))),
-//                HttpStatus.OK);
-
-        return new ResponseEntity<>(userService.getAllDto(locale), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<Object> getByFilter(@RequestBody RequestPostBody body, Locale locale) {
+        System.out.println(body);
+        Pageable firstPageWithTwoElements = PageRequest.of(body.getPage(), body.getSize());
+        return new ResponseEntity<>(postService.getByFilter(locale, firstPageWithTwoElements), HttpStatus.OK);
     }
 }

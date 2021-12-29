@@ -1,6 +1,5 @@
-package com.company.realestate.dtos;
+package com.company.realestate.assets.domainDtos;
 
-import com.company.realestate.domains.LocaleCode;
 import lombok.Data;
 
 @Data

@@ -1,6 +1,7 @@
 package com.company.realestate.utils;
 
 import jdk.nashorn.internal.parser.JSONParser;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -22,9 +23,19 @@ import java.util.Locale;
 // Работает в коллаборации с messageSource и LocaleChangeInterceptor (назначен в InternationalizationConfig)
 // Он же управляет messages.properties
 
+@Component
 public class CustomSessionLocaleResolver extends SessionLocaleResolver {
 
+    @Value("${language.default}")
+    private String languageDefault;
+
     private List<Locale> LOCALES;
+
+    // Использовать при необходимости что-либо локализировать, когда нет возможности обратиться к самому телу запроса
+    // Используется:
+    // - для преобразования в DTO
+    @Getter
+    private Locale lastRequestLocale;
 
     public List<Locale> getLocales() {
         return LOCALES;
@@ -41,10 +52,13 @@ public class CustomSessionLocaleResolver extends SessionLocaleResolver {
         Locale requiredLocale = super.resolveLocale(request);
         // Если есть поддержка этого языка то возвращаем его
         if(LOCALES != null && LOCALES.stream().anyMatch(locale -> requiredLocale.getLanguage().equals(locale.getLanguage()))) {
+            lastRequestLocale = requiredLocale;
             return requiredLocale;
+        } else {
+            // иначе возвращаем тот язык, который стоит дефолтны для проперти
+            // Задавать дефолтный язык для класса НЕЛЬЗЯ, тогда не будет работать автоопределение языка из заголовка
+            lastRequestLocale = new Locale(languageDefault);
         }
-        // иначе возвращаем тот язык, который стоит дефолтны для проперти
-        // Задавать дефолтный язык для класса НЕЛЬЗЯ, тогда не будет работать автоопределение языка из заголовка
-        return new Locale("en");
+        return lastRequestLocale;
     }
 }

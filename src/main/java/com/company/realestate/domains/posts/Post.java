@@ -62,6 +62,6 @@ public class Post {
 
     private short parking;
 
-    private long cost;
+    private long price;
 
 }

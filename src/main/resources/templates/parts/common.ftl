@@ -1,4 +1,5 @@
 <#import "/spring.ftl" as spring/>
+<#import "loader.ftl" as loader/>
 
 <#macro navbar>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar-air">
@@ -59,16 +60,21 @@
         <meta charset="UTF-8">
         <!-- Для корректного отображения на рэкранах с разной плотностью -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="_csrf" content="${_csrf.token}"/>
+        <meta name="_csrf_header" content="${_csrf.headerName}"/>
         <link rel="stylesheet" href="/static/css/style.css">
         <link rel="stylesheet" href="/static/node_modules/@splidejs/splide/dist/css/splide.min.css">
     </head>
     <body>
-
     <div class="wrapper">
         <@navbar/>
         <#nested>
         <@footer/>
     </div>
+
+    <template id="loader_template">
+        <@loader.loader/>
+    </template>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/static/js/script.js"></script>

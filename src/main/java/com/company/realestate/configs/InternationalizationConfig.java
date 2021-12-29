@@ -29,8 +29,10 @@ public class InternationalizationConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
+
+
     @Bean
-    public LocaleResolver localeResolver() {
+    public CustomSessionLocaleResolver localeResolver() {
         CustomSessionLocaleResolver localeResolver = new CustomSessionLocaleResolver();
 //        localeResolver.setDefaultLocale(Locale.ENGLISH);
         localeResolver.setLocales(Arrays.asList(

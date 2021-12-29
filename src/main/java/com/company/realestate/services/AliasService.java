@@ -1,19 +1,14 @@
 package com.company.realestate.services;
 
-import com.company.realestate.domains.LocaleCode;
 import com.company.realestate.domains.localizations.Alias;
-import com.company.realestate.domains.posts.LocalizedBody;
-import com.company.realestate.dtos.AliasDto;
+import com.company.realestate.domains.localizations.FieldName;
 import com.company.realestate.repos.AliasRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class AliasService {
@@ -24,8 +19,11 @@ public class AliasService {
     @Autowired
     LocaleCodeService localeCodeService;
 
+//    @Autowired
+//    ModelMapper modelMapper;
+
     @Autowired
-    ModelMapper modelMapper;
+    FieldNameService fieldNameService;
 
     @Value("${language.default}")
     private String languageDefault;
@@ -51,5 +49,16 @@ public class AliasService {
         result.put("localeCode", locale.getLanguage());
         result.put("fields", fields);
         return result;
+    }
+
+    public String getAlias(String fieldName, Locale locale) {
+        FieldName fieldNameDb = fieldNameService.findByName(fieldName);
+        if (fieldNameDb != null) {
+            Optional<Alias> alias = aliasRepo.findFirstByFieldNameAndLocaleCode(
+                    fieldNameDb, localeCodeService.get(locale.getLanguage()));
+            return alias.map(Alias::getValue).orElse(fieldName);
+        } else {
+            return fieldName;
+        }
     }
 }
