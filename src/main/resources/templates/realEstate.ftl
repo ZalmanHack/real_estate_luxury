@@ -58,13 +58,13 @@
                 <div class="container_control">
                     <div class="btn-group d-flex justify-content-center m-3" id="real_estate_radio_group" role="group">
                         <input type="radio" class="btn-check" name="real_estate_type" id="radio_" autocomplete="off" checked>
-                        <label class="btn btn-outline-dark" for="radio_all"><@spring.message "real_estate.group_control.all"/></label>
+                        <label class="btn btn-outline-dark" for="radio_"><@spring.message "real_estate.group_control.all"/></label>
 
-                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_apartments" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="radio_apartments"><@spring.message "real_estate.group_control.apartments"/></label>
+                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_apartment" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="radio_apartment"><@spring.message "real_estate.group_control.apartments"/></label>
 
-                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_houses" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="radio_houses"><@spring.message "real_estate.group_control.houses"/></label>
+                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_house" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="radio_house"><@spring.message "real_estate.group_control.houses"/></label>
 
                         <input type="radio" class="btn-check" name="real_estate_type" id="radio_land" autocomplete="off">
                         <label class="btn btn-outline-dark" for="radio_land"><@spring.message "real_estate.group_control.land"/></label>
@@ -75,8 +75,8 @@
                         <input type="radio" class="btn-check" name="real_estate_type" id="radio_rent" autocomplete="off">
                         <label class="btn btn-outline-dark" for="radio_rent"><@spring.message "real_estate.group_control.rent"/></label>
 
-                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_villas" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="radio_villas"><@spring.message "real_estate.group_control.villas"/></label>
+                        <input type="radio" class="btn-check" name="real_estate_type" id="radio_villa" autocomplete="off">
+                        <label class="btn btn-outline-dark" for="radio_villa"><@spring.message "real_estate.group_control.villas"/></label>
                     </div>
 
                     <div class="d-flex flex-row" id="real_estate_btn_group">
@@ -84,17 +84,17 @@
                         <select class="form-select w-auto m-3 mt-0" id="dropdown_city" aria-label="<@spring.message "real_estate.group_control.dropdown_city"/>">
                             <#--                        value="" НЕ УДАЛЯТЬ, нужно для пустой строки-->
                             <option value="" selected><@spring.message "real_estate.group_control.dropdown_city"/></option>
-                            <option >One</option>
-                            <option >Two</option>
-                            <option >Three</option>
+                            <#list cities as city>
+                                <option >${city}</option>
+                            </#list>
                         </select>
 
-                        <input type="text" id="input_search" class="form-control flex-grow-1 w-auto m-3 mt-0" placeholder="<@spring.message "real_estate.group_control.search"/>" aria-label="Search">
+                        <input type="text" id="input_search_name" class="form-control flex-grow-1 w-auto m-3 mt-0" placeholder="<@spring.message "real_estate.group_control.search"/>" aria-label="Search">
 
                         <div class="input-group w-auto m-3 mt-0">
-                            <input type="number" id="input_price_from" oninput="this.value=this.value.replace(/^[/\d]{12}?$/);" step="100" class="form-control" placeholder="<@spring.message "real_estate.group_control.price_from"/>" aria-label="Cost from">
+                            <input type="number" id="input_price_from" oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" step="1000" class="form-control" placeholder="<@spring.message "real_estate.group_control.price_from"/>" aria-label="Cost from" value="0">
                             <span class="input-group-text">—</span>
-                            <input type="number" id="input_price_to" oninput="this.value=this.value.replace(/^[/\d]{12}?$/);" step="100" class="form-control" placeholder="<@spring.message "real_estate.group_control.price_to"/>" aria-label="Cost to">
+                            <input type="number" id="input_price_to" oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" step="1000" max="${max_price}" class="form-control" placeholder="<@spring.message "real_estate.group_control.price_to"/>" aria-label="Cost to" value="${max_price?long?c}">
                             <span class="input-group-text">$</span>
                         </div>
 
@@ -126,4 +126,5 @@
         <@item.card_alter_image/>
     </template>
 
+    <script src="/static/js/realestate.js"></script>
 </@common.page>

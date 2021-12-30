@@ -19,7 +19,7 @@
                     <p class="card-text fw-bold  mb-0" id="card_price"></p>
                     <p class="card-text fw-bold  mb-0">$</p>
                 </div>
-                <a class="btn btn-outline-dark d-flex justify-content-center mt-3 " href="#" role="button"><@spring.message "real_estate.item.open"/></a>
+                <a class="btn btn-outline-dark d-flex justify-content-center mt-3 " id="card_open" href="" role="button"><@spring.message "real_estate.item.open"/></a>
             </div>
         </div>
     </div>

@@ -28,8 +28,6 @@ public class PostRestController {
 
     @PostMapping
     public ResponseEntity<Object> getByFilter(@RequestBody RequestPostBody body, Locale locale) {
-        System.out.println(body);
-        Pageable firstPageWithTwoElements = PageRequest.of(body.getPage(), body.getSize());
-        return new ResponseEntity<>(postService.getByFilter(locale, firstPageWithTwoElements), HttpStatus.OK);
+        return new ResponseEntity<>(postService.getByFilter(locale, body), HttpStatus.OK);
     }
 }

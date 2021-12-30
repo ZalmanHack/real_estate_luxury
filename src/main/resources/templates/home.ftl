@@ -13,8 +13,8 @@
                 <h1><@spring.message "home.title.h1"/></h1>
                 <p><@spring.message "home.title.text"/></p>
                 <div class="container_buttons">
-                    <button class="btn btn-outline-light"><@spring.message "home.title.buttons.callback"/></button>
-                    <button class="btn btn-primary"><@spring.message "home.title.buttons.real_estate"/></button>
+                    <a class="btn btn-outline-light"><@spring.message "home.title.buttons.callback"/></a>
+                    <a class="btn btn-primary" href="/real_estate"><@spring.message "home.title.buttons.real_estate"/></a>
                 </div>
             </div>
         </div>

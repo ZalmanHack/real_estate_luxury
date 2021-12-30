@@ -11129,11 +11129,10 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
-  font-size: 18px;
 }
 @media screen and (max-width: 575.98px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -11251,7 +11250,7 @@ h1, .h1, h2, .h2 {
   justify-content: center;
   margin: 0 -1rem;
 }
-.container_buttons button {
+.container_buttons button, .container_buttons a {
   margin: 1rem 1rem;
 }
 @media screen and (max-width: 575.98px) {
@@ -11298,7 +11297,7 @@ h1, .h1, h2, .h2 {
 }
 .card_item {
   min-width: 280px;
-  max-width: 410px;
+  width: 410px;
 }
 @media screen and (max-width: 991.98px) {
   .card_item {

@@ -8,11 +8,11 @@ public class RequestPostBody {
     private int page;
     private int size;
     private String city;
-    private String search;
+    private String name;
     @JsonProperty("real_estate_type")
     private String realEstateType;
     @JsonProperty("price_from")
-    private Long priceFrom;
+    private long priceFrom;
     @JsonProperty("price_to")
-    private Long priceTo;
+    private long priceTo;
 }
