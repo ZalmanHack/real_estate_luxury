@@ -7,7 +7,6 @@
             <div class="wrapper">
                 <div>
                     <div class="d-flex flex-row me-auto">
-                        <span class="badge rounded-pill bg-primary mb-2 me-3" id="card_recovends"></span>
                         <span class="badge rounded-pill bg-dark mb-2 me-3" id="card_real_estate_type"></span>
                     </div>
                     <h3 class="card-title" id="card_title"></h3>
@@ -15,11 +14,18 @@
                 </div>
                 <div style="flex: 1 1 auto"></div>
                 <div class="d-flex justify-content-end mt-3">
-                    <p class="card-text me-3  mb-0"><@spring.message "real_estate.item.from"/></p>
-                    <p class="card-text fw-bold  mb-0" id="card_price"></p>
+                    <p class="card-text me-1  mb-0"><@spring.message "real_estate.item.from"/></p>
+                    <p class="card-text fw-bold me-1 mb-0" id="card_price"></p>
                     <p class="card-text fw-bold  mb-0">$</p>
                 </div>
-                <a class="btn btn-outline-dark d-flex justify-content-center mt-3 " id="card_open" href="" role="button"><@spring.message "real_estate.item.open"/></a>
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn btn-primary d-flex justify-content-center mt-3 " id="card_open" href="" role="button"><@spring.message "real_estate.item.open"/></a>
+                    </div>
+                    <div class="col-6 ps-0">
+                        <a class="btn btn-outline-secondary d-flex justify-content-center mt-3 " id="card_map" href="" role="button" target="_blank" rel="noopener noreferrer"><@spring.message "real_estate.item.map"/></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

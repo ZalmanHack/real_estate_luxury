@@ -4,6 +4,7 @@ import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.assets.domainDtos.PostShortDto;
+import com.company.realestate.domains.posts.PostVideo;
 import com.company.realestate.services.AliasService;
 import com.company.realestate.utils.CustomSessionLocaleResolver;
 import org.modelmapper.Converter;
@@ -57,6 +58,12 @@ public class ModelMapperDtoConfig {
             }
         };
 
+        Converter<PostVideo, String> postVideoStringConverter = new Converter<PostVideo, String>() {
+            public String convert(MappingContext<PostVideo, String> context) {
+                return context.getSource() == null ? null : context.getSource().getVideo();
+            }
+        };
+
         Converter<RealEstateType, String> realEstateTypeStringConverter = new Converter<RealEstateType, String>() {
             public String convert(MappingContext<RealEstateType, String> context) {
                 return context.getSource() == null ? null : aliasService.getAlias(
@@ -65,14 +72,12 @@ public class ModelMapperDtoConfig {
             }
         };
 
-
 //        PropertyMap<Post, PostShortDto> postShortMap = new PropertyMap<Post, PostShortDto>() {
 //            @Override
 //            protected void configure() {
 //                map().setRealEstateType(aliasService.getAliase(source.getR);
 //            }
 //        };
-//
 
         PropertyMap<Post, PostShortDto> postShortMap = new PropertyMap<Post, PostShortDto>() {
             @Override
@@ -83,17 +88,13 @@ public class ModelMapperDtoConfig {
             }
         };
 
-
-
         modelMapper.addConverter(localDateConverter);
         modelMapper.addConverter(postImageStringConverter);
+        modelMapper.addConverter(postVideoStringConverter);
         modelMapper.addConverter(realEstateTypeStringConverter);
 //        modelMapper.addConverter(aliasDtoConverter);
-
         modelMapper.addMappings(postShortMap);
-
 //        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
-
         return modelMapper;
     }
 }

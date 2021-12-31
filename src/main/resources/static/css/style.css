@@ -11328,9 +11328,12 @@ h1, .h1, h2, .h2 {
   position: absolute;
 }
 
+.overflow_bottom_6 {
+  margin-bottom: -6rem;
+}
+
 .carousel {
   height: 24rem;
-  margin-bottom: -6rem;
 }
 .carousel-inner {
   border-radius: 0.6rem;
@@ -11341,6 +11344,9 @@ h1, .h1, h2, .h2 {
   height: 100%;
 }
 .carousel img {
+  border-radius: 0.6rem;
+  width: auto;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -11352,6 +11358,13 @@ h1, .h1, h2, .h2 {
 
 .shadow, .shadow-none {
   transition: box-shadow 0.2s;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

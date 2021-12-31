@@ -6,6 +6,7 @@ import com.company.realestate.domains.City;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.repos.PostRepo;
+import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -67,6 +68,11 @@ public class PostService {
                     return modelMapper.map(post, PostDto.class);
                 })
                 .collect(Collectors.toList()), pageable, posts.getTotalElements());
+    }
+
+    public PostDto getDto (Locale locale, Post post) {
+        post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post))));
+        return modelMapper.map(post, PostDto.class);
     }
 
     public Long getMaxPrice() {

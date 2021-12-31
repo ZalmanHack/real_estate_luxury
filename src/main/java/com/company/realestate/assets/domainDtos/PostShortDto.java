@@ -16,6 +16,8 @@ public class PostShortDto {
 
     private String realEstateType;
     private String postStatus;
+    private String mainImage;
+    private String mainVideo;
 
     private List<LocalizedBodyDto> localizedBodies;
 

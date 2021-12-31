@@ -20,7 +20,7 @@ public class MvcConfig implements WebMvcConfigurer {
     private String upload_path;
 
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/admin/login").setViewName("login");
+        registry.addViewController("/login").setViewName("login");
     }
 
     @Override
@@ -33,9 +33,9 @@ public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/img/**")
-                .addResourceLocations("file:/" + upload_path + "/img");
+                .addResourceLocations("file:/" + upload_path + "/img/");
         registry.addResourceHandler("/vid/**")
-                .addResourceLocations("file:/" + upload_path + "/vid");
+                .addResourceLocations("file:/" + upload_path + "/vid/");
 
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/"); // ищет в списке ресурсов/проекта

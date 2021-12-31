@@ -155,7 +155,14 @@ function create_real_estate_item(data, item_template, table_template, item_image
 
     let card_open = item.getElementById("card_open");
     card_open.id += "_" + data.id;
-    card_open.href = "real_estate/" + data.id;
+    card_open.href = "real_estate/" + data.id + "/show";
+
+    let card_map = item.getElementById("card_map");
+    card_map.id += "_" + data.id;
+
+    card_map.href = "https://www.google.com/maps/search/" + data.locationLatitude + ",+" + data.locationLongitude;
+
+    https://www.google.com/maps/search/,+-68.417952
 
     return item;
 }

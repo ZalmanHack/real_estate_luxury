@@ -28,7 +28,7 @@ public class Post {
     private User author;
 
     @ManyToOne
-    @JoinColumn(name = "LocationId")
+    @JoinColumn(name = "locationId")
     private Location location;
 
     @Enumerated(EnumType.STRING)
@@ -42,11 +42,19 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<LocalizedBody> localizedBodies = new ArrayList<>();
 
+    @Column(columnDefinition = "DATE")
+    private LocalDate publicationDate;
+
     @OneToMany(mappedBy = "post")
     private List<PostImage> postImages = new ArrayList<>();
 
-    @Column(columnDefinition = "DATE")
-    private LocalDate publicationDate;
+    @ManyToOne
+    @JoinColumn(name = "postImageId")
+    private PostImage mainImage;
+
+    @ManyToOne
+    @JoinColumn(name = "postVideoId")
+    private PostVideo mainVideo;
 
     private double area;
 

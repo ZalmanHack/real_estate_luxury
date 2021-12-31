@@ -24,16 +24,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin/**").authenticated()
-                .antMatchers("/admin/login", "/admin/logout").permitAll()
-                .antMatchers("/**", "/static/**", "/activate/*").permitAll()
-                .anyRequest().authenticated()
+//                .antMatchers("/admin/**").authenticated()
+//                .antMatchers("/admin/login", "/admin/logout").permitAll()
+//                .antMatchers("/**", "/static/**", "/activate/*").permitAll()
+                .antMatchers("/**", "/registration", "/static/**", "/activate/*")
+                .permitAll()
+
+                .anyRequest()
+                .authenticated()
             .and()
                 .formLogin()
-                .loginPage("/admin/login")
+                .loginPage("/login")
                 .permitAll()
             .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout")).logoutSuccessUrl("/admin/login")
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
                 .permitAll();
 
 

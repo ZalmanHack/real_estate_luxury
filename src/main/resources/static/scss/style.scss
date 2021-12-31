@@ -18,7 +18,6 @@ $lg: 991.98px;
 $xl: 1199.98px;
 $xxl: 1399.98px;
 
-
 html {
     // overflow-x: hidden;
     height: 100vh;
@@ -282,9 +281,12 @@ $container-max-widths: (
     }
 }
 
+.overflow_bottom_6 {
+    margin-bottom: -6rem;
+}
+
 .carousel {
     height: 24rem;
-    margin-bottom: -6rem;
     &-inner {
         border-radius: $card-border-radius;
         height: 100%;
@@ -294,6 +296,9 @@ $container-max-widths: (
         height: 100%;
     }
     img {
+        border-radius: $card-border-radius;
+        width: auto;
+        height: 100%;
         object-fit: cover;
         object-position: center;
     }
@@ -306,4 +311,11 @@ $container-max-widths: (
 
 .shadow, .shadow-none {
     transition: box-shadow 0.2s;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
 }

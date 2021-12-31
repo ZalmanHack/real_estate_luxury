@@ -12,14 +12,12 @@
         <div class="block_container dark-50 after_navbar">
             <div class="container block">
                 <h1><@spring.message "real_estate.title.h1"/></h1>
-                <div id="realEstateCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="realEstateCarousel" class="carousel slide overflow_bottom_6" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-
-
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
