@@ -5,6 +5,7 @@ window.addEventListener("scroll", scrollToRealEstateControl);
 window.addEventListener("resize", scrollToRealEstateControl);
 window.addEventListener("resize", resizeToRealEstateControl);
 window.addEventListener("load", resizeToRealEstateControl);
+// window.addEventListener("scroll", resizeToRealEstateControl);
 window.addEventListener("load", findRealEstate);
 
 function init() {
@@ -135,23 +136,43 @@ function create_real_estate_item(data, item_template, table_template, item_image
     let card_image = item.getElementById("card_image");
     card_image.appendChild(image);
 
-    let title = item.getElementById("card_title");
-    title.id += "_" + data.id;
-    title.innerHTML = data.locationName;
-
     let real_estate_type = item.getElementById("card_real_estate_type");
     real_estate_type.id += "_" + data.id;
     real_estate_type.innerHTML = data.realEstateType;
 
+    let title = item.getElementById("card_title");
+    title.id += "_" + data.id;
+    title.innerHTML = data.locationName;
+
+    let area = item.getElementById("card_area");
+    area.id += "_" + data.id;
+    area.innerHTML = data.area;
+
+    let bedrooms = item.getElementById("card_bedrooms");
+    bedrooms.id += "_" + data.id;
+    bedrooms.innerHTML = data.bedrooms;
+
+    let bathrooms = item.getElementById("card_bathrooms");
+    bathrooms.id += "_" + data.id;
+    bathrooms.innerHTML = data.bathrooms;
+
+    let pool = item.getElementById("card_swimming_pool");
+    pool.id += "_" + data.id;
+    pool.innerHTML = data.swimmingPool;
+
+    let parking = item.getElementById("card_parking");
+    parking.id += "_" + data.id;
+    parking.innerHTML = data.parking;
+
+    let features = item.getElementById("card_features");
+    features.id += "_" + data.id;
+    if(data.localizedBodies[0]) {
+        features.innerHTML = data.localizedBodies[0].features;
+    }
+
     let price = item.getElementById("card_price");
     price.id += "_" + data.id;
-    price.innerHTML = data.price;
-
-    let description = item.getElementById("card_description");
-    description.id += "_" + data.id;
-    if(data.localizedBodies[0]) {
-        description.innerHTML = data.localizedBodies[0].features;
-    }
+    price.innerHTML = data.price.toLocaleString();
 
     let card_open = item.getElementById("card_open");
     card_open.id += "_" + data.id;
@@ -161,8 +182,6 @@ function create_real_estate_item(data, item_template, table_template, item_image
     card_map.id += "_" + data.id;
 
     card_map.href = "https://www.google.com/maps/search/" + data.locationLatitude + ",+" + data.locationLongitude;
-
-    https://www.google.com/maps/search/,+-68.417952
 
     return item;
 }
@@ -174,9 +193,11 @@ function resizeToRealEstateControl() {
 
     if(radio_group) {
         if(window.innerWidth <= 575.98) {
+            console.log(1)
             radio_group.classList.remove("btn-group");
             radio_group.classList.add("btn-group-vertical");
         } else {
+            console.log(window.innerWidth)
             radio_group.classList.add("btn-group");
             radio_group.classList.remove("btn-group-vertical");
         }

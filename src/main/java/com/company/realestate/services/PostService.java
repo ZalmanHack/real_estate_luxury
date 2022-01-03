@@ -3,6 +3,7 @@ package com.company.realestate.services;
 import com.company.realestate.assets.domainDtos.PostDto;
 import com.company.realestate.assets.requestDtos.RequestPostBody;
 import com.company.realestate.domains.City;
+import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.repos.PostRepo;
@@ -36,6 +37,19 @@ public class PostService {
     @Autowired
     LocalizedBodyService localizedBodyService;
 
+    public List<PostDto> getActivePremiumPosts(Locale locale) {
+        List<PostDto> result = postRepo.findAllByPostStatusAndPremium(PostStatus.ACTIVE, true)
+                .stream()
+                .map(post -> {
+                    post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post))));
+                    return modelMapper.map(post, PostDto.class);
+                }).collect(Collectors.toList());
+        System.out.println("-----");
+        System.out.println(result.get(0).getLocalizedBodies());
+        return result;
+
+    }
+
     public Page<PostDto> getByFilter(Locale locale, RequestPostBody body) {
         Pageable pageable = PageRequest.of(body.getPage(), body.getSize());
         RealEstateType realEstateType = RealEstateType.get(body.getRealEstateType());
@@ -45,6 +59,7 @@ public class PostService {
         Page<Post> posts;
         if(realEstateType == null) {
             posts = postRepo.findPostsWithPagination(
+                    PostStatus.ACTIVE,
                     body.getCity(),
                     body.getName(),
                     body.getPriceFrom(),
@@ -52,6 +67,7 @@ public class PostService {
                     pageable);
         } else {
             posts = postRepo.findPostsWithPagination(
+                    PostStatus.ACTIVE,
                     body.getCity(),
                     realEstateType,
                     body.getName(),

@@ -13,7 +13,7 @@
                         <a class="nav-link active" aria-current="page" href="/"><@spring.message "navbar.main"/></a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="#"><@spring.message "navbar.immigration"/></a>
+                        <a class="nav-link" href="/#real_estate_info_block"><@spring.message "navbar.immigration"/></a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="/real_estate"><@spring.message "navbar.real_estate"/></a>

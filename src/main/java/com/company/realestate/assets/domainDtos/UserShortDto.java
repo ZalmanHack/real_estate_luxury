@@ -14,4 +14,5 @@ public class UserShortDto{
     private String lastName;
     private String profileImage;
     private List<Role> roles;
+    private Long phone;
 }

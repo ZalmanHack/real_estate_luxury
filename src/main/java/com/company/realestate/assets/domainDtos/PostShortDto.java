@@ -8,6 +8,7 @@ import java.util.List;
 public class PostShortDto {
 
     private long id;
+    private boolean premium;
 
     private String locationCityValue;
     private String locationName;
@@ -33,5 +34,10 @@ public class PostShortDto {
     private short terrace;
     private short swimmingPool;
     private short parking;
+    private short gym;
+    private short golf;
+    private short tennis;
+    private short mall;
+
     private long price;
 }

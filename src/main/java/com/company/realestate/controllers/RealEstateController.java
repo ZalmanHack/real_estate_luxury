@@ -29,9 +29,11 @@ public class RealEstateController {
     ModelMapper modelMapper;
 
     @GetMapping
-    public String real_estate(Model model) {
+    public String real_estate(Locale locale, Model model) {
         model.addAttribute("cities", cityService.getAllNames());
         model.addAttribute("max_price", postService.getMaxPrice());
+        model.addAttribute("posts", postService.getActivePremiumPosts(locale));
+        System.out.println(postService.getActivePremiumPosts(locale));
         return "realEstate";
     }
 

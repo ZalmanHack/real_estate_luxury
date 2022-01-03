@@ -9,7 +9,7 @@
 <@common.page title>
     <div class="img_parallax" style="background-image: url('${post.mainImage!''}');">
         <#-- в диве был screen-50 -->
-        <div class="block_container dark-50 after_navbar">
+        <div class="block_container dark-50 text-light after_navbar">
             <div class="container block">
                 <h1>${post.locationName}</h1>
 
@@ -35,19 +35,14 @@
                                 </#list>
                             </div>
 
-
-
                             <button class="carousel-control-prev" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden"><-></span>
+                                <span class="visually-hidden"><-</span>
                             </button>
                             <button class="carousel-control-next" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">-></span>
                             </button>
-
-
-
 
                         </div>
                     </div>
@@ -67,14 +62,12 @@
                     </div>
                 </div>
 
-
-
             </div>
         </div>
     </div>
 
     <div class="block_container after_float_block">
-        <video autoplay loop muted>
+        <video autoplay loop playsinline muted>
             <source src="/vid/1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>

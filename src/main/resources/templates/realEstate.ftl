@@ -9,41 +9,24 @@
 <@common.page title>
     <div class="img_parallax" style="background-image: url('/static/img/bg.jpg');">
         <#-- в диве был screen-50 -->
-        <div class="block_container dark-50 after_navbar">
+        <div class="block_container dark-50 text-light after_navbar">
             <div class="container block">
                 <h1><@spring.message "real_estate.title.h1"/></h1>
                 <div id="realEstateCarousel" class="carousel slide overflow_bottom_6" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#realEstateCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/static/img/bg.jpg" class="d-block" style="width: 100%; height: 100%" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/static/img/bg.jpg" class="d-block" style="width: 100%; height: 100%" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/static/img/bg.jpg" class="d-block" style="width: 100%; height: 100%" alt="...">
-                        </div>
+                        <#assign index=0>
+                        <#list posts as post>
+                            <div class="carousel-item <#if index==0>active</#if>">
+                                <@item.real_estate_premium post/>
+                            </div>
+                            <#assign index++/>
+                        </#list>
                     </div>
-
-
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden"><-></span>
+                        <span class="visually-hidden"><-</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#realEstateCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">-></span>
-                    </button>
-
-
-
 
                 </div>
             </div>

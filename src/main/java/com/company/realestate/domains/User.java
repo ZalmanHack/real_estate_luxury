@@ -49,6 +49,9 @@ public class User implements UserDetails {
     @NotBlank(message = "Данное поле не должно быть пустым")
     private String lastName;
 
+    @NotBlank(message = "Данное поле не должно быть пустым")
+    private Long phone;
+
     @JsonIgnore
     @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();

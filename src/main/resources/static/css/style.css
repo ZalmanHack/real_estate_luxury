@@ -11201,20 +11201,11 @@ h1, .h1, h2, .h2 {
   background: rgba(255, 253, 242, 0.5);
   height: 100%;
 }
-.block_container.light-50 h1, .block_container.light-50 .h1, .block_container.light-50 h2, .block_container.light-50 .h2, .block_container.light-50 h3, .block_container.light-50 .h3, .block_container.light-50 p {
-  color: black;
-}
 .block_container.light-100 {
   background: #fff;
 }
-.block_container.light-100 h1, .block_container.light-100 .h1, .block_container.light-100 h2, .block_container.light-100 .h2, .block_container.light-100 h3, .block_container.light-100 .h3, .block_container.light-100 p {
-  color: black;
-}
 .block_container.dark-50 {
   background: rgba(0, 0, 0, 0.4);
-}
-.block_container.dark-50 h1, .block_container.dark-50 .h1, .block_container.dark-50 h2, .block_container.dark-50 .h2, .block_container.dark-50 h3, .block_container.dark-50 .h3, .block_container.dark-50 p {
-  color: whitesmoke;
 }
 
 .screen-50 {
@@ -11333,7 +11324,7 @@ h1, .h1, h2, .h2 {
 }
 
 .carousel {
-  height: 24rem;
+  height: 30rem;
 }
 .carousel-inner {
   border-radius: 0.6rem;
@@ -11344,7 +11335,6 @@ h1, .h1, h2, .h2 {
   height: 100%;
 }
 .carousel img {
-  border-radius: 0.6rem;
   width: auto;
   height: 100%;
   object-fit: cover;

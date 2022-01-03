@@ -21,6 +21,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private boolean premium;
 
     @ToString.Exclude
     @ManyToOne
@@ -59,16 +60,16 @@ public class Post {
     private double area;
 
     private short bedrooms;
-
     private short bathrooms;
-
     private short guestBathrooms;
-
     private short terrace;
-
     private short swimmingPool;
-
     private short parking;
+
+    private short gym;
+    private short golf;
+    private short tennis;
+    private short mall;
 
     private long price;
 
