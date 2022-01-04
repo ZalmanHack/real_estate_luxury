@@ -1,7 +1,5 @@
 package com.company.realestate.controllers;
 
-import com.company.realestate.assets.requestDtos.RequestPostBody;
-import com.company.realestate.domains.City;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.services.CityService;
 import com.company.realestate.services.PostService;

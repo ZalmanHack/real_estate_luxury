@@ -38,6 +38,7 @@ public class PostShortDto {
     private short golf;
     private short tennis;
     private short mall;
+    private short beach;
 
     private long price;
 }

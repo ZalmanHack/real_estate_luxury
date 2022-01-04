@@ -5,6 +5,9 @@
 window.addEventListener("scroll", scrollFunction);
 window.addEventListener("resize", scrollFunction);
 
+window.addEventListener("load", () => {
+    document.getElementById("feedbackModalButton").addEventListener("click", sendFeedback);
+})
 
 function scrollFunction() {
     let navbar = document.getElementById("navbar-air");
@@ -32,7 +35,35 @@ function scrollFunction() {
     }
 }
 
-
+function sendFeedback() {
+    let email = document.getElementById("emailCallbackInput");
+    let name = document.getElementById("nameCallbackInput");
+    let question = document.getElementById("questionCallbackTextarea");
+    if(email && name && question) {
+        console.log(111)
+        let csrf = get_csrf();
+        let url = "/api/user/feedback";
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.setRequestHeader("Accept", "application/json;charset=UTF-8");
+        xhr.setRequestHeader(csrf.header, csrf.token);
+        xhr.onload = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // console.log(JSON.parse(xhr.response));
+                location.reload();
+                console.log(true);
+            } else {
+                console.log(false);
+            }
+        };
+        xhr.send(JSON.stringify({
+            "email": email.value,
+            "name": name.value,
+            "question": question.value
+        }));
+    }
+}
 
 function get_csrf() {
     let token = document.querySelector("meta[name='_csrf']").content;

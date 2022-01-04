@@ -1,13 +1,11 @@
 package com.company.realestate.services;
 
 import com.company.realestate.assets.domainDtos.PostDto;
-import com.company.realestate.assets.requestDtos.RequestPostBody;
-import com.company.realestate.domains.City;
+import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.repos.PostRepo;
-import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,7 +48,7 @@ public class PostService {
 
     }
 
-    public Page<PostDto> getByFilter(Locale locale, RequestPostBody body) {
+    public Page<PostDto> getByFilter(Locale locale, RequestPostBodyDto body) {
         Pageable pageable = PageRequest.of(body.getPage(), body.getSize());
         RealEstateType realEstateType = RealEstateType.get(body.getRealEstateType());
 

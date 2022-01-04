@@ -1,12 +1,10 @@
 package com.company.realestate.controllers.rest;
 
-import com.company.realestate.assets.requestDtos.RequestPostBody;
+import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
 import com.company.realestate.services.LocaleCodeService;
 import com.company.realestate.services.LocalizedBodyService;
 import com.company.realestate.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +25,7 @@ public class PostRestController {
     PostService postService;
 
     @PostMapping
-    public ResponseEntity<Object> getByFilter(@RequestBody RequestPostBody body, Locale locale) {
+    public ResponseEntity<Object> getByFilter(@RequestBody RequestPostBodyDto body, Locale locale) {
         return new ResponseEntity<>(postService.getByFilter(locale, body), HttpStatus.OK);
     }
 }
