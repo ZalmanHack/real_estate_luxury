@@ -38,7 +38,7 @@ public class RealEstateController {
     @GetMapping("{post}/show")
     public String show(@PathVariable Post post, Locale locale, Model model) {
         model.addAttribute("post", postService.getDto(locale, post));
-        System.out.println(postService.getDto(locale, post).getLocalizedBodies());
+        System.out.println(post);
         return "realEstateShow";
     }
 }

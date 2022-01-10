@@ -4,9 +4,10 @@
 
 window.addEventListener("scroll", scrollFunction);
 window.addEventListener("resize", scrollFunction);
+window.addEventListener("load", scrollFunction);
 
-window.addEventListener("load", () => {
-    document.getElementById("feedbackModalButton").addEventListener("click", sendFeedback);
+window.addEventListener("load", (e) => {
+    document.getElementById("modalButtonFeedback").addEventListener("click", sendFeedback);
 })
 
 function scrollFunction() {
@@ -35,12 +36,30 @@ function scrollFunction() {
     }
 }
 
-function sendFeedback() {
+function sendFeedback(e) {
     let email = document.getElementById("emailCallbackInput");
     let name = document.getElementById("nameCallbackInput");
     let question = document.getElementById("questionCallbackTextarea");
-    if(email && name && question) {
-        console.log(111)
+    let form = document.getElementById("modalFeedback");
+    let loader = document.getElementById("modalButtonLoader");
+    let alert_error = document.getElementById("modalAlertError");
+
+    const valid_email = email.checkValidity();
+    const valid_name = name.checkValidity();
+    const valid_question = question.checkValidity();
+
+    valid_email ? email.classList.remove("is-invalid") : email.classList.add("is-invalid");
+    valid_name ? name.classList.remove("is-invalid") : name.classList.add("is-invalid");
+    valid_question ? question.classList.remove("is-invalid") : question.classList.add("is-invalid");
+    console.log(111)
+    console.log(valid_email)
+    console.log(valid_name)
+    console.log(valid_question)
+    console.log(form)
+    if(valid_email && valid_name && valid_question && form) {
+        e.target.setAttribute("disabled", "");
+        loader.removeAttribute("hidden");
+        console.log(222)
         let csrf = get_csrf();
         let url = "/api/user/feedback";
         let xhr = new XMLHttpRequest();
@@ -51,17 +70,22 @@ function sendFeedback() {
         xhr.onload = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // console.log(JSON.parse(xhr.response));
-                location.reload();
                 console.log(true);
+                alert_error.setAttribute("hidden", "");
+                location.reload();
             } else {
                 console.log(false);
+                alert_error.removeAttribute("hidden");
             }
+            loader.setAttribute("hidden", "");
+            e.target.removeAttribute("disabled");
         };
         xhr.send(JSON.stringify({
             "email": email.value,
             "name": name.value,
             "question": question.value
         }));
+        // form.submit();
     }
 }
 
@@ -86,4 +110,8 @@ function setParameterByName(name, value) {
     url.searchParams.set(name, value);
     window.history.pushState({}, '', url);
 
+}
+
+function getPath() {
+    return window.location.href.split("?")[0].split("/").filter(item => item);
 }

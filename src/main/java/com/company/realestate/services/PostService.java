@@ -92,4 +92,8 @@ public class PostService {
     public Long getMaxPrice() {
         return postRepo.findMaxPrice();
     };
+
+    public Object getMainVideo(Post post) {
+        return post.getMainVideo().getVideo();
+    }
 }

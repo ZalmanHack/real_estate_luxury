@@ -33,11 +33,25 @@ public class RegistryFeedbackService {
         registryFeedback.setSentDate(LocalDate.now());
         registryFeedbackRepo.save(registryFeedback);
 
-        if(!emailSenderService.send(emailSenderService.getUsername(), "Question from " + body.getEmail(), body.getQuestion())) {
+
+        String message = String.format(
+                "<html lang=\"en\">\n" +
+                        "<head>\n" +
+                        "<meta charset=\"UTF-8\">\n" +
+                        "</head>\n" +
+                        "<body>\n" +
+                        "<p><b>User Name:</b> %s</p>\n" +
+                        "<p><b>User email:</b> %s</p>\n" +
+                        "<p><b>Question:</b> %s</p>\n" +
+                        "</html>",
+                body.getName(), body.getEmail(), body.getQuestion());
+
+        if(!emailSenderService.send(emailSenderService.getUsername(),
+                "Question from " + body.getEmail(), message)) {
             return false;
         }
 
-        String message = String.format(
+        message = String.format(
                 "<html lang=\"en\">\n" +
                         "<head>\n" +
                         "<meta charset=\"UTF-8\">\n" +

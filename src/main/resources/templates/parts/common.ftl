@@ -116,7 +116,7 @@
                                     coconutvillages@gmail.com
                                 </a>
                             </p>
-                            <p>
+                            <p class=" text-reset text-decoration-none">
                                 +1 809 504 13 26
                             </p>
                         </div>
@@ -125,7 +125,7 @@
             </section>
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
                 © 2022 Copyright:
-                <a class="text-reset fw-bold" href="https://realestate-luxury.co/">realestate-luxury.co</a>
+                <a class="text-reset fw-bold" href="https://real-estate-luxury.com/">real-estate-luxury.com</a>
             </div>
             <!-- Copyright -->
         </footer>
@@ -138,27 +138,46 @@
     <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="feedbackModalLabel"><@spring.message "modal_callback"/></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="emailCallbackInput" class="form-label" ><@spring.message "modal_callback.email"/> <span class="text-danger">*</span></label>
-                        <input name="email"  type="email" minlength="1" maxlength="100" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" class="form-control" id="emailCallbackInput" placeholder="name@example.com" required>
+                <form id="modalFeedback">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="feedbackModalLabel"><@spring.message "modal_callback"/></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="nameCallbackInput" class="form-label"><@spring.message "modal_callback.name"/> <span class="text-danger">*</span></label>
-                        <input type="text" name="name" minlength="1" maxlength="50" class="form-control" id="nameCallbackInput" placeholder="" required>
+                    <div class="modal-body">
+                        <div class="alert alert-danger mb-3" role="alert" id="modalAlertError" hidden>
+                            <@spring.message "modal_callback.error"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailCallbackInput" class="form-label" ><@spring.message "modal_callback.email"/> <span class="text-danger">*</span></label>
+                            <input name="email"  type="email" minlength="1" maxlength="100" pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" class="form-control" id="emailCallbackInput" placeholder="name@example.com" required>
+                            <div class="invalid-feedback" id="modalEmailInvalidFeedback">
+                                <@spring.message "modal_callback.email.invalid"/>
+                            </div>
+                            <#--                        is-invalid-->
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="nameCallbackInput" class="form-label"><@spring.message "modal_callback.name"/> <span class="text-danger">*</span></label>
+                            <input type="text" name="name" minlength="1" maxlength="50" class="form-control" id="nameCallbackInput" placeholder="" required>
+                            <div class="invalid-feedback" id="modalNameInvalidFeedback">
+                                <@spring.message "modal_callback.name.invalid"/>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="questionCallbackTextarea" class="form-label"><@spring.message "modal_callback.question"/> <span class="text-danger">*</span></label>
+                            <textarea name="question" minlength="1" rows="10" maxlength="1024" class="form-control" id="questionCallbackTextarea" rows="3" required></textarea>
+                            <div class="invalid-feedback" id="modalQuestionInvalidFeedback">
+                                <@spring.message "modal_callback.question.invalid"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="questionCallbackTextarea" class="form-label"><@spring.message "modal_callback.question"/> <span class="text-danger">*</span></label>
-                        <textarea name="question" minlength="1" rows="10" maxlength="1024" class="form-control" id="questionCallbackTextarea" rows="3" required></textarea>
+                    <div class="modal-footer">
+                        <button type="button" id="modalButtonFeedback" class="btn btn-primary"><@spring.message "modal_callback.send"/>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="modalButtonLoader" hidden></span>
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" id="feedbackModalButton" class="btn btn-primary"><@spring.message "modal_callback.send"/></button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -174,6 +193,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="_csrf" content="${_csrf.token}"/>
         <meta name="_csrf_header" content="${_csrf.headerName}"/>
+        <link rel="shortcut icon" href="/static/favicon.ico">
         <link rel="stylesheet" href="/static/css/style.css">
         <link rel="stylesheet" href="/static/node_modules/@splidejs/splide/dist/css/splide.min.css">
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"

@@ -5,7 +5,7 @@ window.addEventListener("scroll", scrollToRealEstateControl);
 window.addEventListener("resize", scrollToRealEstateControl);
 window.addEventListener("resize", resizeToRealEstateControl);
 window.addEventListener("load", resizeToRealEstateControl);
-// window.addEventListener("scroll", resizeToRealEstateControl);
+window.addEventListener("scroll", resizeToRealEstateControl);
 window.addEventListener("load", findRealEstate);
 
 function init() {
@@ -124,10 +124,10 @@ function findRealEstate() {
 function create_real_estate_item(data, item_template, table_template, item_image, item_alter_image) {
     let item = item_template.content.cloneNode(true);
     let image;
-    if(data.postImages[0]) {
+    if(data.mainImage) {
         image = item_image.content.cloneNode(true).querySelector("img");
         image.id += "_" + data.id;
-        image.src = data.postImages[0];
+        image.src = data.mainImage;
         console.log(image);
     } else {
         image = item_alter_image.content.cloneNode(true).querySelector("div");

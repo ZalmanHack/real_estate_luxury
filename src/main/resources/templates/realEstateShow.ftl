@@ -56,7 +56,7 @@
                             </div>
                             <h3 class="card-text mt-4"><@spring.message "real_estate.item.from"/> ${post.price} $</h3>
 <#--                            <a class="btn btn-outline-light mt-4" href="https://www.google.com/maps/search/${post.locationLatitude?float?c},+${post.locationLongitude?float?c}" role="button" target="_blank" rel="noopener noreferrer"><@spring.message "real_estate.title.buttons.map"/></a>-->
-                            <a class="btn btn-outline-light mt-4" href="" data-bs-toggle="modal" data-bs-target="#callbackModal" role="button"><@spring.message "real_estate.title.buttons.callback"/></a>
+                            <a class="btn btn-outline-light mt-4" href="" data-bs-toggle="modal" data-bs-target="#feedbackModal" role="button"><@spring.message "real_estate.title.buttons.callback"/></a>
 
                         </div>
                         <div class="row mt-4">
@@ -68,7 +68,7 @@
                                 </a>
                             </div>
                             <div class="col">
-                                <a class="btn btn-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.locationLatitude},+${post.locationLongitude}" role="button" target="_blank" rel="noopener noreferrer">
+                                <a class="btn btn-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.locationLatitude?string("0.######")?replace(",", ".")},+${post.locationLongitude?string("0.######")?replace(",", ".")}" role="button" target="_blank" rel="noopener noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/>
                                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                                     </svg>
@@ -156,9 +156,9 @@
 
     <#if post.mainVideo??>
         <div class="block_container mt-5">
-            <video autoplay loop playsinline muted class="d-block">
-                <source src="${post.mainVideo}" type="video/mp4">
-                Your browser does not support the video tag.
+            <video autoplay loop playsinline muted class="d-block"  id="main_video">
+<#--                <source src="${post.mainVideo}" type="video/mp4">-->
+<#--                Your browser does not support the video tag.-->
             </video>
         </div>
     </#if>

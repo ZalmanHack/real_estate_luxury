@@ -1,5 +1,7 @@
 window.addEventListener("load", resizeToRealEstateInfo);
+window.addEventListener("load", loadVideo);
 window.addEventListener("resize", resizeToRealEstateInfo);
+
 
 function resizeToRealEstateInfo() {
     let title_container = document.getElementById("title_container");
@@ -48,8 +50,26 @@ function resizeToRealEstateInfo() {
         title_info.classList.add("col");
 
         title_info.classList.remove("mt-5");
+    }
+}
 
-
-
+function loadVideo() {
+    console.log(555);
+    const locationArray = getPath();
+    if(locationArray[locationArray.length - 3] === "real_estate") {
+        const postId = locationArray[locationArray.length - 2];
+        let url = "/api/post/" + postId + "/main_video";
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onload = () => {
+            if (xhr.readyState === 4 && xhr.status === 200 && xhr.response !== null) {
+                let element = document.getElementById("main_video");
+                let source = document.createElement('source');
+                source.type = "video/" + xhr.response.split(".")[xhr.response.split(".").length - 1];
+                source.src = xhr.response;
+                element.appendChild(source);
+            }
+        };
+        xhr.send(null);
     }
 }
