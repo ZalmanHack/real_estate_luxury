@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Locale;
 
 @RestController
-@RequestMapping("api/post")
+@RequestMapping("api/posts")
 public class PostRestController {
 
     @Autowired

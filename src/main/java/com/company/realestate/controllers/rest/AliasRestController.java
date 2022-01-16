@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Locale;
 
 @RestController
-@RequestMapping("api/alias")
+@RequestMapping("api/aliases")
 public class AliasRestController {
 
     @Autowired

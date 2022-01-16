@@ -61,7 +61,7 @@ function sendFeedback(e) {
         loader.removeAttribute("hidden");
         console.log(222)
         let csrf = get_csrf();
-        let url = "/api/user/feedback";
+        let url = "/api/users/feedback";
         let xhr = new XMLHttpRequest();
         xhr.open('POST', url, true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");

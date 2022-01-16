@@ -11161,6 +11161,10 @@ h1, .h1, h2, .h2 {
   border-bottom: 1px solid rgba(240, 240, 240, 0.8);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
+#navbar-collapsed .btn-outline-light {
+  border-color: #6c757d;
+  color: #6c757d;
+}
 
 .wrapper {
   min-height: 100%;
@@ -11170,7 +11174,7 @@ h1, .h1, h2, .h2 {
 
 .img_parallax {
   background-size: cover;
-  background-position: top left;
+  background-position: top center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 0;
@@ -11355,6 +11359,10 @@ video {
   height: auto;
   max-height: 100vh;
   object-fit: cover;
+}
+
+.iti {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -8,13 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     UserRepo userRepo;
@@ -51,5 +54,10 @@ public class UserService {
                             post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post)))));
                     return modelMapper.map(user, UserDto.class);
                 }).collect(Collectors.toList()), pageable, users.getTotalElements());
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepo.findFirstByUsername(username);
     }
 }

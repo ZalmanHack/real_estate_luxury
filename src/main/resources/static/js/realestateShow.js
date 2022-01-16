@@ -58,7 +58,7 @@ function loadVideo() {
     const locationArray = getPath();
     if(locationArray[locationArray.length - 3] === "real_estate") {
         const postId = locationArray[locationArray.length - 2];
-        let url = "/api/post/" + postId + "/main_video";
+        let url = "/api/posts/" + postId + "/main_video";
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.onload = () => {

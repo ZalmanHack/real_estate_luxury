@@ -1,4 +1,5 @@
 <#import "/spring.ftl" as spring/>
+<#import "security.ftl" as security/>
 <#import "loader.ftl" as loader/>
 
 <#macro navbar>
@@ -8,7 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-lg-0 ms-auto me-4">
+                <ul class="navbar-nav mb-lg-0 ms-auto">
                     <li class="nav-item px-2">
                         <a class="nav-link active" aria-current="page" href="/home"><@spring.message "navbar.main"/></a>
                     </li>
@@ -25,11 +26,13 @@
                     <li class="nav-item ps-2">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal"><@spring.message "navbar.callback"/></a>
                     </li>
-                    <li class="nav-item ps-2 pe-5">
+
+                    <li class="nav-item ps-2">
                         <a class="nav-link" href="#real_estate_footer_contacts"><@spring.message "navbar.contacts"/></a>
                     </li>
 
-                    <li class="nav-item px-2 dropdown">
+
+                    <li class="nav-item px-2 dropdown ps-2 pe-5">
                         <a class="nav-link dropdown-toggle" href="#"
                            id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown"
@@ -40,6 +43,32 @@
                             <li><a class="dropdown-item" href="?language=ru">Русский <!></a></li>
                         </ul>
                     </li>
+
+
+
+                    <#if security.know>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                ${security.auth_user.username}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.profile"/></a></li>
+                                <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.settings"/></a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="/logout"><@spring.message "navbar.auth.logout"/></a></li>
+                            </ul>
+                        </li>
+                    <#else>
+                        <li class="nav-item ms-2">
+                            <a href="/login" id="btn-navbar-login" class="nav-link"><@spring.message "navbar.auth.sign_in"/></a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a href="/registration" id="btn-regist" class="btn btn-outline-light"><@spring.message "navbar.auth.sign_up"/></a>
+                        </li>
+                    </#if>
+
+
                 </ul>
             </div>
         </div>
@@ -199,6 +228,7 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
               integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
               crossorigin=""/>
+        <link rel="stylesheet" href="/static/intl_tel_input/css/intlTelInput.css">
     </head>
     <body>
     <@callback_modal/>
@@ -218,6 +248,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin=""></script>
+    <script src="/static/intl_tel_input/js/intlTelInput.min.js"></script>
     </body>
     </html>
 </#macro>

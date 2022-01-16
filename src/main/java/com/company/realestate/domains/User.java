@@ -33,36 +33,39 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     @Email(message = "Введите корректный почтовый адрес")
-    @Length(min = 1, max = 50, message = "Максимальное количество символов 50")
-    @NotBlank(message = "Данное поле не должно быть пустым")
+    @Length(min = 5, max = 320)
+    @NotBlank
     private String email;
 
-    @Length(min = 1, max = 50, message = "Максимальное количество символов 50")
-    @NotBlank(message = "Данное поле не должно быть пустым")
+    @Length(min = 1, max = 64)
+    @NotBlank
     private String username;
 
-    @Length(min = 1, max = 20, message = "Максимальное количество символов 20")
-    @NotBlank(message = "Данное поле не должно быть пустым")
+    @Length(min = 1, max = 26)
+    @NotBlank
     private String firstName;
 
-    @Length(min = 1, max = 20, message = "Максимальное количество символов 20")
-    @NotBlank(message = "Данное поле не должно быть пустым")
+    @Length(min = 1, max = 26)
+    @NotBlank
     private String lastName;
 
-    @NotBlank(message = "Данное поле не должно быть пустым")
+    @Length(min = 3, max = 15)
+    @NotBlank
     private Long phone;
 
     @JsonIgnore
     @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();
 
+    @Length(min = 8, max = 24)
+    @NotBlank
+    private String password = "";
+
     @Transient
     private String password1 = "";
 
     @Transient
     private String password2 = "";
-
-    private String password = "";
 
     private Boolean active;
 

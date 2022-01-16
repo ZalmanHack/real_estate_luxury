@@ -3,6 +3,7 @@ package com.company.realestate.controllers;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.services.CityService;
 import com.company.realestate.services.PostService;
+import com.sun.xml.bind.v2.TODO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,9 @@ public class RealEstateController {
         System.out.println(postService.getActivePremiumPosts(locale));
         return "realEstate";
     }
+
+
+    //TODO Добавить проверку состояния поста. Давать доступ только при состоянии ACTIVE или владельцу поста
 
     @GetMapping("{post}/show")
     public String show(@PathVariable Post post, Locale locale, Model model) {
