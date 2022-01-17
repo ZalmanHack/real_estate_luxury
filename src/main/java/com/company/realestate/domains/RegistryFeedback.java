@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 public class RegistryFeedback {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Length(min = 5, max = 50)

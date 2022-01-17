@@ -115,3 +115,11 @@ function setParameterByName(name, value) {
 function getPath() {
     return window.location.href.split("?")[0].split("/").filter(item => item);
 }
+
+function filterInt(value) {
+    if (/^[-+]?(\d+|Infinity)$/.test(value)) {
+        return Number(value)
+    } else {
+        return 0
+    }
+}

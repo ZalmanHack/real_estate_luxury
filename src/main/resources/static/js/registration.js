@@ -8,13 +8,13 @@ window.addEventListener("load", (e) => {
 
 function submitRegistration(e) {
 
-    let first_name = document.getElementById("inputFirst_name");
-    let last_name = document.getElementById("inputLast_name");
+    let first_name = document.getElementById("inputFirstName");
+    let last_name = document.getElementById("inputLastName");
     let email = document.getElementById("inputEmail");
     let phone = document.getElementById("inputPhone");
     let username = document.getElementById("inputUsername");
     let password = document.getElementById("inputPassword");
-    let repeat_password = document.getElementById("InputRepeat_password");
+    let repeat_password = document.getElementById("inputRepeatPassword");
 
     const valid_first_name = first_name.checkValidity();
     const valid_last_name = last_name.checkValidity();
@@ -35,14 +35,9 @@ function submitRegistration(e) {
 
     let form = document.getElementById("registration_form");
 
-    console.log(valid_email)
-    console.log(form)
-
     if(valid_first_name && valid_last_name && valid_email && valid_phone && valid_username && valid_password && valid_repeat_password) {
         e.target.setAttribute("disabled", "");
-        console.log(222)
+        phone.value = parseInt(filterInt(phone.value));
         form.submit();
-    } else {
-        console.log(333)
     }
 }

@@ -20,7 +20,7 @@
             <form action="/login" method="post">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <div class="mx-auto" style="max-width: 300px">
-
+                    <@common.messages/>
                     <div class="mb-3" id="login_error_message" hidden>
                         <div class="alert alert-danger text-center pb-3" role="alert">
                             <@spring.message "sign_in.error"/>
@@ -58,7 +58,7 @@
                         <a class="link-secondary" href="/registration"><@spring.message "sign_in.buttons.sign_up"/></a>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a class="link-secondary" href="/registration"><@spring.message "sign_in.buttons.forgot_password"/></a>
+                        <a class="link-secondary" href="/restore/password"><@spring.message "sign_in.buttons.forgot_password"/></a>
                     </div>
                 </div>
             </form>

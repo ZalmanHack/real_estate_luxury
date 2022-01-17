@@ -24,7 +24,7 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -49,29 +49,21 @@ public class User implements UserDetails {
     @NotBlank
     private String lastName;
 
-    @Length(min = 3, max = 15)
-    @NotBlank
     private Long phone;
 
     @JsonIgnore
     @OneToMany(mappedBy = "author")
     private List<Post> posts = new ArrayList<>();
 
-    @Length(min = 8, max = 24)
-    @NotBlank
     private String password = "";
-
-    @Transient
-    private String password1 = "";
-
-    @Transient
-    private String password2 = "";
 
     private Boolean active;
 
     private String profileImage;
 
     private String activationCode;
+
+    private String restorePasswordCode;
 
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);

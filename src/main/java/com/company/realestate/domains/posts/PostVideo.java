@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 public class PostVideo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ToString.Exclude

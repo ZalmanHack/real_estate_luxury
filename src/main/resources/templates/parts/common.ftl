@@ -2,6 +2,24 @@
 <#import "security.ftl" as security/>
 <#import "loader.ftl" as loader/>
 
+<#macro messages>
+    <#if info_message??>
+        <div class="alert alert-primary text-center pb-3" role="alert">
+            ${info_message}
+        </div>
+    </#if>
+    <#if error_message??>
+        <div class="alert alert-danger text-center pb-3" role="alert">
+            ${error_message}
+        </div>
+    </#if>
+    <#if success_message??>
+        <div class="alert alert-success text-center pb-3" role="alert">
+            ${success_message}
+        </div>
+    </#if>
+</#macro>
+
 <#macro navbar>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar-air">
         <div class="container-xxl">

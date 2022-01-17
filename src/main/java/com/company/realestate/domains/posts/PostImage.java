@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 public class PostImage {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @ToString.Exclude
