@@ -1,12 +1,13 @@
 package com.company.realestate.configs;
 
+import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.assets.domainDtos.PostShortDto;
-import com.company.realestate.domains.posts.PostVideo;
 import com.company.realestate.services.AliasService;
 import com.company.realestate.utils.CustomSessionLocaleResolver;
+import javafx.geometry.Pos;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -14,8 +15,6 @@ import org.modelmapper.spi.MappingContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -58,14 +57,16 @@ public class ModelMapperDtoConfig {
             }
         };
 
-        Converter<PostVideo, String> postVideoStringConverter = new Converter<PostVideo, String>() {
-            public String convert(MappingContext<PostVideo, String> context) {
-                return context.getSource() == null ? null : context.getSource().getVideo();
+        Converter<RealEstateType, String> realEstateTypeStringConverter = new Converter<RealEstateType, String>() {
+            public String convert(MappingContext<RealEstateType, String> context) {
+                return context.getSource() == null ? null : aliasService.getAlias(
+                        context.getSource().name(),
+                        localeResolver.getLastRequestLocale());
             }
         };
 
-        Converter<RealEstateType, String> realEstateTypeStringConverter = new Converter<RealEstateType, String>() {
-            public String convert(MappingContext<RealEstateType, String> context) {
+        Converter<PostStatus, String> postStatusStringConverter = new Converter<PostStatus, String>() {
+            public String convert(MappingContext<PostStatus, String> context) {
                 return context.getSource() == null ? null : aliasService.getAlias(
                         context.getSource().name(),
                         localeResolver.getLastRequestLocale());
@@ -90,7 +91,6 @@ public class ModelMapperDtoConfig {
 
         modelMapper.addConverter(localDateConverter);
         modelMapper.addConverter(postImageStringConverter);
-        modelMapper.addConverter(postVideoStringConverter);
         modelMapper.addConverter(realEstateTypeStringConverter);
 //        modelMapper.addConverter(aliasDtoConverter);
         modelMapper.addMappings(postShortMap);

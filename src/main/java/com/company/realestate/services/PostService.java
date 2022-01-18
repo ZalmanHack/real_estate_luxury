@@ -42,13 +42,20 @@ public class PostService {
                     post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post))));
                     return modelMapper.map(post, PostDto.class);
                 }).collect(Collectors.toList());
-        System.out.println("-----");
-        System.out.println(result.get(0).getLocalizedBodies());
         return result;
 
     }
 
+    //TODO Добавить перевод состояния постов (уже есть в таблице Alias)
+
     public Page<PostDto> getByFilter(Locale locale, RequestPostBodyDto body) {
+        PostStatus postStatus;
+        try {
+            postStatus = PostStatus.valueOf(body.getPostStatus());
+        } catch (Exception e) {
+            postStatus = PostStatus.ACTIVE;
+        }
+
         Pageable pageable = PageRequest.of(body.getPage(), body.getSize());
         RealEstateType realEstateType = RealEstateType.get(body.getRealEstateType());
 
@@ -57,16 +64,18 @@ public class PostService {
         Page<Post> posts;
         if(realEstateType == null) {
             posts = postRepo.findPostsWithPagination(
-                    PostStatus.ACTIVE,
+                    postStatus,
                     body.getCity(),
+                    body.getCompanyName(),
                     body.getName(),
                     body.getPriceFrom(),
                     body.getPriceTo(),
                     pageable);
         } else {
             posts = postRepo.findPostsWithPagination(
-                    PostStatus.ACTIVE,
+                    postStatus,
                     body.getCity(),
+                    body.getCompanyName(),
                     realEstateType,
                     body.getName(),
                     body.getPriceFrom(),
@@ -94,6 +103,6 @@ public class PostService {
     };
 
     public Object getMainVideo(Post post) {
-        return post.getMainVideo().getVideo();
+        return post.getMainVideo();
     }
 }

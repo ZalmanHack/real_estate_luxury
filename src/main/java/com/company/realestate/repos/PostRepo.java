@@ -23,11 +23,13 @@ public interface PostRepo extends CrudRepository<Post, Long> {
             "   where P.postStatus = :status AND" +
             "         P.realEstateType = :realEstateType AND" +
             "         LOWER(P.location.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
+            "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
             "         LOWER(P.location.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to")
     Page<Post> findPostsWithPagination(
                                     @Param("status") PostStatus status,
                                     @Param("city") String city,
+                                    @Param("companyName") String companyName,
                                     @Param("realEstateType") RealEstateType realEstateType,
                                     @Param("name") String name,
                                     @Param("price_from") Long price_from,
@@ -37,11 +39,13 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     @Query(value = "SELECT P FROM Post as P " +
             "   where P.postStatus = :status AND " +
             "         LOWER(P.location.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
+            "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
             "         LOWER(P.location.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to")
     Page<Post> findPostsWithPagination(
                                        @Param("status") PostStatus status,
                                        @Param("city") String city,
+                                       @Param("companyName") String companyName,
                                        @Param("name") String name,
                                        @Param("price_from") Long price_from,
                                        @Param("price_to") Long price_to,

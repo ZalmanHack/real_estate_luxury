@@ -33,6 +33,9 @@ public class UserValidator implements Validator {
         if(userRepo.findFirstByUsername(user.getUsername()).isPresent()) {
             errors.rejectValue("username", "", aliasService.getAlias("username.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
         }
+        if(userRepo.findFirstByCompanyName(user.getCompanyName()).isPresent()) {
+            errors.rejectValue("companyName", "", aliasService.getAlias("companyName.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
+        }
         if(userRepo.findFirstByEmail(user.getEmail()).isPresent()) {
             errors.rejectValue("email", "", aliasService.getAlias("email.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
         }

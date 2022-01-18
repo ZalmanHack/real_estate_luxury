@@ -41,6 +41,10 @@ public class User implements UserDetails {
     @NotBlank
     private String username;
 
+    @Length(min = 1, max = 64)
+    @NotBlank
+    private String companyName;
+
     @Length(min = 1, max = 26)
     @NotBlank
     private String firstName;

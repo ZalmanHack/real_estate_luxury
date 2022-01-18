@@ -151,4 +151,9 @@ public class UserService implements UserDetailsService {
     public boolean checkChangePasswordCode(String code) {
         return userRepo.findFirstByRestorePasswordCode(code).isPresent();
     }
+
+    public List<String> getAllCompanies() {
+        return userRepo.findAllCompanyNamesUnique();
+    }
+
 }

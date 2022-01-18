@@ -49,13 +49,8 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private List<PostImage> postImages = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "postImageId")
-    private PostImage mainImage;
-
-    @ManyToOne
-    @JoinColumn(name = "postVideoId")
-    private PostVideo mainVideo;
+    private String mainImage;
+    private String mainVideo;
 
     private double area;
 

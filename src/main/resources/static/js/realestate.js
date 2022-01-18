@@ -11,19 +11,37 @@ window.addEventListener("load", findRealEstate);
 function init() {
     let input_search_name = document.getElementById("input_search_name");
     let dropdown_city = document.getElementById("dropdown_city");
+    let dropdown_company_name = document.getElementById("dropdown_company_name");
+    let dropdown_post_status = document.getElementById("dropdown_post_status");
     let real_estate_types = Array.from(document.getElementsByName("real_estate_type"));
     let input_price_from = document.getElementById("input_price_from");
     let input_price_to = document.getElementById("input_price_to");
 
     setParameterByName("price_from", input_price_from.value);
     setParameterByName("price_to", input_price_to.value);
+    setParameterByName("company_name", dropdown_company_name.value);
+    setParameterByName("post_status", dropdown_post_status.value);
 
     input_search_name.value = getParameterByName("name");
+
     if(getParameterByName("city")) {
         dropdown_city.value = getParameterByName("city");
     } else {
         dropdown_city.options.selectedIndex = 0;
     }
+
+    if(getParameterByName("company_name")) {
+        dropdown_company_name.value = getParameterByName("company_name");
+    } else {
+        dropdown_company_name.options.selectedIndex = 0;
+    }
+
+    if(getParameterByName("post_status")) {
+        dropdown_post_status.value = getParameterByName("post_status");
+    } else {
+        dropdown_post_status.options.selectedIndex = 0;
+    }
+
     let real_estate_type = getParameterByName("real_estate_type");
     real_estate_types.forEach(input => {
         if (("radio_" + real_estate_type).toLowerCase() === input.id) {
@@ -49,6 +67,14 @@ function init() {
     });
     dropdown_city.addEventListener("change", (e) => {
         setParameterByName("city", e.target.value);
+        findRealEstate();
+    });
+    dropdown_company_name.addEventListener("change", (e) => {
+        setParameterByName("company_name", e.target.value);
+        findRealEstate();
+    });
+    dropdown_post_status.addEventListener("change", (e) => {
+        setParameterByName("post_status", e.target.value);
         findRealEstate();
     });
     real_estate_types.forEach(input => {
@@ -111,6 +137,8 @@ function findRealEstate() {
             "size": 25,
             "page": 0,
             "city": getParameterByName("city"),
+            "company_name": getParameterByName("company_name"),
+            "post_status": getParameterByName("post_status"),
             "name": getParameterByName("name"),
             "real_estate_type": getParameterByName("real_estate_type"),
             "price_from": getParameterByName("price_from"),

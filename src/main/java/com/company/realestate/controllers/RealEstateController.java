@@ -1,9 +1,12 @@
 package com.company.realestate.controllers;
 
+import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.services.CityService;
 import com.company.realestate.services.PostService;
+import com.company.realestate.services.UserService;
 import com.sun.xml.bind.v2.TODO;
+import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Locale;
 
 @Controller
@@ -22,6 +27,9 @@ public class RealEstateController {
     CityService cityService;
 
     @Autowired
+    UserService userService;
+
+    @Autowired
     PostService postService;
 
     @Autowired
@@ -30,9 +38,10 @@ public class RealEstateController {
     @GetMapping
     public String real_estate(Locale locale, Model model) {
         model.addAttribute("cities", cityService.getAllNames());
+        model.addAttribute("companies", userService.getAllCompanies());
         model.addAttribute("max_price", postService.getMaxPrice());
         model.addAttribute("posts", postService.getActivePremiumPosts(locale));
-        System.out.println(postService.getActivePremiumPosts(locale));
+        model.addAttribute("post_status", PostStatus.ACTIVE);
         return "realEstate";
     }
 
@@ -42,7 +51,6 @@ public class RealEstateController {
     @GetMapping("{post}/show")
     public String show(@PathVariable Post post, Locale locale, Model model) {
         model.addAttribute("post", postService.getDto(locale, post));
-        System.out.println(post);
         return "realEstateShow";
     }
 }

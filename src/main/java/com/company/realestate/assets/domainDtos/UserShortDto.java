@@ -10,6 +10,7 @@ public class UserShortDto{
     private long id;
     private String email;
     private String username;
+    private String companyName;
     private String firstName;
     private String lastName;
     private String profileImage;

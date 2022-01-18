@@ -29,7 +29,7 @@
                                class="form-control ${(firstNameError??)?string("is-invalid","")}"
                                id="inputFirstName">
                         <div class="invalid-feedback">
-                            <#if first_nameError??> ${firstNameError} <#else> <@spring.message "sign_up.inputs.first_name.invalid"/> </#if>
+                            <#if firstNameError??> ${firstNameError} <#else> <@spring.message "sign_up.inputs.first_name.invalid"/> </#if>
                         </div>
                     </div>
 
@@ -42,7 +42,20 @@
                                class="form-control ${(lastNameError??)?string("is-invalid","")}"
                                id="inputLastName">
                         <div class="invalid-feedback">
-                            <#if last_nameError??> ${lastNameError} <#else> <@spring.message "sign_up.inputs.last_name.invalid"/> </#if>
+                            <#if lastNameError??> ${lastNameError} <#else> <@spring.message "sign_up.inputs.last_name.invalid"/> </#if>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputCompanyName" class="form-label"><@spring.message "sign_up.inputs.company_name"/> <span class="text-danger">*</span></label>
+                        <input name="companyName"
+                               type="text"
+                               minlength="1" maxlength="26" pattern="[A-Za-zА-ЯЁа-яё ]{1,26}" required
+                               value="<#if user??>${user.companyName}</#if>"
+                               class="form-control ${(companyNameError??)?string("is-invalid","")}"
+                               id="inputCompanyName">
+                        <div class="invalid-feedback">
+                            <#if companyNameError??> ${companyNameError} <#else> <@spring.message "sign_up.inputs.company_name.invalid"/> </#if>
                         </div>
                     </div>
 

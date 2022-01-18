@@ -23,6 +23,9 @@ INSERT INTO main.field_name (id, value) VALUES (14, 'email.restorePasswordCode.t
 INSERT INTO main.field_name (id, value) VALUES (15, 'email.restorePasswordCode.body');
 INSERT INTO main.field_name (id, value) VALUES (16, 'infoMessage.restorePasswordCode.success');
 INSERT INTO main.field_name (id, value) VALUES (17, 'infoMessage.restorePasswordCode.fail');
+INSERT INTO main.field_name (id, value) VALUES (18, 'infoMessage.changePassword.success');
+INSERT INTO main.field_name (id, value) VALUES (19, 'infoMessage.changePassword.fail');
+INSERT INTO main.field_name (id, value) VALUES (20, 'companyName.invalid.alreadyExist');
 
 -- alias ---------------------------------------------------------------------------------------------------------------
 
@@ -53,9 +56,6 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (24, '�
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (28, 'Activation code', 10, 1);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (29, 'Код активации', 10, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (30, 'Código de activación', 10, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (46, '%s, an email has been sent to %s with a link to reset your password!', 16, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (47, '%s, Вам на почту %s было отправлено письмо с ссылкой для восстановления пароля!', 16, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (48, '%s, se ha enviado un correo electrónico a %s con un enlace para restablecer su contraseña.', 16, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (31, 'Activation completed successfully!', 11, 1);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (32, 'Активация успешно пройдена!', 11, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (34, 'The activation code is not valid!', 12, 1);
@@ -92,9 +92,7 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (26, '<
 Пожалуйста, для активации аккаунта, перейдите по <a href="https://%s/registration/activate/%s">ссылке</a>.
 </body>
 </html>', 9, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (37, 'This email is already linked.', 13, 1);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (38, 'Такая почта уже привязана', 13, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (39, 'Este correo electrónico ya está vinculado.', 13, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (40, 'Password recovery', 14, 1);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (41, 'Восстановление пароля', 14, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (42, 'Recuperación de contraseña', 14, 3);
@@ -125,6 +123,23 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (45, '<
 Siga el <a href="https://%s/restore/password/change?code=%s">enlace</a> para restaurar el acceso a su cuenta.
 </body>
 </html>', 15, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (39, 'Este correo electrónico ya está vinculado', 13, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (37, 'This email is already linked', 13, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (49, 'There are no accounts linked to email', 17, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (50, 'К электронной почте нет привязанных аккаунтов', 17, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (51, 'No hay cuentas vinculadas al correo electrónico', 17, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (47, 'Вам на почту %s было отправлено письмо с ссылкой для восстановления пароля!', 16, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (46, 'An email has been sent to %s with a link to reset your password!', 16, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (48, 'Se ha enviado un correo electrónico a %s con un enlace para restablecer su contraseña.', 16, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (52, 'Password changed successfully!', 18, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (53, 'Пароль успешно изменен!', 18, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (54, '¡Contraseña cambiada con éxito!', 18, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (55, 'Failed to change password', 19, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (56, 'Не удалось изменить пароль', 19, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (57, 'No se pudo cambiar la contraseña', 19, 3);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (58, 'This company already exists', 20, 1);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (59, 'Такая компания уже существует', 20, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (60, 'Esta empresa ya existe', 20, 3);
 
 -- city ----------------------------------------------------------------------------------------------------------------
 
