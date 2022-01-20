@@ -25,4 +25,8 @@ public class CityService {
     public City getCity(String city) {
         return cityRepo.findByValue(city);
     }
+
+    public City getFirstCity() {
+        return cityRepo.findFirstById(1L);
+    }
 }

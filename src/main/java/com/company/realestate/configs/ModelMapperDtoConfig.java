@@ -92,6 +92,7 @@ public class ModelMapperDtoConfig {
         modelMapper.addConverter(localDateConverter);
         modelMapper.addConverter(postImageStringConverter);
         modelMapper.addConverter(realEstateTypeStringConverter);
+        modelMapper.addConverter(postStatusStringConverter);
 //        modelMapper.addConverter(aliasDtoConverter);
         modelMapper.addMappings(postShortMap);
 //        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);

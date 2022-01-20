@@ -4,14 +4,14 @@
 
 <#--Также можно еще:-->
 <#--<#assign title> <@spring.message code="home.title"/> + какой то текст </#assign>-->
-<#assign title><@spring.message code="real_estate.show.title"/> ${post.locationName}</#assign>
+<#assign title><@spring.message code="real_estate.show.title"/> ${post.locationName!post.id}</#assign>
 
 <@common.page title>
     <div class="img_parallax" style="background-image: url('${post.mainImage!''}');">
         <#-- в диве был screen-50 -->
         <div class="block_container dark-50 text-light after_navbar">
             <div class="container block">
-                <h1>${post.locationName}</h1>
+                <h1>${post.locationName!post.id}</h1>
 
                 <div class="row overflow_bottom_6" id="title_container">
                     <div class="col-8" id="title_carousel">
@@ -50,16 +50,15 @@
                     <div class="col d-flex flex-column px-3" id="title_info">
                         <div class="d-flex flex-column pb-4 px-0" style="flex: 1 1 auto">
                             <div class="" style="flex: 1 1 auto">
-                                <span class="badge rounded-pill bg-light text-dark mb-2 me-3">${post.realEstateType}</span>
-                                <h3 class="card-title">${post.locationCityValue}</h3>
-                                <p class="card-text">${post.localizedBodies[0].features!""}</p>
+                                <span class="badge rounded-pill bg-light text-dark mb-2 me-3">${post.realEstateType!''}</span>
+                                <h3 class="card-title">${post.locationCityValue!''}</h3>
+                                <p class="card-text">${post.localizedBodies[0].features!''}</p>
                             </div>
                             <h3 class="card-text mt-4"><@spring.message "real_estate.item.from"/> ${post.price} $</h3>
 <#--                            <a class="btn btn-outline-light mt-4" href="https://www.google.com/maps/search/${post.locationLatitude?float?c},+${post.locationLongitude?float?c}" role="button" target="_blank" rel="noopener noreferrer"><@spring.message "real_estate.title.buttons.map"/></a>-->
                             <a class="btn btn-outline-light mt-4" href="" data-bs-toggle="modal" data-bs-target="#feedbackModal" role="button"><@spring.message "real_estate.title.buttons.callback"/></a>
-
                         </div>
-                        <div class="row mt-4">
+                        <div class="row mt-4" style="width: auto; max-width: none">
                             <div class="col">
                                 <a class="btn btn-success d-flex justify-content-center mt-3" href="https://api.whatsapp.com/send?phone=${post.author.phone}&text=&source=&data=" role="button" target="_blank" rel="noopener noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><g><rect fill="none" height="24" width="24" y="0"/>
@@ -150,7 +149,7 @@
     <div class="block_container">
         <div class="container">
             <h2 class="text-start"><@spring.message "real_estate.show.description"/></h2>
-            <p>${post.localizedBodies[0].description}</p>
+            <p>${post.localizedBodies[0].description!''}</p>
         </div>
     </div>
 

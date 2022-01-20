@@ -12,4 +12,5 @@ public interface CityRepo extends CrudRepository<City, Long> {
 
     List<City> findAll();
     City findByValue(String city);
+    City findFirstById(Long id);
 }

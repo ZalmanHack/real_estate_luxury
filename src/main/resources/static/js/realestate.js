@@ -123,7 +123,6 @@ function findRealEstate() {
         xhr.setRequestHeader(csrf.header, csrf.token);
         xhr.onload = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // console.log(JSON.parse(xhr.response));
                 const response_body = JSON.parse(xhr.response);
                 Object.keys(response_body.content).forEach(data => {
                     items_container.appendChild(create_real_estate_item(response_body.content[data], item_template, table_template, item_image, item_alter_image));
@@ -156,7 +155,6 @@ function create_real_estate_item(data, item_template, table_template, item_image
         image = item_image.content.cloneNode(true).querySelector("img");
         image.id += "_" + data.id;
         image.src = data.mainImage;
-        console.log(image);
     } else {
         image = item_alter_image.content.cloneNode(true).querySelector("div");
         image.id += "_" + data.id;
@@ -204,7 +202,7 @@ function create_real_estate_item(data, item_template, table_template, item_image
 
     let card_open = item.getElementById("card_open");
     card_open.id += "_" + data.id;
-    card_open.href = "real_estate/" + data.id + "/show";
+    card_open.href = "/real_estate/" + data.id + "/show";
 
     let card_map = item.getElementById("card_map");
     card_map.id += "_" + data.id;

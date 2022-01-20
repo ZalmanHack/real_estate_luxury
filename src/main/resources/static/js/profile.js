@@ -34,3 +34,19 @@ function resizeToRealEstateInfo() {
         title_info.classList.remove("mt-5");
     }
 }
+
+function newPost(event) {
+        event.target.setAttribute("disabled", "");
+        let csrf = get_csrf();
+        let url = "/api/posts/new_post";
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader(csrf.header, csrf.token);
+        xhr.onload = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                location.href = JSON.parse(xhr.response).url;
+            }
+            event.target.removeAttribute("disabled");
+        };
+        xhr.send(null);
+}

@@ -66,12 +66,12 @@
 
                     <#if security.know>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ms-2">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${security.auth_user.username}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.profile"/></a></li>
+                                <li><a class="dropdown-item" href="/users/${security.auth_user.id}/show"><@spring.message "navbar.auth.profile"/></a></li>
                                 <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.settings"/></a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item text-danger" href="/logout"><@spring.message "navbar.auth.logout"/></a></li>
@@ -247,6 +247,10 @@
               integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
               crossorigin=""/>
         <link rel="stylesheet" href="/static/intl_tel_input/css/intlTelInput.css">
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+              integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+              crossorigin="anonymous">
     </head>
     <body>
     <@callback_modal/>

@@ -7,6 +7,7 @@ import com.company.realestate.services.PostService;
 import com.company.realestate.services.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +31,12 @@ public class UserController {
     @Autowired
     PostService postService;
 
-    @GetMapping("{user}")
+    @GetMapping
+    public String all() {
+        throw new ResourceNotFoundException();
+    }
+
+    @GetMapping("{user}/show")
     public String user(@AuthenticationPrincipal User authUser, @PathVariable User user, Locale locale, Model model) {
         model.addAttribute("user", user);
         model.addAttribute("posts_status", PostStatus.values());

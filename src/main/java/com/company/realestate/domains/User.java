@@ -3,6 +3,7 @@ package com.company.realestate.domains;
 import com.company.realestate.domains.enums.Role;
 import com.company.realestate.domains.posts.Post;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
@@ -21,6 +22,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "_user")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User implements UserDetails {
 
     @Id
@@ -56,7 +58,7 @@ public class User implements UserDetails {
     private Long phone;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
     private List<Post> posts = new ArrayList<>();
 
     private String password = "";

@@ -9,6 +9,8 @@ $primary: #ffd700;
 //$btn-border-radius: .6rem;
 $card-border-radius: .6rem;
 
+$nav-link-color: #000;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 
@@ -231,7 +233,25 @@ $container-max-widths: (
 }
 
 
-
+.files_container {
+    display: flex;
+    //margin-left: -1rem;
+    //margin-right: -1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: $card-border-radius;
+    img {
+        width: 90px;
+        height: 90px;
+        border-radius: $card-border-radius;
+        object-fit: cover;
+        object-position: top;
+        top: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+}
 
 .card {
     position: relative;

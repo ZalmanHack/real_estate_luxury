@@ -1,5 +1,6 @@
 package com.company.realestate.controllers;
 
+import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.services.CityService;
@@ -9,6 +10,8 @@ import com.sun.xml.bind.v2.TODO;
 import javafx.geometry.Pos;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,5 +55,13 @@ public class RealEstateController {
     public String show(@PathVariable Post post, Locale locale, Model model) {
         model.addAttribute("post", postService.getDto(locale, post));
         return "realEstateShow";
+    }
+
+    @GetMapping("{post}/edit")
+    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    public String new_post(@AuthenticationPrincipal User authUser,
+                           @PathVariable Post post,
+                           Locale locale, Model model) {
+        return "editPost";
     }
 }

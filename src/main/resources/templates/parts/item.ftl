@@ -200,6 +200,13 @@
     </tr>
 </#macro>
 
+<#macro post_image>
+    <div class="p-3 d-flex flex-column" id="post_image_container">
+        <img src="" id="post_image" alt="">
+        <button type="button" class="btn btn-outline-danger mt-3" id="btn_delete_img" onclick="deleteImg(event)" >удалить</button>
+    </div>
+</#macro>
+
 
 <#--                    <table class="table table-sm table-borderless my-3" style="font-size: 0.75rem;">-->
 <#--                        <tbody>-->

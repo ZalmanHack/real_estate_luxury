@@ -5,10 +5,12 @@ import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +18,20 @@ import java.util.List;
 @ToString(includeFieldNames=true)
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private boolean premium;
+    private boolean premium = false;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
     private User author;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "locationId")
     private Location location;
 
@@ -36,7 +39,7 @@ public class Post {
     private RealEstateType realEstateType;
 
     @Enumerated(EnumType.STRING)
-    private PostStatus postStatus;
+    private PostStatus postStatus = PostStatus.DISABLED;
 
     @ToString.Exclude
     @JsonIgnore

@@ -17,7 +17,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
 
     @Value("${upload.path}")
-    private String upload_path;
+    private String uploadPath;
+
+    @Value("${upload.path.img}")
+    private String pathImg;
+
+    @Value("${upload.path.vid}")
+    private String pathVid;
 
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
@@ -32,10 +38,10 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/img/**")
-                .addResourceLocations("file:/" + upload_path + "/img/");
-        registry.addResourceHandler("/vid/**")
-                .addResourceLocations("file:/" + upload_path + "/vid/");
+        registry.addResourceHandler(pathImg + "/**")
+                .addResourceLocations("file:/" + uploadPath + pathImg + "/");
+        registry.addResourceHandler(pathVid + "/**")
+                .addResourceLocations("file:/" + uploadPath + pathVid + "/");
 
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/"); // ищет в списке ресурсов/проекта

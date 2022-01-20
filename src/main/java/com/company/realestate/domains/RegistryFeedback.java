@@ -1,5 +1,6 @@
 package com.company.realestate.domains;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @ToString(includeFieldNames = true)
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class RegistryFeedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
