@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 public interface PostImageRepo extends CrudRepository<PostImage, Long> {
     PostImage findFirstById(long imgId);
+
+    PostImage findFirstByPost(Post post);
 }

@@ -21,4 +21,8 @@ public class LocationService {
         locationRepo.save(location);
         return location;
     }
+
+    public Location findFirstByName(String locationCityValue) {
+        return null;
+    }
 }

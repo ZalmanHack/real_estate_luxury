@@ -29,7 +29,7 @@
                                 <#assign index=0>
                                 <#list post.postImages as image>
                                     <div class="carousel-item <#if index==0>active</#if>">
-                                        <img src="${image}" class="d-block mx-auto" style="width: 100%" alt="...">
+                                        <img src="${image.image}" class="d-block mx-auto" style="width: 100%" alt="...">
                                     </div>
                                     <#assign index++>
                                 </#list>

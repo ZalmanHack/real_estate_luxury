@@ -29,4 +29,5 @@ public class Location {
     @Length(min = 1, max = 64)
     @NotBlank
     private String name;
+
 }

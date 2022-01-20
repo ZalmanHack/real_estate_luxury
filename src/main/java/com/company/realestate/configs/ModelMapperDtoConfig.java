@@ -51,11 +51,11 @@ public class ModelMapperDtoConfig {
             }
         };
 
-        Converter<PostImage, String> postImageStringConverter = new Converter<PostImage, String>() {
-            public String convert(MappingContext<PostImage, String> context) {
-                return context.getSource() == null ? null : context.getSource().getImage();
-            }
-        };
+//        Converter<PostImage, String> postImageStringConverter = new Converter<PostImage, String>() {
+//            public String convert(MappingContext<PostImage, String> context) {
+//                return context.getSource() == null ? null : context.getSource().getImage();
+//            }
+//        };
 
         Converter<RealEstateType, String> realEstateTypeStringConverter = new Converter<RealEstateType, String>() {
             public String convert(MappingContext<RealEstateType, String> context) {
@@ -90,7 +90,7 @@ public class ModelMapperDtoConfig {
         };
 
         modelMapper.addConverter(localDateConverter);
-        modelMapper.addConverter(postImageStringConverter);
+//        modelMapper.addConverter(postImageStringConverter);
         modelMapper.addConverter(realEstateTypeStringConverter);
         modelMapper.addConverter(postStatusStringConverter);
 //        modelMapper.addConverter(aliasDtoConverter);

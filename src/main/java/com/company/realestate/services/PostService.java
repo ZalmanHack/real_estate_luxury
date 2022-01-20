@@ -2,13 +2,17 @@ package com.company.realestate.services;
 
 import com.company.realestate.assets.domainDtos.PostDto;
 import com.company.realestate.assets.domainDtos.PostImageDto;
+import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
+import com.company.realestate.domains.Location;
 import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.repos.PostRepo;
+import com.company.realestate.utils.ControllerUtils;
+import com.company.realestate.utils.FileUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,31 +48,25 @@ public class PostService {
     @Autowired
     ModelMapper modelMapper;
 
-    @Value("${upload.path}")
-    String uploadPath;
-
-    @Value("${upload.path.img}")
-    private String pathImg;
-
     @Autowired
     LocalizedBodyService localizedBodyService;
 
+    @Autowired
+    FileUtils fileUtils;
+
     public List<PostDto> getActivePremiumPosts(Locale locale) {
-        List<PostDto> result = postRepo.findAllByPostStatusAndPremium(PostStatus.ACTIVE, true)
+        return postRepo.findAllByPostStatusAndPremium(PostStatus.ACTIVE, true)
                 .stream()
                 .map(post -> {
                     post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post))));
                     return modelMapper.map(post, PostDto.class);
                 }).collect(Collectors.toList());
-        return result;
 
     }
 
     //TODO Добавить перевод состояния постов (уже есть в таблице Alias)
 
     public Page<PostDto> getByFilter(Locale locale, RequestPostBodyDto body) {
-        System.out.println("-=----=--=-=-=-=-=--=-=-=-=-=-=-=");
-        System.out.println(body);
         PostStatus postStatus;
         try {
             postStatus = PostStatus.valueOf(body.getPostStatus());
@@ -127,43 +125,51 @@ public class PostService {
         post.setPublicationDate(LocalDate.now());
         post.setAuthor(authUser);
         post.setLocation(locationService.createLocation(post.getPublicationDate().toString()));
+        post.setPostStatus(PostStatus.DISABLED);
+        post.setRealEstateType(RealEstateType.APARTMENT);
         postRepo.save(post);
         localizedBodyService.createNewWithDefaultLanguage(post);
         return post;
     }
 
     public File loadImage(MultipartFile rawImg) {
-        try {
-            if (rawImg != null &&
-                    rawImg.getOriginalFilename() != null &&
-                    !rawImg.getOriginalFilename().isEmpty()) {
-                File uploadDir = new File(uploadPath + pathImg);
-                if(!uploadDir.exists()) {
-                    uploadDir.mkdir();
-                }
-
-                String uuidFile = UUID.randomUUID().toString();
-                String resultFileName = uuidFile;
-                // загружаем файл
-                File img = new File(uploadDir.getPath() + "/" + resultFileName);
-                rawImg.transferTo(img);
-                return img;
-            }
-            return null;
-        } catch (IOException e) {
-            return null;
-        }
+        return fileUtils.createFileImg(rawImg);
     }
 
-    public PostImageDto addImage(User authUser, Post post, MultipartFile rawImg) {
+    public PostImageDto addImage(Post post, MultipartFile rawImg) {
         File img = loadImage(rawImg);
         if (img == null) {
             return null;
         }
-        return modelMapper.map(postImageService.createImage(img, post), PostImageDto.class);
+        PostImage postImage = postImageService.createImage(img, post);
+        if (postImageService.findFirstByPost(post).equals(postImage)) {
+            post.setMainImage(postImage.getImage());
+            postRepo.save(post);
+        }
+        return modelMapper.map(postImage, PostImageDto.class);
     }
 
-    public boolean delImage(User authUser, Post post, long imgId) {
-        return postImageService.delImage(post, imgId);
+    public boolean delImage(Post post, long imgId) {
+        PostImage postImage = postImageService.findFirstById(imgId);
+        if(postImage == null) {
+            return false;
+        }
+        if (!postImage.getPost().equals(post)) {
+            return false;
+        }
+        if(post.getMainImage().equals(postImage.getImage())) {
+            post.setMainImage(null);
+        }
+        if(!fileUtils.deleteFile(postImage.getImage())) {
+            return false;
+        }
+        postImageService.delete(postImage);
+        return true;
+    }
+
+    public void updateUser(PostShortDto postDto) {
+        Post post = modelMapper.map(postDto, Post.class);
+        Location location = locationService.findFirstByName(postDto.getLocationCityValue());
+        System.out.println(post);
     }
 }

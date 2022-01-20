@@ -9,6 +9,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.List;
 
 @Service
 public class PostImageService {
@@ -27,18 +28,16 @@ public class PostImageService {
         return postImage;
     }
 
-    public boolean delImage(Post post, long imgId) {
-        PostImage postImage = postImageRepo.findFirstById(imgId);
-        System.out.println(post);
-        System.out.println(postImage);
-        if (postImage == null) {
-            return false;
-        }
-        if (!postImage.getPost().equals(post)) {
-            return false;
-        }
-        postImageRepo.delete(postImage);
-        return true;
+    public PostImage findFirstById(long id) {
+        return postImageRepo.findFirstById(id);
     }
 
+    public PostImage findFirstByPost(Post post) {
+        return postImageRepo.findFirstByPost(post);
+    }
+
+    public void delete(PostImage postImage) {
+
+        postImageRepo.delete(postImage);
+    }
 }

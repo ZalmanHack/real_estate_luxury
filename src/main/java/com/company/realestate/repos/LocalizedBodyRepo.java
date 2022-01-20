@@ -10,6 +10,6 @@ import java.util.Locale;
 
 public interface LocalizedBodyRepo extends CrudRepository<LocalizedBody, Long> {
     List<LocalizedBody> findAllByLocaleCode(LocaleCode code);
-
     LocalizedBody findFirstByLocaleCodeAndPost(LocaleCode code, Post post);
+    List<LocalizedBody> findAllByPost(Post post);
 }

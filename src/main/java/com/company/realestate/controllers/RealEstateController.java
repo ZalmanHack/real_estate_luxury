@@ -1,9 +1,13 @@
 package com.company.realestate.controllers;
 
+import com.company.realestate.assets.domainDtos.LocalizedBodyDto;
+import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
+import com.company.realestate.domains.posts.LocalizedBody;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.services.CityService;
+import com.company.realestate.services.LocalizedBodyService;
 import com.company.realestate.services.PostService;
 import com.company.realestate.services.UserService;
 import com.sun.xml.bind.v2.TODO;
@@ -20,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/real_estate")
@@ -34,6 +40,9 @@ public class RealEstateController {
 
     @Autowired
     PostService postService;
+
+    @Autowired
+    LocalizedBodyService localizedBodyService;
 
     @Autowired
     ModelMapper modelMapper;
@@ -62,6 +71,15 @@ public class RealEstateController {
     public String new_post(@AuthenticationPrincipal User authUser,
                            @PathVariable Post post,
                            Locale locale, Model model) {
+
+        List<LocalizedBodyDto> bodyDtoList = localizedBodyService.getAll(post)
+                .stream()
+                .map(localizedBody -> modelMapper.map(localizedBody, LocalizedBodyDto.class))
+                .collect(Collectors.toList());
+        model.addAttribute("localizedBodies", bodyDtoList);
+        model.addAttribute("realEstateType", post.getRealEstateType());
+        model.addAttribute("post", modelMapper.map(post, PostShortDto.class));
+        model.addAttribute("cities", cityService.getAllNames());
         return "editPost";
     }
 }

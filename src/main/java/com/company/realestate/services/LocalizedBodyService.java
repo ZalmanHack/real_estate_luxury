@@ -28,6 +28,23 @@ public class LocalizedBodyService {
         return localizedBodyRepo.findAllByLocaleCode(code);
     }
 
+    public List<LocalizedBody> getAll(Post post) {
+        List<LocalizedBody> localizedBodies = localizedBodyRepo.findAllByPost(post);
+        if(localizedBodies == null) {
+            return null;
+        }
+
+        localeCodeService.getAll().forEach(localeCode -> {
+            // если нет тела с такой локализацией, то создаем его
+            if(localizedBodies.stream().noneMatch(localizedBody -> localizedBody.getLocaleCode().equals(localeCode))) {
+                this.createNew(post, new Locale(localeCode.getCode().toLowerCase(Locale.ROOT)));
+            }
+        });
+        return localizedBodyRepo.findAllByPost(post);
+    }
+
+
+
     public LocalizedBody get(Locale locale, Post post) {
         LocalizedBody localizedBody = localizedBodyRepo.findFirstByLocaleCodeAndPost(localeCodeService.get(locale.getLanguage()), post);
         if(localizedBody != null) {

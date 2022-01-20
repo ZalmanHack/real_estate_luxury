@@ -1,6 +1,7 @@
 package com.company.realestate.controllers.rest;
 
 import com.company.realestate.assets.domainDtos.PostImageDto;
+import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.assets.requestDtos.RequestDelImage;
 import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
 import com.company.realestate.assets.responseDtos.ResponseUrl;
@@ -56,7 +57,7 @@ public class PostRestController {
     public ResponseEntity<Object> addImage(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
                                            @RequestParam(name = "img") MultipartFile rawImg) {
-        PostImageDto postImageDto = postService.addImage(authUser, post, rawImg);
+        PostImageDto postImageDto = postService.addImage(post, rawImg);
         if(postImageDto == null) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -70,7 +71,7 @@ public class PostRestController {
     public ResponseEntity<Object> delImage(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
                                            @RequestBody RequestDelImage requestDelImage) {
-        if(!postService.delImage(authUser, post, requestDelImage.getImgId())) {
+        if(!postService.delImage(post, requestDelImage.getImgId())) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(null, HttpStatus.OK);
@@ -80,5 +81,13 @@ public class PostRestController {
     @GetMapping("{post}/main_video")
     public ResponseEntity<Object> getByFilter(@PathVariable Post post) {
         return new ResponseEntity<>(postService.getMainVideo(post), HttpStatus.OK);
+    }
+
+    @PostMapping("{post}/save")
+    @PreAuthorize("#authUser.hasPost(#postDto.id) && hasAuthority('USER')")
+    public ResponseEntity<Object> addImage(@AuthenticationPrincipal User authUser,
+                                           @RequestBody PostShortDto postDto) {
+        postService.updateUser(postDto);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

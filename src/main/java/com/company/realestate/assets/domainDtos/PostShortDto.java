@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class PostShortDto {
 
-    private long id;
+    private long    id;
     private boolean premium;
 
     private String locationCityValue;
@@ -23,7 +23,7 @@ public class PostShortDto {
     private List<LocalizedBodyDto> localizedBodies;
 
     // added to PropertyMap
-    private List<String> PostImages;
+    private List<PostImageDto> PostImages;
     // added to PropertyMap
     private String publicationDate;
 

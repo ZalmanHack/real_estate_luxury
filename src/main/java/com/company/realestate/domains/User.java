@@ -90,6 +90,10 @@ public class User implements UserDetails {
         return (Character.toString(lastName.charAt(0)) + firstName.charAt(0)).toUpperCase();
     }
 
+    public boolean hasPost(long postId) {
+        return this.getPosts().stream().anyMatch(post -> post.getId() == postId);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
