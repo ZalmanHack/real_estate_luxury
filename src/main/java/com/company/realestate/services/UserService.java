@@ -1,10 +1,13 @@
 package com.company.realestate.services;
 
+import com.company.realestate.assets.domainDtos.PostImageDto;
 import com.company.realestate.assets.domainDtos.UserDto;
 import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.Role;
+import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.repos.UserRepo;
 import com.company.realestate.utils.CustomSessionLocaleResolver;
+import com.company.realestate.utils.FileUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +19,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -43,6 +48,12 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     CustomSessionLocaleResolver localeResolver;
+
+    @Autowired
+    FileUtils fileUtils;
+
+    @Value("${upload.path.img}")
+    private String pathImg;
 
     @Value("${host.name}")
     String hostName;
@@ -156,4 +167,13 @@ public class UserService implements UserDetailsService {
         return userRepo.findAllCompanyNamesUnique();
     }
 
+    public boolean changeProfileImage(User user, MultipartFile rawImg) {
+        File img = fileUtils.createFileImg(rawImg);
+        if (img == null) {
+            return false;
+        }
+        user.setProfileImage(pathImg + "/" + img.getName());
+        userRepo.save(user);
+        return true;
+    }
 }

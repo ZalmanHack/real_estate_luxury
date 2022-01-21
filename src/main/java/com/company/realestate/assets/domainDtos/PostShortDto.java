@@ -10,10 +10,10 @@ public class PostShortDto {
     private long    id;
     private boolean premium;
 
-    private String locationCityValue;
-    private String locationName;
-    private double locationLatitude;
-    private double locationLongitude;
+    private String cityValue;
+    private String name;
+    private double latitude;
+    private double longitude;
 
     private String realEstateType;
     private String postStatus;

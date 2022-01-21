@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="col d-flex flex-column" id="title_info">
-                        <div class="d-flex flex-column pb-4 px-0" style="flex: 1 1 auto">
+                        <div class="d-flex flex-column pb-3 px-0" style="flex: 1 1 auto">
                             <div class="" style="flex: 1 1 auto">
                                 <h3 class="card-text mb-3">${user.firstName} ${user.lastName}</h3>
                                 <div class="d-flex mb-3">
@@ -49,6 +49,18 @@
                                     </svg>
                                     <p class="card-text">+ ${user.phone}</p>
                                 </div>
+                                <#if security.know &&  security.auth_user.id == user.id>
+                                    <div class="d-flex">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-card-image me-3 mt-1" viewBox="0 0 16 16">
+                                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                            <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"/>
+                                        </svg>
+                                        <span class="btn btn-outline-light border-0 btn-file">
+                                            <input type="file" class="form-control" accept="image/*" id="upload_profile_img_input" aria-describedby="upload_img_button" aria-label="Upload">
+                                            <@spring.message "profile.show.buttons.change_profile_img"/>
+                                        </span>
+                                    </div>
+                                </#if>
                             </div>
                         </div>
 

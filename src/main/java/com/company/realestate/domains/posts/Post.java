@@ -1,6 +1,6 @@
 package com.company.realestate.domains.posts;
 
-import com.company.realestate.domains.Location;
+import com.company.realestate.domains.City;
 import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -31,9 +32,23 @@ public class Post {
     @JoinColumn(name = "userId")
     private User author;
 
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "locationId")
+//    private Location location;
+
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "locationId")
-    private Location location;
+    @JoinColumn(name = "cityId")
+    private City city;
+
+    private double latitude;
+    private double longitude;
+
+    @Length(min = 1, max = 64)
+    @NotBlank
+    private String name;
+
+
+
 
     @Enumerated(EnumType.STRING)
     private RealEstateType realEstateType;

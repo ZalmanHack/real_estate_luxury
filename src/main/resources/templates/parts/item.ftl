@@ -25,8 +25,10 @@
                             <div>
                                 <div class="d-flex flex-row me-auto">
                                     <span class="badge rounded-pill bg-dark mb-2 me-3">${post.realEstateType}</span>
+                                    <span class="badge rounded-pill bg-light text-dark mb-2 me-3">${post.postStatus!''}</span>
+
                                 </div>
-                                <h3 class="card-title">${post.locationName}</h3>
+                                <h3 class="card-title">${post.name}</h3>
                                 <div class="d-flex flex-wrap">
                                     <div class="d-flex me-3 mb-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor">
@@ -84,7 +86,7 @@
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a class="btn btn-outline-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.locationLatitude?double?string("0.######")?replace(",", ".")},+${post.locationLongitude?string("0.######")?replace(",", ".")}" role="button" target="_blank" rel="noopener noreferrer">
+                                    <a class="btn btn-outline-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.latitude?double?string("0.######")?replace(",", ".")},+${post.longitude?string("0.######")?replace(",", ".")}" role="button" target="_blank" rel="noopener noreferrer">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/>
                                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                                         </svg>
@@ -114,6 +116,7 @@
                 <div>
                     <div class="d-flex flex-row me-auto">
                         <span class="badge rounded-pill bg-dark mb-2 me-3" id="card_real_estate_type"></span>
+                        <span class="badge rounded-pill bg-light text-dark mb-2 me-3" id="card_post_status"></span>
                     </div>
                     <h3 class="card-title" id="card_title"></h3>
 

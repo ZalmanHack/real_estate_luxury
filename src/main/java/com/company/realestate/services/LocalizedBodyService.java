@@ -1,9 +1,12 @@
 package com.company.realestate.services;
 
+import com.company.realestate.assets.domainDtos.LocalizedBodyDto;
+import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.domains.LocaleCode;
 import com.company.realestate.domains.posts.LocalizedBody;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.repos.LocalizedBodyRepo;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,8 @@ public class LocalizedBodyService {
     @Autowired
     LocaleCodeService localeCodeService;
 
+    @Autowired
+    ModelMapper modelMapper;
 
     @Value("${language.default}")
     private String languageDefault;
@@ -70,4 +75,16 @@ public class LocalizedBodyService {
         localizedBodyRepo.save(localizedBody);
     }
 
+    public void updateBody(LocalizedBodyDto localizedBody, Post post) {
+        LocalizedBody body = localizedBodyRepo.findFirstByLocaleCodeAndPost(localeCodeService.get(localizedBody.getLocaleCode()), post);
+        if(body != null) {
+            body.setDescription(localizedBody.getDescription());
+            body.setFeatures(localizedBody.getFeatures());
+            localizedBodyRepo.save(body);
+        }
+    }
+
+    public void updateBodies(List<LocalizedBodyDto> localizedBodies, Post post) {
+        localizedBodies.forEach(localizedBodyDto -> updateBody(localizedBodyDto, post));
+    }
 }

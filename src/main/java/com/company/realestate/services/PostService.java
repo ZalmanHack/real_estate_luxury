@@ -4,28 +4,23 @@ import com.company.realestate.assets.domainDtos.PostDto;
 import com.company.realestate.assets.domainDtos.PostImageDto;
 import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
-import com.company.realestate.domains.Location;
 import com.company.realestate.domains.User;
 import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.enums.RealEstateType;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.repos.PostRepo;
-import com.company.realestate.utils.ControllerUtils;
 import com.company.realestate.utils.FileUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -38,9 +33,6 @@ public class PostService {
 
     @Autowired
     CityService cityService;
-
-    @Autowired
-    LocationService locationService;
 
     @Autowired
     PostImageService postImageService;
@@ -124,7 +116,8 @@ public class PostService {
         Post post = new Post();
         post.setPublicationDate(LocalDate.now());
         post.setAuthor(authUser);
-        post.setLocation(locationService.createLocation(post.getPublicationDate().toString()));
+        post.setName(post.getPublicationDate().toString());
+        post.setCity(cityService.getFirstCity());
         post.setPostStatus(PostStatus.DISABLED);
         post.setRealEstateType(RealEstateType.APARTMENT);
         postRepo.save(post);
@@ -132,12 +125,8 @@ public class PostService {
         return post;
     }
 
-    public File loadImage(MultipartFile rawImg) {
-        return fileUtils.createFileImg(rawImg);
-    }
-
     public PostImageDto addImage(Post post, MultipartFile rawImg) {
-        File img = loadImage(rawImg);
+        File img = fileUtils.createFileImg(rawImg);
         if (img == null) {
             return null;
         }
@@ -167,9 +156,25 @@ public class PostService {
         return true;
     }
 
-    public void updateUser(PostShortDto postDto) {
+    public boolean updateUser(PostShortDto postDto) {
+        Post postDb = postRepo.findFirstById(postDto.getId());
+        if(postDb == null) {
+            return false;
+        }
         Post post = modelMapper.map(postDto, Post.class);
-        Location location = locationService.findFirstByName(postDto.getLocationCityValue());
-        System.out.println(post);
+        post.setCity(cityService.getCity(post.getCity().getValue()));
+        post.setMainImage(postDb.getMainImage());
+        post.setMainVideo(postDb.getMainVideo());
+        post.setAuthor(postDb.getAuthor());
+        post.setPublicationDate(postDb.getPublicationDate());
+        post.setPostStatus(PostStatus.MODERATED);
+        postRepo.save(post);
+        localizedBodyService.updateBodies(postDto.getLocalizedBodies(), post);
+        return true;
+    }
+
+    public void setPostStatus(Post post, PostStatus status) {
+        post.setPostStatus(status);
+        postRepo.save(post);
     }
 }

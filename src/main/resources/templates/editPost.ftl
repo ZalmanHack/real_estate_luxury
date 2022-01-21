@@ -4,7 +4,7 @@
 
 <#--Также можно еще:-->
 <#--<#assign title> <@spring.message code="home.title"/> + какой то текст </#assign>-->
-<#assign title><@spring.message code="edit_post.title"/> <@spring.message code="edit_post.title.h1"/> ${post.locationName}</#assign>
+<#assign title><@spring.message code="edit_post.title"/> <@spring.message code="edit_post.title.h1"/> ${post.name}</#assign>
 
 <@common.page title>
     <div class="img_parallax" style="background-image: url('/static/img/bg.jpg');">
@@ -12,14 +12,14 @@
         <div class="block_container dark-50 text-light after_navbar">
             <div class="container_center block">
                 <h1><@spring.message "edit_post.title.h1"/></h1>
-                <h2>"${post.locationName}"</h2>
+                <h2>"${post.name}"</h2>
             </div>
         </div>
     </div>
 
     <div class="block_container">
         <div class="container-xl block">
-            <h2 class="text-start">Загрузка изображений</h2>
+            <h2 class="text-start"><@spring.message "edit_post.title.h2.load_images"/></h2>
             <div class="" id="control_images_container">
 
                 <div class="input-group py-3" id="img_upload_control">
@@ -38,7 +38,7 @@
                         <#list post.postImages as image>
                             <div class="p-3 d-flex flex-column" id="post_image_container_${image.id}">
                                 <img src="${image.image}" id="post_image_${image.id}" alt="">
-                                <button type="button" class="btn btn-outline-danger mt-3" id="btn_delete_img_${image.id}" onclick="deleteImg(event)" >удалить</button>
+                                <button type="button" class="btn btn-outline-danger mt-3" id="btn_delete_img_${image.id}" onclick="deleteImg(event)" ><@spring.message "edit_post.title.buttons.delete"/></button>
                             </div>
                         </#list>
                     </#if>
@@ -49,9 +49,6 @@
         </div>
     </div>
 
-
-
-
     <div class="block_container">
         <div class="container">
             <h2 class="text-start"><@spring.message "edit_post.title.h2.location"/></h2>
@@ -59,12 +56,16 @@
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-3">
                     <label for="inputPrice" class="form-label"><@spring.message "real_estate.group_control.price_from"/></label>
-                    <input name="price"
-                           type="number"
-                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                           value="<#if post??>${post.price}</#if>"
-                           class="form-control"
-                           id="inputPrice">
+                    <div class="input-group">
+                        <input name="price"
+                               type="number"
+                               step="1000"
+                               oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                               value="<#if post??>${post.price?long?c}</#if>"
+                               class="form-control"
+                               id="inputPrice">
+                        <span class="input-group-text">$</span>
+                    </div>
                 </div>
 
                 <div class="col mb-3">
@@ -72,7 +73,7 @@
                     <input name="locationName"
                            type="text"
                            minlength="1" maxlength="26" required
-                           value="<#if post??>${post.locationName}</#if>"
+                           value="<#if post??>${post.name}</#if>"
                            class="form-control ${(firstNameError??)?string("is-invalid","")}"
                            id="inputLocationName">
                     <div class="invalid-feedback">
@@ -84,7 +85,7 @@
                     <select class="form-select w-100" id="dropdownLocationCityValue" aria-label="<@spring.message "real_estate.group_control.dropdown_city"/>">
                         <option value="" selected><@spring.message "real_estate.group_control.dropdown_city"/></option>
                         <#list cities as city>
-                            <option <#if post.locationCityValue == city>selected</#if>>${city}</option>
+                            <option <#if post.cityValue == city>selected</#if>>${city}</option>
                         </#list>
                     </select>
                 </div>
@@ -95,7 +96,8 @@
                     <label for="inputLocationLatitude" class="form-label"><@spring.message "edit_post.title.inputs.location.latitude"/></label>
                     <input name="locationLatitude"
                            type="number"
-                           value="<#if post??>${post.locationLatitude?string("0.######")}</#if>"
+                           step="0.005"
+                           value="<#if post??>${post.latitude?string("0.######")}</#if>"
                            class="form-control"
                            id="inputLocationLatitude">
                 </div>
@@ -104,7 +106,8 @@
                     <label for="inputLocationLongitude" class="form-label"><@spring.message "edit_post.title.inputs.location.longitude"/></label>
                     <input name="locationLongitude"
                            type="number"
-                           value="<#if post??>${post.locationLongitude?string("0.######")}</#if>"
+                           step="0.005"
+                           value="<#if post??>${post.longitude?string("0.######")}</#if>"
                            class="form-control"
                            id="inputLocationLongitude">
                 </div>
@@ -116,9 +119,6 @@
     <div class="block_container">
         <div class="container">
             <h2 class="text-start"><@spring.message "real_estate.show.specifications"/></h2>
-
-
-
             <div class="btn-group d-flex justify-content-center mb-3" id="real_estate_radio_group" role="group">
                 <input type="radio" class="btn-check" name="real_estate_type" id="radio_apartment" autocomplete="off" <#if realEstateType == "APARTMENT">checked</#if>>
                 <label class="btn btn-outline-dark" for="radio_apartment"><@spring.message "real_estate.group_control.apartments"/></label>
@@ -139,18 +139,19 @@
                 <label class="btn btn-outline-dark" for="radio_villa"><@spring.message "real_estate.group_control.villas"/></label>
             </div>
 
-
-
-
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-3">
                     <label for="inputArea" class="form-label"><@spring.message "real_estate.show.specifications.area"/></label>
-                    <input name="area"
-                           type="number"
-                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                           value="<#if post??>${post.area}</#if>"
-                           class="form-control"
-                           id="inputArea">
+                    <div class="input-group">
+                        <input name="area"
+                               type="number"
+                               step="0.5"
+    <#--                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"-->
+                               value="<#if post??>${post.area?double?c}</#if>"
+                               class="form-control"
+                               id="inputArea">
+                        <span class="input-group-text">m.<sup>2</sup></span>
+                    </div>
                 </div>
 
                 <div class="col mb-3">
@@ -254,24 +255,25 @@
                 </div>
 
                 <div class="col mb-3">
-                    <label for="inputBeach" class="form-label"><@spring.message "real_estate.show.specifications.beach"/></label>
-                    <input name="beach"
-                           type="number"
-                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                           value="<#if post??>${post.beach}</#if>"
-                           class="form-control"
-                           id="inputBeach">
+                        <label for="inputBeach" class="form-label"><@spring.message "real_estate.show.specifications.beach"/></label>
+                    <div class="input-group">
+                        <input name="beach"
+                               type="number"
+                               oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                               value="<#if post??>${post.beach}</#if>"
+                               class="form-control"
+                               id="inputBeach">
+                        <span class="input-group-text">m.</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
     <div class="block_container">
         <div class="container-xl block">
 
-            <h2 class="text-start">Описание</h2>
+            <h2 class="text-start"><@spring.message "edit_post.title.h2.description"/></h2>
             <ul class="nav nav-pills nav-justified pb-3" id="locale_description">
                 <#if localizedBodies??>
                     <#assign index=0>
@@ -314,7 +316,7 @@
 
     <div class="block_container">
         <div class="container-xl block">
-            <h2 class="text-start">Особенности</h2>
+            <h2 class="text-start"><@spring.message "edit_post.title.h2.features"/></h2>
             <ul class="nav nav-pills nav-justified pb-3" id="locale_features">
                 <#if localizedBodies??>
                     <#assign index=0>
@@ -351,12 +353,24 @@
             </#if>
 
         </div>
+        </div>
     </div>
 
     <div class="block_container">
-        <div class="container-xl block d-flex justify-content-end row">
-            <button class="btn btn-danger mb-3" type="button">Отключить</button>
-            <button class="btn btn-primary mb-3 ms-3" onclick="savePost(event)" type="submit">Отправить на рассмотрение</button>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3">
+                <div class="col mb-3">
+                    <button class="btn btn-danger mb-3 w-100" onclick="disablePost()" type="button"><@spring.message "edit_post.title.buttons.disable"/></button>
+                </div>
+                <div class="col mb-3">
+                    <button class="btn btn-success mb-3 w-100" onclick="soldOutPost()" type="button"><@spring.message "edit_post.title.buttons.sold_out"/></button>
+                </div>
+                <div class="col mb-3">
+                    <button class="btn btn-primary mb-3 w-100" onclick="savePost(event)" type="submit"><@spring.message "edit_post.title.buttons.submit"/></button>
+                </div>
+        <#--        <div class="container-xl block d-flex justify-content-end row">-->
+        <#--        </div>-->
+            </div>
         </div>
     </div>
 

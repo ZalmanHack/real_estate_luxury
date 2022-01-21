@@ -6,6 +6,7 @@ import com.company.realestate.assets.requestDtos.RequestDelImage;
 import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
 import com.company.realestate.assets.responseDtos.ResponseUrl;
 import com.company.realestate.domains.User;
+import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.posts.Post;
 import com.company.realestate.domains.posts.PostImage;
 import com.company.realestate.services.LocaleCodeService;
@@ -84,10 +85,29 @@ public class PostRestController {
     }
 
     @PostMapping("{post}/save")
-    @PreAuthorize("#authUser.hasPost(#postDto.id) && hasAuthority('USER')")
-    public ResponseEntity<Object> addImage(@AuthenticationPrincipal User authUser,
+    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    public ResponseEntity<Object> save(@AuthenticationPrincipal User authUser,
+                                           @PathVariable Post post,
                                            @RequestBody PostShortDto postDto) {
-        postService.updateUser(postDto);
+        if(!postService.updateUser(postDto)) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping("{post}/disable")
+    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    public ResponseEntity<Object> disable(@AuthenticationPrincipal User authUser,
+                                           @PathVariable Post post) {
+        postService.setPostStatus(post, PostStatus.DISABLED);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping("{post}/sold_out")
+    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    public ResponseEntity<Object> soldOut(@AuthenticationPrincipal User authUser,
+                                           @PathVariable Post post) {
+        postService.setPostStatus(post, PostStatus.SOLD_OUT);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

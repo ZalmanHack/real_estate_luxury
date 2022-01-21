@@ -166,9 +166,13 @@ function create_real_estate_item(data, item_template, table_template, item_image
     real_estate_type.id += "_" + data.id;
     real_estate_type.innerHTML = data.realEstateType;
 
+    let post_status = item.getElementById("card_post_status");
+    post_status.id += "_" + data.id;
+    post_status.innerHTML = data.postStatus;
+
     let title = item.getElementById("card_title");
     title.id += "_" + data.id;
-    title.innerHTML = data.locationName;
+    title.innerHTML = data.name;
 
     let area = item.getElementById("card_area");
     area.id += "_" + data.id;
@@ -207,7 +211,7 @@ function create_real_estate_item(data, item_template, table_template, item_image
     let card_map = item.getElementById("card_map");
     card_map.id += "_" + data.id;
 
-    card_map.href = "https://www.google.com/maps/search/" + data.locationLatitude + ",+" + data.locationLongitude;
+    card_map.href = "https://www.google.com/maps/search/" + data.latitude + ",+" + data.longitude;
 
     return item;
 }

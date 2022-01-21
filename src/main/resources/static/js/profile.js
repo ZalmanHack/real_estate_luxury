@@ -50,3 +50,36 @@ function newPost(event) {
         };
         xhr.send(null);
 }
+
+window.addEventListener("load", () => {
+    let btn_profile_image = document.getElementById('upload_profile_img_input');
+    if(btn_profile_image) {
+        btn_profile_image.addEventListener('change', function () {
+            console.log("IMAGE");
+            if (!this.files[0]) {
+                return;
+            }
+            if (this.files[0].size / 1024 / 1024 > 2) {
+                return;
+            }
+
+            if (this.files && this.files[0]) {
+                const locationArray = getPath();
+                const user_id = locationArray[locationArray.length - 2];
+                let formData = new FormData();
+                formData.append("img", this.files[0]);
+                let csrf = get_csrf();
+                let url = "/api/users/" + user_id + "/change_profile_img";
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader(csrf.header, csrf.token);
+                xhr.onload = () => {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        location.reload();
+                    }
+                };
+                xhr.send(formData);
+            }
+        });
+    }
+})

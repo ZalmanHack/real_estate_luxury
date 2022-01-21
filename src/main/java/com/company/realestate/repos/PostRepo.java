@@ -22,9 +22,9 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     @Query(value = "SELECT P FROM Post as P " +
             "   where P.postStatus = :status AND" +
             "         P.realEstateType = :realEstateType AND" +
-            "         LOWER(P.location.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
+            "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
             "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
-            "         LOWER(P.location.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
+            "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to")
     Page<Post> findPostsWithPagination(
                                     @Param("status") PostStatus status,
@@ -38,9 +38,9 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     @Query(value = "SELECT P FROM Post as P " +
             "   where P.postStatus = :status AND " +
-            "         LOWER(P.location.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
+            "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
             "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
-            "         LOWER(P.location.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
+            "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to")
     Page<Post> findPostsWithPagination(
                                        @Param("status") PostStatus status,
@@ -53,4 +53,6 @@ public interface PostRepo extends CrudRepository<Post, Long> {
 
     @Query(value = "SELECT P.price FROM Post as P ORDER BY P.price DESC LIMIT 1", nativeQuery = true)
     Long findMaxPrice();
+
+    Post findFirstById(long id);
 }

@@ -1,4 +1,10 @@
+window.addEventListener("resize", resizeToRealEstateControl);
+window.addEventListener("load", resizeToRealEstateControl);
+window.addEventListener("scroll", resizeToRealEstateControl);
+
 window.addEventListener('load', function() {
+    window.scrollTo(0, 0);
+
     let control_images_container = document.getElementById("control_images_container");
     let images_container = document.getElementById("images_container");
     let img_upload_progress_container = document.getElementById("img_upload_progress_container");
@@ -7,10 +13,10 @@ window.addEventListener('load', function() {
     let post_image_template = document.getElementById("post_image_template");
     document.getElementById('upload_img_input').addEventListener('change', function() {
         let uploaded_images = control_images_container.getElementsByTagName("img");
-        if(uploaded_images.length > 10) {
-            console.log("Кол-во элементов > 10");
-            return;
-        }
+        // if(uploaded_images.length > 10) {
+        //     console.log("Кол-во элементов > 10");
+        //     return;
+        // }
         if(!this.files[0]) {
             return;
         }
@@ -51,6 +57,33 @@ window.addEventListener('load', function() {
     });
 });
 
+function createPostImageItem(data, post_image_template, images_container) {
+    let img_item = post_image_template.content.cloneNode(true);
+    let container = img_item.getElementById("post_image_container");
+    container.id += "_" + data.id;
+    let img = img_item.getElementById("post_image");
+    img.id += "_" + data.id;
+    img.src = data.image;
+    let btn_delete = img_item.getElementById("btn_delete_img");
+    btn_delete.id += "_" + data.id;
+    images_container.appendChild(img_item);
+}
+
+function resizeToRealEstateControl() {
+    let radio_group = document.getElementById("real_estate_radio_group");
+    if(radio_group) {
+        if(window.innerWidth <= 575.98) {
+            console.log(1)
+            radio_group.classList.remove("btn-group");
+            radio_group.classList.add("btn-group-vertical");
+        } else {
+            console.log(window.innerWidth)
+            radio_group.classList.add("btn-group");
+            radio_group.classList.remove("btn-group-vertical");
+        }
+    }
+}
+
 function deleteImg(event) {
     const locationArray = getPath();
     const post_id = locationArray[locationArray.length - 2];
@@ -73,18 +106,6 @@ function deleteImg(event) {
     xhr.send(JSON.stringify({
         "imgId": post_img_id
     }));
-}
-
-function createPostImageItem(data, post_image_template, images_container) {
-    let img_item = post_image_template.content.cloneNode(true);
-    let container = img_item.getElementById("post_image_container");
-    container.id += "_" + data.id;
-    let img = img_item.getElementById("post_image");
-    img.id += "_" + data.id;
-    img.src = data.image;
-    let btn_delete = img_item.getElementById("btn_delete_img");
-    btn_delete.id += "_" + data.id;
-    images_container.appendChild(img_item);
 }
 
 function changeProgressBar(percent, element) {
@@ -130,8 +151,8 @@ function savePost() {
         const locale = array_id[array_id.length - 1];
         localizedBodies.push({
             localeCode: locale,
-            description: document.getElementById("input_description_" + locale).innerHTML,
-            features: document.getElementById("input_features_" + locale).innerHTML
+            description: document.getElementById("input_description_" + locale).innerHTML.replace(/ +(?= )/g,''),
+            features: document.getElementById("input_features_" + locale).innerHTML.replace(/ +(?= )/g,'')
         })
     });
 
@@ -146,19 +167,18 @@ function savePost() {
     xhr.setRequestHeader(csrf.header, csrf.token);
     xhr.onload = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(true);
-        } else {
-            console.log(false);
+            location.href = "/real_estate/" + postId + "/show";
         }
     }
 
     xhr.send(JSON.stringify({
         id: postId,
-        locationCityValue: document.getElementById("dropdownLocationCityValue").value,
-        locationName: document.getElementById("inputLocationName").value,
-        locationLatitude: document.getElementById("inputLocationLatitude").value,
-        locationLongitude: document.getElementById("inputLocationLongitude").value,
-        realEstateType: document.querySelector('input[name="real_estate_type"]:checked').id.split("_")[1],
+        price: document.getElementById("inputPrice").value,
+        cityValue: document.getElementById("dropdownLocationCityValue").value,
+        name: document.getElementById("inputLocationName").value,
+        latitude: document.getElementById("inputLocationLatitude").value,
+        longitude: document.getElementById("inputLocationLongitude").value,
+        realEstateType: document.querySelector('input[name="real_estate_type"]:checked').id.split("_")[1].toUpperCase(),
         area: document.getElementById("inputArea").value,
         bedrooms: document.getElementById("inputBedrooms").value,
         bathrooms: document.getElementById("inputBathrooms").value,
@@ -173,4 +193,31 @@ function savePost() {
         beach: document.getElementById("inputBeach").value,
         localizedBodies: localizedBodies
     }));
+}
+
+function disablePost() {
+    changePostStatus("disable");
+}
+
+function soldOutPost() {
+    changePostStatus("sold_out");
+}
+
+function changePostStatus(status) {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    let csrf = get_csrf();
+    let url = "/api/posts/" + postId + "/" + status;
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader(csrf.header, csrf.token);
+    xhr.onload = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            location.href = "/real_estate/" + postId + "/show";
+            console.log(true);
+        } else {
+            console.log(false);
+        }
+    }
+    xhr.send(null);
 }

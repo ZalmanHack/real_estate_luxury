@@ -24,19 +24,6 @@ public class HomeController {
         System.out.println("Home: " + locale.getLanguage());
         System.out.println("HOME");
 
-//        User user = new User();
-//        user.setUsername("admin");
-//        user.setFirst_name("admin");
-//        user.setLast_name("admin");
-//        user.setPassword("admin");
-//        user.setEmail("admin@mail.ru");
-//        userRepo.save(user);
-//
-//        Post post = new Post();
-//        post.setAuthor(user);
-//        post.setDescription("Описание 1");
-//        postRepo.save(post);
-
         Iterable<User> users = userRepo.findAll();
         for(User user : users) {
             System.out.println(user.toString());
