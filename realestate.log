@@ -1,0 +1,200 @@
+2022-01-21 16:47:22.831  INFO 26596 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 26596 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 16:47:22.835  INFO 26596 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 16:47:24.095  INFO 26596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 16:47:24.205  INFO 26596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 9 JPA repository interfaces.
+2022-01-21 16:47:24.992  INFO 26596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 16:47:25.005  INFO 26596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 16:47:25.005  INFO 26596 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 16:47:25.157  INFO 26596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 16:47:25.158  INFO 26596 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2238 ms
+2022-01-21 16:47:25.478  INFO 26596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 16:47:26.757  INFO 26596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 16:47:26.786  INFO 26596 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 16:47:26.786  INFO 26596 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 16:47:26.847  INFO 26596 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.034s)
+2022-01-21 16:47:26.856  INFO 26596 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 16:47:26.857  INFO 26596 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 16:47:27.012  INFO 26596 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 16:47:27.104  INFO 26596 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 16:47:27.387  INFO 26596 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 16:47:27.601  INFO 26596 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 16:47:28.785  INFO 26596 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 16:47:28.799  INFO 26596 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 16:47:29.343  WARN 26596 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 16:47:30.671  INFO 26596 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70ed902a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b7e4b20, org.springframework.security.web.header.HeaderWriterFilter@2052f095, org.springframework.security.web.csrf.CsrfFilter@71418a4a, org.springframework.security.web.authentication.logout.LogoutFilter@73958426, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4ce18cec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fefc5ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c13af01, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22f80e36, org.springframework.security.web.session.SessionManagementFilter@55fe9c2f, org.springframework.security.web.access.ExceptionTranslationFilter@6ab1f85b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28cf179c]
+2022-01-21 16:47:32.551  INFO 26596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 16:47:32.563  INFO 26596 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 10.393 seconds (JVM running for 12.294)
+2022-01-21 16:47:33.779  INFO 26596 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 16:47:33.780  INFO 26596 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 16:47:33.786  INFO 26596 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-01-21 16:52:31.358  INFO 25632 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 25632 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 16:52:31.363  INFO 25632 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 16:52:32.268  INFO 25632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 16:52:32.362  INFO 25632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 9 JPA repository interfaces.
+2022-01-21 16:52:33.039  INFO 25632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 16:52:33.046  INFO 25632 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 16:52:33.046  INFO 25632 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 16:52:33.180  INFO 25632 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 16:52:33.181  INFO 25632 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1758 ms
+2022-01-21 16:52:33.503  INFO 25632 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 16:52:34.303  INFO 25632 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 16:52:34.320  INFO 25632 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 16:52:34.320  INFO 25632 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 16:52:34.362  INFO 25632 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.025s)
+2022-01-21 16:52:34.369  INFO 25632 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 16:52:34.369  INFO 25632 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 16:52:34.473  INFO 25632 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 16:52:34.536  INFO 25632 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 16:52:34.686  INFO 25632 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 16:52:34.808  INFO 25632 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 16:52:35.615  INFO 25632 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 16:52:35.625  INFO 25632 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 16:52:36.012  WARN 25632 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 16:52:37.188  INFO 25632 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ba1c1a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@718ad3a6, org.springframework.security.web.header.HeaderWriterFilter@7977f046, org.springframework.security.web.csrf.CsrfFilter@36330be8, org.springframework.security.web.authentication.logout.LogoutFilter@3dd591b9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3d7314b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50d666a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a06eeef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33568e26, org.springframework.security.web.session.SessionManagementFilter@441aa7ae, org.springframework.security.web.access.ExceptionTranslationFilter@19c1f6f4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29ea5e0]
+2022-01-21 16:52:39.008  INFO 25632 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 16:52:39.018  INFO 25632 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 8.204 seconds (JVM running for 9.563)
+2022-01-21 16:52:42.897  INFO 25632 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 16:52:42.897  INFO 25632 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 16:52:42.899  INFO 25632 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-21 17:02:29.024  INFO 8696 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 8696 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 17:02:29.028  INFO 8696 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 17:02:30.157  INFO 8696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:02:30.267  INFO 8696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 9 JPA repository interfaces.
+2022-01-21 17:02:31.118  INFO 8696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 17:02:31.127  INFO 8696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:02:31.127  INFO 8696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 17:02:31.259  INFO 8696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:02:31.259  INFO 8696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2176 ms
+2022-01-21 17:02:31.689  INFO 8696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:02:32.720  INFO 8696 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 17:02:32.744  INFO 8696 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 17:02:32.744  INFO 8696 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 17:02:32.804  INFO 8696 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.032s)
+2022-01-21 17:02:32.817  INFO 8696 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 17:02:32.817  INFO 8696 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 17:02:32.935  INFO 8696 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 17:02:32.981  INFO 8696 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 17:02:33.209  INFO 8696 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 17:02:33.365  INFO 8696 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 17:02:34.366  INFO 8696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 17:02:34.380  INFO 8696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:02:34.814  WARN 8696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:02:36.231  INFO 8696 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13d5606c, org.springframework.security.web.context.SecurityContextPersistenceFilter@37142579, org.springframework.security.web.header.HeaderWriterFilter@7b7e4b20, org.springframework.security.web.csrf.CsrfFilter@106802ea, org.springframework.security.web.authentication.logout.LogoutFilter@7921a37d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b5aa48b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@86bf90b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4888d1ea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bf54260, org.springframework.security.web.session.SessionManagementFilter@6fefc5ea, org.springframework.security.web.access.ExceptionTranslationFilter@76d1f6ea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2a9f8d47]
+2022-01-21 17:02:37.884  INFO 8696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 17:02:37.898  INFO 8696 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 9.482 seconds (JVM running for 10.953)
+2022-01-21 17:02:38.022  INFO 8696 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:02:38.022  INFO 8696 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:02:38.024  INFO 8696 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-21 17:03:19.998  INFO 2704 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 2704 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 17:03:20.004  INFO 2704 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 17:03:20.963  INFO 2704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:03:21.068  INFO 2704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 9 JPA repository interfaces.
+2022-01-21 17:03:21.865  INFO 2704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 17:03:21.873  INFO 2704 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:03:21.873  INFO 2704 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 17:03:22.006  INFO 2704 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:03:22.007  INFO 2704 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1941 ms
+2022-01-21 17:03:22.343  INFO 2704 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:03:23.158  INFO 2704 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 17:03:23.176  INFO 2704 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 17:03:23.176  INFO 2704 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 17:03:23.221  INFO 2704 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.026s)
+2022-01-21 17:03:23.229  INFO 2704 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 17:03:23.230  INFO 2704 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 17:03:23.341  INFO 2704 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 17:03:23.385  INFO 2704 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 17:03:23.543  INFO 2704 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 17:03:23.679  INFO 2704 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 17:03:24.543  INFO 2704 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 17:03:24.554  INFO 2704 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:03:24.954  WARN 2704 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:03:26.199  INFO 2704 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5709e10b, org.springframework.security.web.context.SecurityContextPersistenceFilter@1031c1a0, org.springframework.security.web.header.HeaderWriterFilter@264576e4, org.springframework.security.web.csrf.CsrfFilter@4ff0706c, org.springframework.security.web.authentication.logout.LogoutFilter@415262a0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@713e49c3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4888d1ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31dbf5bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@114badf0, org.springframework.security.web.session.SessionManagementFilter@5c13af01, org.springframework.security.web.access.ExceptionTranslationFilter@6fefc5ea, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70ed902a]
+2022-01-21 17:03:27.897  INFO 2704 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 17:03:27.908  INFO 2704 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 8.49 seconds (JVM running for 9.876)
+2022-01-21 17:03:31.625  INFO 2704 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:03:31.626  INFO 2704 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:03:31.631  INFO 2704 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-01-21 17:19:05.137  INFO 25412 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 25412 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 17:19:05.143  INFO 25412 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 17:19:06.058  INFO 25412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:19:06.153  INFO 25412 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 9 JPA repository interfaces.
+2022-01-21 17:19:06.839  INFO 25412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 17:19:06.848  INFO 25412 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:19:06.848  INFO 25412 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 17:19:06.973  INFO 25412 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:19:06.974  INFO 25412 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1754 ms
+2022-01-21 17:19:07.302  INFO 25412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:19:08.174  INFO 25412 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 17:19:08.199  INFO 25412 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 17:19:08.199  INFO 25412 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 17:19:08.247  INFO 25412 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.028s)
+2022-01-21 17:19:08.255  INFO 25412 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 17:19:08.256  INFO 25412 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 17:19:08.368  INFO 25412 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 17:19:08.421  INFO 25412 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 17:19:08.595  INFO 25412 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 17:19:08.728  INFO 25412 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 17:19:09.566  INFO 25412 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 17:19:09.578  INFO 25412 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:19:10.013  WARN 25412 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:19:11.582  INFO 25412 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51297528, org.springframework.security.web.context.SecurityContextPersistenceFilter@2052f095, org.springframework.security.web.header.HeaderWriterFilter@4d0abb23, org.springframework.security.web.csrf.CsrfFilter@3aab42d6, org.springframework.security.web.authentication.logout.LogoutFilter@36330be8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6a38e3d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@55fe9c2f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6159fb3c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d3f8661, org.springframework.security.web.session.SessionManagementFilter@10e8c7a2, org.springframework.security.web.access.ExceptionTranslationFilter@6968bb65, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@188bf4d8]
+2022-01-21 17:19:13.216  INFO 25412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 17:19:13.226  INFO 25412 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 8.628 seconds (JVM running for 10.023)
+2022-01-21 17:24:09.731  INFO 25412 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:24:09.731  INFO 25412 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:24:09.733  INFO 25412 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-01-21 17:26:15.655  INFO 26076 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 26076 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 17:26:15.659  INFO 26076 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 17:26:16.668  INFO 26076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:26:16.770  INFO 26076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 9 JPA repository interfaces.
+2022-01-21 17:26:17.514  INFO 26076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 17:26:17.523  INFO 26076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:26:17.524  INFO 26076 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 17:26:17.657  INFO 26076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:26:17.658  INFO 26076 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1932 ms
+2022-01-21 17:26:18.022  INFO 26076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:26:18.875  INFO 26076 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 17:26:18.895  INFO 26076 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 17:26:18.895  INFO 26076 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 17:26:18.941  INFO 26076 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.025s)
+2022-01-21 17:26:18.950  INFO 26076 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 17:26:18.951  INFO 26076 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 17:26:19.053  INFO 26076 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 17:26:19.120  INFO 26076 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 17:26:19.295  INFO 26076 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 17:26:19.421  INFO 26076 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 17:26:20.383  INFO 26076 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 17:26:20.392  INFO 26076 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:26:20.819  WARN 26076 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:26:22.093  INFO 26076 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1df9f7c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@55fe9c2f, org.springframework.security.web.header.HeaderWriterFilter@10e8c7a2, org.springframework.security.web.csrf.CsrfFilter@5939f047, org.springframework.security.web.authentication.logout.LogoutFilter@41f23499, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@bdda8a7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e19b30, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37142579, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b5aa48b, org.springframework.security.web.session.SessionManagementFilter@4544ab46, org.springframework.security.web.access.ExceptionTranslationFilter@2d2af12e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6528d339]
+2022-01-21 17:26:23.706  INFO 26076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 17:26:23.716  INFO 26076 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 8.673 seconds (JVM running for 10.075)
+2022-01-21 17:26:35.532  INFO 26076 --- [https-jsse-nio-8443-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:26:35.532  INFO 26076 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:26:35.534  INFO 26076 --- [https-jsse-nio-8443-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-21 17:41:43.978  INFO 3764 --- [main] c.c.realestate.RealestateApplication     : Starting RealestateApplication using Java 1.8.0_202 on DELL-Inspiron-7577 with PID 3764 (C:\Users\zalma\IdeaProjects\realestate\target\classes started by zalma in C:\Users\zalma\IdeaProjects\realestate)
+2022-01-21 17:41:43.981  INFO 3764 --- [main] c.c.realestate.RealestateApplication     : The following profiles are active: dev
+2022-01-21 17:41:45.034  INFO 3764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:41:45.131  INFO 3764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 9 JPA repository interfaces.
+2022-01-21 17:41:45.900  INFO 3764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8443 (https)
+2022-01-21 17:41:45.912  INFO 3764 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:41:45.912  INFO 3764 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-01-21 17:41:46.045  INFO 3764 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:41:46.046  INFO 3764 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2012 ms
+2022-01-21 17:41:46.375  INFO 3764 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:41:47.187  INFO 3764 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-01-21 17:41:47.207  INFO 3764 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.4 by Redgate
+2022-01-21 17:41:47.207  INFO 3764 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/RealEstate (PostgreSQL 13.2)
+2022-01-21 17:41:47.267  INFO 3764 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.035s)
+2022-01-21 17:41:47.279  INFO 3764 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "main": 3
+2022-01-21 17:41:47.280  INFO 3764 --- [main] o.f.core.internal.command.DbMigrate      : Schema "main" is up to date. No migration necessary.
+2022-01-21 17:41:47.391  INFO 3764 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-01-21 17:41:47.446  INFO 3764 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.1.Final
+2022-01-21 17:41:47.613  INFO 3764 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-01-21 17:41:47.778  INFO 3764 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-01-21 17:41:48.745  INFO 3764 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-01-21 17:41:48.759  INFO 3764 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:41:49.243  WARN 3764 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:41:50.553  INFO 3764 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@fefb66c, org.springframework.security.web.context.SecurityContextPersistenceFilter@50d666a2, org.springframework.security.web.header.HeaderWriterFilter@441aa7ae, org.springframework.security.web.csrf.CsrfFilter@41f23499, org.springframework.security.web.authentication.logout.LogoutFilter@7e8c58fd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3292eff7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1859e55c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dd66ff5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d7556a8, org.springframework.security.web.session.SessionManagementFilter@53079ae6, org.springframework.security.web.access.ExceptionTranslationFilter@3d02ff64, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2b1e9f]
+2022-01-21 17:41:52.356  INFO 3764 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8443 (https) with context path ''
+2022-01-21 17:41:52.365  INFO 3764 --- [main] c.c.realestate.RealestateApplication     : Started RealestateApplication in 9.06 seconds (JVM running for 10.575)

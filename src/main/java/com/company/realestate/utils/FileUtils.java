@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -29,13 +31,16 @@ public class FileUtils {
                 if(!uploadDir.exists() && !uploadDir.mkdir()) {
                     return null;
                 }
-                java.lang.String resultFileName = UUID.randomUUID().toString();
+
+                List<String > fileNameArr = Arrays.asList(raw.getOriginalFilename().split("\\."));
+                java.lang.String resultFileName = UUID.randomUUID().toString() + "." + fileNameArr.get(fileNameArr.size() - 1);
                 File img = new File(uploadDir.getPath() + "/" + resultFileName);
                 raw.transferTo(img);
                 return img;
             }
             return null;
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -52,6 +57,7 @@ public class FileUtils {
         try {
             return Files.deleteIfExists(Paths.get(uploadPath + path));
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

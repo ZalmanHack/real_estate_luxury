@@ -31,7 +31,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.apartments"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=apartment" class="stretched-link hide"></a>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.houses"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=house" class="stretched-link hide"></a>
                     </div>
                 </div>
 
@@ -49,7 +49,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.villas"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=villa" class="stretched-link hide"></a>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.land"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=land" class="stretched-link hide"></a>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.ready_business"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=business" class="stretched-link hide"></a>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.rent"/></h5>
-                        <a href="#" class="stretched-link hide"></a>
+                        <a href="/real_estate?real_estate_type=rent" class="stretched-link hide"></a>
                     </div>
                 </div>
             </div>
