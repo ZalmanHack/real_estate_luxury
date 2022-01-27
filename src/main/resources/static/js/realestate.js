@@ -17,11 +17,6 @@ function init() {
     let input_price_from = document.getElementById("input_price_from");
     let input_price_to = document.getElementById("input_price_to");
 
-    setParameterByName("price_from", input_price_from.value);
-    setParameterByName("price_to", input_price_to.value);
-    setParameterByName("company_name", dropdown_company_name.value);
-    setParameterByName("post_status", dropdown_post_status.value);
-
     input_search_name.value = getParameterByName("name");
 
     if(getParameterByName("city")) {
@@ -59,7 +54,10 @@ function init() {
         input_price_to.value = getParameterByName("price_to");
     }
 
-
+    setParameterByName("price_from", input_price_from.value);
+    setParameterByName("price_to", input_price_to.value);
+    setParameterByName("company_name", dropdown_company_name.value);
+    setParameterByName("post_status", dropdown_post_status.value);
 
     input_search_name.addEventListener("change", (e) => {
         setParameterByName("name", e.target.value);
@@ -133,7 +131,7 @@ function findRealEstate() {
             document.getElementById("real_estate_loader").remove();
         };
         xhr.send(JSON.stringify({
-            "size": 25,
+            "size": 10000,
             "page": 0,
             "city": getParameterByName("city"),
             "company_name": getParameterByName("company_name"),

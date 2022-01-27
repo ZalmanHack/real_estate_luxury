@@ -20,12 +20,13 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     List<Post> findAllByPostStatusAndPremium(PostStatus status, boolean premium);
 
     @Query(value = "SELECT P FROM Post as P " +
-            "   where P.postStatus = :status AND" +
+            "   WHERE P.postStatus = :status AND" +
             "         P.realEstateType = :realEstateType AND" +
             "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
             "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
             "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
-            "         P.price                      BETWEEN :price_from AND :price_to")
+            "         P.price                      BETWEEN :price_from AND :price_to" +
+            "   ORDER BY P.publicationDate DESC")
     Page<Post> findPostsWithPagination(
                                     @Param("status") PostStatus status,
                                     @Param("city") String city,
@@ -37,11 +38,12 @@ public interface PostRepo extends CrudRepository<Post, Long> {
                                     Pageable pageable);
 
     @Query(value = "SELECT P FROM Post as P " +
-            "   where P.postStatus = :status AND " +
+            "   WHERE P.postStatus = :status AND " +
             "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
             "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
             "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
-            "         P.price                      BETWEEN :price_from AND :price_to")
+            "         P.price                      BETWEEN :price_from AND :price_to" +
+            "   ORDER BY P.publicationDate DESC")
     Page<Post> findPostsWithPagination(
                                        @Param("status") PostStatus status,
                                        @Param("city") String city,

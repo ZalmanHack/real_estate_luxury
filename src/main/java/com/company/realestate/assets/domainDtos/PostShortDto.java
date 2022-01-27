@@ -39,6 +39,9 @@ public class PostShortDto {
     private short tennis;
     private short mall;
     private short beach;
+    private short kitchen;
+    private short livingRoom;
+    private short barbecueArea;
 
     private long price;
 }

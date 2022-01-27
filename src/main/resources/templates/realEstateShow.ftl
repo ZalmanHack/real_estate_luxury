@@ -107,54 +107,96 @@
         <div class="container">
             <h2 class="text-start"><@spring.message "real_estate.show.specifications"/></h2>
             <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-3">
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.area"/></p>
-                    <p>${post.area} m.<sup>2</sup></p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.beach"/></p>
-                    <p>${post.beach} m.</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.bedrooms"/></p>
-                    <p>${post.bedrooms}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.bathrooms"/></p>
-                    <p>${post.bathrooms}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.guest_bathrooms"/></p>
-                    <p>${post.guestBathrooms}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.swimming_pool"/></p>
-                    <p>${post.swimmingPool}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.terrace"/></p>
-                    <p>${post.terrace}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.parking"/></p>
-                    <p>${post.parking}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.mall"/></p>
-                    <p>${post.mall}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.gym"/></p>
-                    <p>${post.gym}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.golf"/></p>
-                    <p>${post.golf}</p>
-                </div>
-                <div class="col d-flex flex-row">
-                    <p class="me-auto"><@spring.message "real_estate.show.specifications.tennis"/></p>
-                    <p>${post.tennis}</p>
-                </div>
+                <#if post.area! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.area"/></p>
+                        <p>${post.area} m.<sup>2</sup></p>
+                    </div>
+                </#if>
+                <#if post.beach! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.beach"/></p>
+                        <p>${post.beach} m.</p>
+                    </div>
+                </#if>
+                <#if post.bedrooms! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.bedrooms"/></p>
+                        <p>${post.bedrooms}</p>
+                    </div>
+                </#if>
+                <#if post.bathrooms! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.bathrooms"/></p>
+                        <p>${post.bathrooms}</p>
+                    </div>
+                </#if>
+                <#if post.guestBathrooms! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.guest_bathrooms"/></p>
+                        <p>${post.guestBathrooms}</p>
+                    </div>
+                </#if>
+                <#if post.kitchen! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.kitchen"/></p>
+                        <p>${post.kitchen}</p>
+                    </div>
+                </#if>
+                <#if post.livingRoom! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.living_room"/></p>
+                        <p>${post.livingRoom}</p>
+                    </div>
+                </#if>
+                <#if post.swimmingPool! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.swimming_pool"/></p>
+                        <p>${post.swimmingPool}</p>
+                    </div>
+                </#if>
+                <#if post.terrace! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.terrace"/></p>
+                        <p>${post.terrace}</p>
+                    </div>
+                </#if>
+                <#if post.parking! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.parking"/></p>
+                        <p>${post.parking}</p>
+                    </div>
+                </#if>
+                <#if post.barbecueArea! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.barbecue_area"/></p>
+                        <p>${post.barbecueArea}</p>
+                    </div>
+                </#if>
+                <#if post.mall! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.mall"/></p>
+                        <p>${post.mall}</p>
+                    </div>
+                </#if>
+                <#if post.gym! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.gym"/></p>
+                        <p>${post.gym}</p>
+                    </div>
+                </#if>
+                <#if post.golf! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.golf"/></p>
+                        <p>${post.golf}</p>
+                    </div>
+                </#if>
+                <#if post.tennis! gt 0>
+                    <div class="col d-flex flex-row">
+                        <p class="me-auto"><@spring.message "real_estate.show.specifications.tennis"/></p>
+                        <p>${post.tennis}</p>
+                    </div>
+                </#if>
             </div>
         </div>
     </div>

@@ -191,6 +191,9 @@ function savePost() {
         tennis: document.getElementById("inputTennis").value,
         mall: document.getElementById("inputMall").value,
         beach: document.getElementById("inputBeach").value,
+        kitchen: document.getElementById("inputKitchen").value,
+        livingRoom: document.getElementById("inputLivingRoom").value,
+        barbecueArea: document.getElementById("inputBarbecueArea").value,
         localizedBodies: localizedBodies
     }));
 }

@@ -32,10 +32,6 @@ public class Post {
     @JoinColumn(name = "userId")
     private User author;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "locationId")
-//    private Location location;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "cityId")
     private City city;
@@ -46,9 +42,6 @@ public class Post {
     @Length(min = 1, max = 64)
     @NotBlank
     private String name;
-
-
-
 
     @Enumerated(EnumType.STRING)
     private RealEstateType realEstateType;
@@ -84,6 +77,10 @@ public class Post {
     private short tennis;
     private short mall;
     private short beach;
+
+    private short kitchen;
+    private short livingRoom;
+    private short barbecueArea;
 
     private long price;
 

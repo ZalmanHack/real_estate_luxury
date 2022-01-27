@@ -68,10 +68,7 @@ public class UserService implements UserDetailsService {
                         post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post))));
                     });
                     return modelMapper.map(user, UserDto.class);
-                })
-                .collect(Collectors.toList());
-
-//        return  userRepo.findAll().stream().map(user -> modelMapper.map(user, UserDto.class)).collect(Collectors.toList());
+                }).collect(Collectors.toList());
     }
 
     public Page<UserDto> getAllPageDto(Locale locale, Pageable pageable) {
@@ -80,8 +77,7 @@ public class UserService implements UserDetailsService {
                 .getContent()
                 .stream()
                 .map(user -> {
-                    user.getPosts().forEach(post ->
-                            post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post)))));
+                    user.getPosts().forEach(post -> post.setLocalizedBodies(new ArrayList<>(Collections.singletonList(localizedBodyService.get(locale, post)))));
                     return modelMapper.map(user, UserDto.class);
                 }).collect(Collectors.toList()), pageable, users.getTotalElements());
     }

@@ -126,7 +126,7 @@
                 <input type="radio" class="btn-check" name="real_estate_type" id="radio_house" autocomplete="off" <#if realEstateType == "HOUSE">checked</#if>>
                 <label class="btn btn-outline-dark" for="radio_house"><@spring.message "real_estate.group_control.houses"/></label>
 
-                <input type="radio" class="btn-check" name="real_estate_type" id="radio_land" autocomplete="off <#if realEstateType == "LAND">checked</#if>">
+                <input type="radio" class="btn-check" name="real_estate_type" id="radio_land" autocomplete="off" <#if realEstateType == "LAND">checked</#if>>
                 <label class="btn btn-outline-dark" for="radio_land"><@spring.message "real_estate.group_control.land"/></label>
 
                 <input type="radio" class="btn-check" name="real_estate_type" id="radio_business" autocomplete="off" <#if realEstateType == "BUSINESS">checked</#if>>
@@ -185,6 +185,26 @@
                 </div>
 
                 <div class="col mb-3">
+                    <label for="inputKitchen" class="form-label"><@spring.message "real_estate.show.specifications.kitchen"/></label>
+                    <input name="kitchen"
+                           type="number"
+                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                           value="<#if post??>${post.kitchen}</#if>"
+                           class="form-control"
+                           id="inputKitchen">
+                </div>
+
+                <div class="col mb-3">
+                    <label for="inputLivingRoom" class="form-label"><@spring.message "real_estate.show.specifications.living_room"/></label>
+                    <input name="livingRoom"
+                           type="number"
+                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                           value="<#if post??>${post.livingRoom}</#if>"
+                           class="form-control"
+                           id="inputLivingRoom">
+                </div>
+
+                <div class="col mb-3">
                     <label for="inputTerrace" class="form-label"><@spring.message "real_estate.show.specifications.terrace"/></label>
                     <input name="terrace"
                            type="number"
@@ -212,6 +232,16 @@
                            value="<#if post??>${post.parking}</#if>"
                            class="form-control"
                            id="inputParking">
+                </div>
+
+                <div class="col mb-3">
+                    <label for="inputBarbecueArea" class="form-label"><@spring.message "real_estate.show.specifications.barbecue_area"/></label>
+                    <input name="barbecueArea"
+                           type="number"
+                           oninput="this.value=this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                           value="<#if post??>${post.barbecueArea}</#if>"
+                           class="form-control"
+                           id="inputBarbecueArea">
                 </div>
 
                 <div class="col mb-3">

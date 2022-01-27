@@ -102,6 +102,18 @@
     <div class="block_container">
         <div class="container py-3"  id="real_estate_items_container">
             <div class="container_item" id="real_estate_items"></div>
+
+<#--            <ul class="pagination justify-content-end pt-3">-->
+<#--                <li class="page-item disabled">-->
+<#--                    <a class="page-link text-secondary" href="#" tabindex="-1" aria-disabled="true">Previous</a>-->
+<#--                </li>-->
+<#--                <li class="page-item active"><a class="page-link text-dark" href="#">1</a></li>-->
+<#--                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>-->
+<#--                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>-->
+<#--                <li class="page-item">-->
+<#--                    <a class="page-link text-secondary" href="#">Next</a>-->
+<#--                </li>-->
+<#--            </ul>-->
         </div>
     </div>
 
