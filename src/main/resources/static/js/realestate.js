@@ -206,10 +206,17 @@ function create_real_estate_item(data, item_template, table_template, item_image
     card_open.id += "_" + data.id;
     card_open.href = "/real_estate/" + data.id + "/show";
 
-    let card_map = item.getElementById("card_map");
-    card_map.id += "_" + data.id;
+    if(!data.longitude || !data.latitude) {
+        let card_map_container = item.getElementById("card_map_container");
+        card_map_container.remove();
+    } else {
+        let card_map_container = item.getElementById("card_map_container");
+        card_map_container.id += "_" + data.id;
 
-    card_map.href = "https://www.google.com/maps/search/" + data.latitude + ",+" + data.longitude;
+        let card_map = item.getElementById("card_map");
+        card_map.id += "_" + data.id;
+        card_map.href = "https://www.google.com/maps/search/" + data.latitude + ",+" + data.longitude;
+    }
 
     return item;
 }

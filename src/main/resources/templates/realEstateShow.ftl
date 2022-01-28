@@ -79,13 +79,15 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="col">
-                                <a class="btn btn-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.latitude?string("0.######")?replace(",", ".")},+${post.longitude?string("0.######")?replace(",", ".")}" role="button" target="_blank" rel="noopener noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/>
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                    </svg>
-                                </a>
-                            </div>
+                            <#if post.latitude! != 0 && post.longitude! != 0>
+                                <div class="col">
+                                    <a class="btn btn-secondary d-flex justify-content-center mt-3" href="https://www.google.com/maps/search/${post.latitude?string("0.######")?replace(",", ".")},+${post.longitude?string("0.######")?replace(",", ".")}" role="button" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </#if>
                             <div class="col">
                                 <a class="btn btn-danger d-flex justify-content-center mt-3" href="mailto:${post.author.email}" role="button" target="_blank" rel="noopener noreferrer">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/>
