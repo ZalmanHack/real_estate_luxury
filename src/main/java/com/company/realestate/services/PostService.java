@@ -2,6 +2,7 @@ package com.company.realestate.services;
 
 import com.company.realestate.assets.domainDtos.PostDto;
 import com.company.realestate.assets.domainDtos.PostImageDto;
+import com.company.realestate.assets.domainDtos.PostRegistryDto;
 import com.company.realestate.assets.domainDtos.PostShortDto;
 import com.company.realestate.assets.requestDtos.RequestPostBodyDto;
 import com.company.realestate.domains.User;
@@ -13,10 +14,12 @@ import com.company.realestate.repos.PostRepo;
 import com.company.realestate.utils.FileUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.mail.MailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -44,7 +47,11 @@ public class PostService {
     LocalizedBodyService localizedBodyService;
 
     @Autowired
+    PostRegistryService postRegistryService;
+
+    @Autowired
     FileUtils fileUtils;
+
 
     public List<PostDto> getActivePremiumPosts(Locale locale) {
         return postRepo.findAllByPostStatusAndPremium(PostStatus.ACTIVE, true)
@@ -65,9 +72,17 @@ public class PostService {
         } catch (Exception e) {
             postStatus = PostStatus.ACTIVE;
         }
+
+        if (body.getCompanyName().equals("")) {
+            body.setCompanyName("%");
+        }
+
         Pageable pageable = PageRequest.of(body.getPage(), body.getSize());
         RealEstateType realEstateType = RealEstateType.get(body.getRealEstateType());
         Page<Post> posts;
+
+        System.out.println(body);
+
         if(realEstateType == null) {
             posts = postRepo.findPostsWithPagination(
                     postStatus,
@@ -122,6 +137,9 @@ public class PostService {
         post.setRealEstateType(RealEstateType.APARTMENT);
         postRepo.save(post);
         localizedBodyService.createNewWithDefaultLanguage(post);
+
+        postRegistryService.save(post);
+
         return post;
     }
 
@@ -156,7 +174,7 @@ public class PostService {
         return true;
     }
 
-    public boolean updateUser(PostShortDto postDto) {
+    private boolean updatePost(PostShortDto postDto, PostStatus postStatus) {
         Post postDb = postRepo.findFirstById(postDto.getId());
         if(postDb == null) {
             return false;
@@ -167,14 +185,35 @@ public class PostService {
         post.setMainVideo(postDb.getMainVideo());
         post.setAuthor(postDb.getAuthor());
         post.setPublicationDate(postDb.getPublicationDate());
-        post.setPostStatus(PostStatus.MODERATED);
+        post.setPostStatus(postStatus);
         postRepo.save(post);
         localizedBodyService.updateBodies(postDto.getLocalizedBodies(), post);
+
+        postRegistryService.save(post);
+
         return true;
+    }
+
+    public boolean updatePostUser(PostShortDto postDto) {
+        return updatePost(postDto, PostStatus.MODERATED);
+    }
+
+    public boolean updatePostSudo(PostShortDto postDto) {
+        return updatePost(postDto, PostStatus.ACTIVE);
     }
 
     public void setPostStatus(Post post, PostStatus status) {
         post.setPostStatus(status);
         postRepo.save(post);
+        postRegistryService.save(post);
+    }
+
+
+
+    public List<PostDto> getByPostStatusDto(PostStatus postStatus, Locale locale) {
+        return postRepo.findByPostStatusOrderByPublicationDateDesc(postStatus)
+                .stream()
+                .map(post -> modelMapper.map(post, PostDto.class))
+                .collect(Collectors.toList());
     }
 }

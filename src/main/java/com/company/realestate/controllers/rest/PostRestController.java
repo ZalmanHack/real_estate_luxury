@@ -54,7 +54,8 @@ public class PostRestController {
     //TODO Добавить проверку на доступ к добавлению картинок
 
     @PostMapping("{post}/add_img")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> addImage(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
                                            @RequestParam(name = "img") MultipartFile rawImg) {
@@ -68,7 +69,7 @@ public class PostRestController {
     //TODO Добавить проверку на доступ к удалению картинок
 
     @PostMapping("{post}/del_img")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> delImage(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
                                            @RequestBody RequestDelImage requestDelImage) {
@@ -85,18 +86,45 @@ public class PostRestController {
     }
 
     @PostMapping("{post}/save")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> save(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
                                            @RequestBody PostShortDto postDto) {
-        if(!postService.updateUser(postDto)) {
+        if(!postService.updatePostUser(postDto)) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
+    @PostMapping("{post}/sudo_save")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Object> sudoSave(@AuthenticationPrincipal User authUser,
+                                       @PathVariable Post post,
+                                       @RequestBody PostShortDto postDto) {
+        if(!postService.updatePostSudo(postDto)) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping("{post}/sudo_allow")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Object> sudoAllow(@AuthenticationPrincipal User authUser,
+                                             @PathVariable Post post) {
+        postService.setPostStatus(post, PostStatus.ACTIVE);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
+    @PostMapping("{post}/sudo_reject")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public ResponseEntity<Object> sudoReject(@AuthenticationPrincipal User authUser,
+                                             @PathVariable Post post) {
+        postService.setPostStatus(post, PostStatus.REJECTED);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
     @PostMapping("{post}/disable")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> disable(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post) {
         postService.setPostStatus(post, PostStatus.DISABLED);
@@ -104,10 +132,12 @@ public class PostRestController {
     }
 
     @PostMapping("{post}/sold_out")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> soldOut(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post) {
         postService.setPostStatus(post, PostStatus.SOLD_OUT);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
+
+
 }

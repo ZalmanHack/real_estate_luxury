@@ -65,7 +65,6 @@
 
 
                     <#if security.know>
-
                         <li class="nav-item dropdown ms-2">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${security.auth_user.username}
@@ -74,6 +73,9 @@
                                 <li><a class="dropdown-item" href="/users/${security.auth_user.id}/show"><@spring.message "navbar.auth.profile"/></a></li>
 <#--                                <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.settings"/></a></li>-->
                                 <li><hr class="dropdown-divider"></li>
+                                <#if security.auth_user.isAdmin()>
+                                    <li><a class="dropdown-item" href="/administration"><@spring.message "navbar.auth.administration"/></a></li>
+                                </#if>
                                 <li><a class="dropdown-item text-danger" href="/logout"><@spring.message "navbar.auth.logout"/></a></li>
                             </ul>
                         </li>

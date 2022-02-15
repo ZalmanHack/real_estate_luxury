@@ -50,7 +50,7 @@
                         <label for="inputCompanyName" class="form-label"><@spring.message "sign_up.inputs.company_name"/> <span class="text-danger">*</span></label>
                         <input name="companyName"
                                type="text"
-                               minlength="1" maxlength="26" pattern="[A-Za-zА-ЯЁа-яё ]{1,26}" required
+                               minlength="1" maxlength="26" pattern="[A-Za-zА-ЯЁа-яё0-9 ]{1,26}" required
                                value="<#if user??>${user.companyName}</#if>"
                                class="form-control ${(companyNameError??)?string("is-invalid","")}"
                                id="inputCompanyName">

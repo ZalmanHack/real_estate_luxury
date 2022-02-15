@@ -1,5 +1,6 @@
 package com.company.realestate.services;
 
+import com.company.realestate.domains.enums.PostStatus;
 import com.company.realestate.domains.localizations.Alias;
 import com.company.realestate.domains.localizations.FieldName;
 import com.company.realestate.repos.AliasRepo;
@@ -60,5 +61,11 @@ public class AliasService {
         } else {
             return fieldName;
         }
+    }
+
+    public Map<String, String> getMappedAlias(PostStatus[] values, Locale locale) {
+        Map<String, String> result = new HashMap<>();
+        Arrays.stream(values).forEach(value -> result.put(value.name(), getAlias(value.name(), locale)));
+        return result;
     }
 }

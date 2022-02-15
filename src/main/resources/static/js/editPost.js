@@ -11,50 +11,98 @@ window.addEventListener('load', function() {
     let img_upload_progress = document.getElementById("img_upload_progress");
     let img_upload_control = document.getElementById("img_upload_control");
     let post_image_template = document.getElementById("post_image_template");
-    document.getElementById('upload_img_input').addEventListener('change', function() {
-        let uploaded_images = control_images_container.getElementsByTagName("img");
-        // if(uploaded_images.length > 10) {
-        //     console.log("Кол-во элементов > 10");
-        //     return;
-        // }
-        if(!this.files[0]) {
-            return;
-        }
-        if( this.files[0].size / 1024 / 1024 > 2 ) {
-            return;
-        }
 
-        if (this.files && this.files[0]) {
-            console.log(this.files[0].size)
-            img_upload_control.setAttribute("hidden", null);
-            changeProgressBar(0, img_upload_progress);
-            img_upload_progress_container.removeAttribute("hidden", null);
-            const locationArray = getPath();
-            const post_id = locationArray[locationArray.length - 2];
-            let formData = new FormData();
-            formData.append("img", this.files[0]);
-            let csrf = get_csrf();
-            let url = "/api/posts/" + post_id + "/add_img";
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', url, true);
-            xhr.setRequestHeader(csrf.header, csrf.token);
-            xhr.onload = () => {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    createPostImageItem(JSON.parse(xhr.response), post_image_template, images_container);
+    let load_images_count_invalid = document.getElementById("load_images_count_invalid");
+    let load_images_size_invalid = document.getElementById("load_images_size_invalid");
+    let features_invalid = document.getElementById("features_invalid");
+    let description_invalid = document.getElementById("description_invalid");
+    let btn_submit_user = document.getElementById("btn_submit_user");
+    let btn_submit_sudo = document.getElementById("btn_submit_sudo");
+
+    let inputs = document.querySelectorAll("[data-tiny-editor]");
+    for(let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("keyup", function (event) {
+            if(event.target.innerHTML) {
+                if(event.target.id.split("_")[1] === "description") {
+                    if(event.target.innerText.trim().length > 2048) {
+                        description_invalid.removeAttribute("hidden");
+                        btn_submit_user.setAttribute("disabled", null);
+                        btn_submit_sudo.setAttribute("disabled", null);
+                    } else {
+                        description_invalid.setAttribute("hidden", null);
+                        btn_submit_user.removeAttribute("disabled");
+                        btn_submit_sudo.removeAttribute("disabled");
+                    }
                 }
-                img_upload_control.removeAttribute("hidden", null);
-                img_upload_progress_container.setAttribute("hidden", null);
-            };
-            xhr.upload.onprogress  = (event) => {
-                if(event.lengthComputable) {
-                    let percent = event.loaded / event.total * 100 | 0;
-                    changeProgressBar(percent, img_upload_progress);
+                if(event.target.id.split("_")[1] === "features") {
+                    if(event.target.innerText.trim().length > 255) {
+                        features_invalid.removeAttribute("hidden");
+                        btn_submit_user.setAttribute("disabled", null);
+                        btn_submit_sudo.setAttribute("disabled", null);
+                    } else {
+                        features_invalid.setAttribute("hidden", null);
+                        btn_submit_user.removeAttribute("disabled");
+                        btn_submit_sudo.removeAttribute("disabled");
+                    }
                 }
             }
+        })
+    }
 
-            xhr.send(formData);
-        }
-    });
+    let upload_img_input = document.getElementById('upload_img_input');
+    if(upload_img_input) {
+        upload_img_input.addEventListener('change', function() {
+            let uploaded_images = control_images_container.getElementsByTagName("img");
+            if(uploaded_images.length >= 10) {
+                load_images_count_invalid.removeAttribute("hidden");
+                return;
+            }
+            else {
+                load_images_count_invalid.setAttribute("hidden", null);
+            }
+            if(!this.files[0]) {
+                return;
+            }
+            if( this.files[0].size / 1024 / 1024 > 5 ) {
+                load_images_size_invalid.removeAttribute("hidden");
+                return;
+            }
+            else {
+                load_images_size_invalid.setAttribute("hidden", null);
+            }
+
+            if (this.files && this.files[0]) {
+                console.log(this.files[0].size)
+                img_upload_control.setAttribute("hidden", null);
+                changeProgressBar(0, img_upload_progress);
+                img_upload_progress_container.removeAttribute("hidden", null);
+                const locationArray = getPath();
+                const post_id = locationArray[locationArray.length - 2];
+                let formData = new FormData();
+                formData.append("img", this.files[0]);
+                let csrf = get_csrf();
+                let url = "/api/posts/" + post_id + "/add_img";
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader(csrf.header, csrf.token);
+                xhr.onload = () => {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        createPostImageItem(JSON.parse(xhr.response), post_image_template, images_container);
+                    }
+                    img_upload_control.removeAttribute("hidden", null);
+                    img_upload_progress_container.setAttribute("hidden", null);
+                };
+                xhr.upload.onprogress  = (event) => {
+                    if(event.lengthComputable) {
+                        let percent = event.loaded / event.total * 100 | 0;
+                        changeProgressBar(percent, img_upload_progress);
+                    }
+                }
+
+                xhr.send(formData);
+            }
+        });
+    }
 });
 
 function createPostImageItem(data, post_image_template, images_container) {
@@ -133,6 +181,7 @@ function changeLocale(event, name) {
     event.target.classList.add("active");
 }
 
+
 function changeDescriptionLocale(event) {
     changeLocale(event, "description");
 }
@@ -141,25 +190,38 @@ function changeFeaturesLocale(event) {
     changeLocale(event, "features");
 }
 
-function savePost() {
+function savePostUser() {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    savePost("save", postId);
+}
 
+function savePostSudo() {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    savePostSudoById(postId);
+}
+
+function savePostSudoById(postId) {
+    savePost("sudo_save", postId);
+}
+
+
+function savePost(method, postId) {
     let locale_tags = document.getElementById("locale_description").getElementsByTagName("a");
-
     let localizedBodies = [];
     Array.from(locale_tags).forEach( (el) => {
         const array_id = el.id.split("_");
         const locale = array_id[array_id.length - 1];
         localizedBodies.push({
             localeCode: locale,
-            description: document.getElementById("input_description_" + locale).innerHTML.replace(/ +(?= )/g,''),
-            features: document.getElementById("input_features_" + locale).innerHTML.replace(/ +(?= )/g,'')
+            description: strip_tags(document.getElementById("input_description_" + locale).innerHTML.trim(), ['p', 'b', 'i', 'ul', 'li']),
+            features: strip_tags(document.getElementById("input_features_" + locale).innerHTML.trim(), ['p', 'b', 'i', 'ul', 'li'])
         })
     });
 
-    const locationArray = getPath();
-    const postId = locationArray[locationArray.length - 2];
     let csrf = get_csrf();
-    let url = "/api/posts/" + postId + "/save";
+    let url = "/api/posts/" + postId + "/" + method;
     let xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -199,16 +261,45 @@ function savePost() {
 }
 
 function disablePost() {
-    changePostStatus("disable");
-}
-
-function soldOutPost() {
-    changePostStatus("sold_out");
-}
-
-function changePostStatus(status) {
     const locationArray = getPath();
     const postId = locationArray[locationArray.length - 2];
+    changePostStatus("disable", postId, true);
+}
+
+
+function soldOutPost() {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    soldOutPostById(postId, true);
+}
+
+function soldOutPostById(postId) {
+    changePostStatus("sold_out", postId, true);
+}
+
+function rejectPost() {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    rejectPostById(postId);
+}
+
+function rejectPostById(event, postId) {
+    changePostStatus("sudo_reject", postId, false);
+    document.getElementById("item_changeable_" + postId).setAttribute("hidden", "");
+}
+
+function allowPost() {
+    const locationArray = getPath();
+    const postId = locationArray[locationArray.length - 2];
+    allowPostById(postId);
+}
+
+function allowPostById(event, postId) {
+    changePostStatus("sudo_allow", postId, false);
+    document.getElementById("item_changeable_" + postId).setAttribute("hidden", "");
+}
+
+function changePostStatus(status, postId, redirect) {
     let csrf = get_csrf();
     let url = "/api/posts/" + postId + "/" + status;
     let xhr = new XMLHttpRequest();
@@ -216,11 +307,15 @@ function changePostStatus(status) {
     xhr.setRequestHeader(csrf.header, csrf.token);
     xhr.onload = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            location.href = "/real_estate/" + postId + "/show";
-            console.log(true);
-        } else {
-            console.log(false);
+            if(redirect) {
+                location.href = "/real_estate/" + postId + "/show";
+            }
         }
     }
     xhr.send(null);
+}
+
+function strip_tags(text, tags = []) {
+    return text.replace(/(<\/?)([a-z]+|h[1-6])\b[^<>]*>/gi,
+        (match, p1, p2) => tags.includes(p2.toLowerCase()) ? p1 + p2 + '>' : '');
 }

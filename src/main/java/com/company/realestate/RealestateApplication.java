@@ -31,7 +31,7 @@ public class RealestateApplication extends SpringBootServletInitializer {
     public MultipartResolver multipartResolver() {
         final CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
         // 2 MB
-        int maxUploadSizeInMb = 2 * 1024 * 1024;
+        int maxUploadSizeInMb = 5 * 1024 * 1024;
         commonsMultipartResolver.setMaxUploadSize(maxUploadSizeInMb);
         commonsMultipartResolver.setMaxUploadSizePerFile(maxUploadSizeInMb);
         commonsMultipartResolver.setDefaultEncoding("utf-8");

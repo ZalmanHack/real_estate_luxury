@@ -212,9 +212,57 @@
     </div>
 </#macro>
 
+<#macro post_registry_item name post allow reject>
+    <div  id="item_${name}_${post.post.id}">
+        <div class="d-flex flex-row me-auto mb-3">
+            <a class="navbar-link d-flex flex-row me-auto text-decoration-none" href="/real_estate/${post.post.id}/edit">
+                <div class="">
+                    <h5 class="text-dark">${post.post.name}</h5>
+                    <p class="text-dark card-text">${post.post.author.companyName}</p>
 
-<#--                    <table class="table table-sm table-borderless my-3" style="font-size: 0.75rem;">-->
-<#--                        <tbody>-->
+                    <div class="d-flex flex-row me-auto">
+                        <span class="badge bg-light text-dark me-3">id ${post.post.id}</span>
+                        <span class="badge bg-dark me-3">${post.changePostStatus}</span>
+                        <span class="text-secondary align-self-center" style="font-size: 0.75rem">${post.changeDate}</span>
+                    </div>
+                </div>
+            </a>
+            <div class="d-flex flex-column">
+                <span class="badge bg-light text-secondary me-3">${post.id}</span>
+                <#if allow>
+                    <button class="btn btn-outline-success mb-3 w-100" onclick="allowPostById(event, ${post.post.id})" type="button"><@spring.message "administration.buttons.allow"/></button>
+                </#if>
+                <#if reject>
+                    <button class="btn btn-outline-danger w-100" onclick="rejectPostById(event, ${post.post.id})" type="button"><@spring.message "administration.buttons.reject"/></button>
+                </#if>
+            </div>
+        </div>
+    </div>
+</#macro>
 
-<#--                        </tbody>-->
-<#--                    </table>-->
+<#macro post_item name post allow reject>
+    <div  id="item_${name}_${post.id}">
+        <div class="d-flex flex-row me-auto mb-3">
+            <a class="navbar-link d-flex flex-row me-auto text-decoration-none" href="/real_estate/${post.id}/edit">
+                <div class="">
+                    <h5 class="text-dark">${post.name}</h5>
+                    <p class="text-dark card-text">${post.author.companyName}</p>
+
+                    <div class="d-flex flex-row me-auto">
+                        <span class="badge bg-light text-dark me-3">id ${post.id}</span>
+                        <span class="badge bg-dark me-3">${post.postStatus}</span>
+                        <span class="text-secondary align-self-center" style="font-size: 0.75rem">${post.publicationDate}</span>
+                    </div>
+                </div>
+            </a>
+            <div class="d-flex flex-column">
+                <#if allow>
+                    <button class="btn btn-outline-success mb-3 w-100" onclick="allowPostById(event, ${post.id})" type="button"><@spring.message "administration.buttons.allow"/></button>
+                </#if>
+                <#if reject>
+                    <button class="btn btn-outline-danger w-100" onclick="rejectPostById(event, ${post.id})" type="button"><@spring.message "administration.buttons.reject"/></button>
+                </#if>
+            </div>
+        </div>
+    </div>
+</#macro>

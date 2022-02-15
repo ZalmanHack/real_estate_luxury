@@ -27,7 +27,7 @@ INSERT INTO main.field_name (id, value) VALUES (18, 'infoMessage.changePassword.
 INSERT INTO main.field_name (id, value) VALUES (19, 'infoMessage.changePassword.fail');
 INSERT INTO main.field_name (id, value) VALUES (20, 'companyName.invalid.alreadyExist');
 INSERT INTO main.field_name (id, value) VALUES (21, 'MODERATED');
-INSERT INTO main.field_name (id, value) VALUES (22, 'DECLINED');
+INSERT INTO main.field_name (id, value) VALUES (22, 'REJECTED');
 INSERT INTO main.field_name (id, value) VALUES (23, 'ACTIVE');
 INSERT INTO main.field_name (id, value) VALUES (24, 'DISABLED');
 INSERT INTO main.field_name (id, value) VALUES (25, 'SOLD_OUT');
@@ -153,27 +153,73 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (65, 'S
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (66, 'Модерируется', 21, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (67, 'Отклонено', 22, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (68, 'Активный', 23, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (69, 'Отклонено', 24, 2);
+INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (69, 'Отключено', 24, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (70, 'Продано', 25, 2);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (71, 'Moderado', 21, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (72, 'Rechazado', 22, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (73, 'Activo', 23, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (74, 'Inhabilitado', 24, 3);
 INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (75, 'Agotado', 25, 3);
+
 -- city ----------------------------------------------------------------------------------------------------------------
 
 INSERT INTO main.city (value) VALUES ('Punta Cana');
 INSERT INTO main.city (value) VALUES ('Lagunas de Nisibón');
+INSERT INTO main.city (value) VALUES ('Cap Cana');
+INSERT INTO main.city (value) VALUES ('Azua de Compostela');
+INSERT INTO main.city (value) VALUES ('Bajos de Haina');
+INSERT INTO main.city (value) VALUES ('Baní');
+INSERT INTO main.city (value) VALUES ('Boca Chica');
+INSERT INTO main.city (value) VALUES ('Bonao');
+INSERT INTO main.city (value) VALUES ('Concepción de la Vega');
+INSERT INTO main.city (value) VALUES ('Constanza');
+INSERT INTO main.city (value) VALUES ('Consuelo');
+INSERT INTO main.city (value) VALUES ('Cotuí');
+INSERT INTO main.city (value) VALUES ('Esperanza');
+INSERT INTO main.city (value) VALUES ('Hato Mayor del Rey');
+INSERT INTO main.city (value) VALUES ('Jarabacoa');
+INSERT INTO main.city (value) VALUES ('La Romana');
+INSERT INTO main.city (value) VALUES ('Las Matas de Farfán');
+INSERT INTO main.city (value) VALUES ('Los Alcarrizos (D.M.)');
+INSERT INTO main.city (value) VALUES ('Mao');
+INSERT INTO main.city (value) VALUES ('Moca');
+INSERT INTO main.city (value) VALUES ('Nagua');
+INSERT INTO main.city (value) VALUES ('Pedro Brand (D.M.)');
+INSERT INTO main.city (value) VALUES ('Salvaleón de Higüey');
+INSERT INTO main.city (value) VALUES ('San Cristóbal');
+INSERT INTO main.city (value) VALUES ('San Felipe de Puerto Plata');
+INSERT INTO main.city (value) VALUES ('San Francisco de Macoris');
+INSERT INTO main.city (value) VALUES ('San José de Ocoa');
+INSERT INTO main.city (value) VALUES ('San Juan de la Maguana');
+INSERT INTO main.city (value) VALUES ('San Pedro de Macorís');
+INSERT INTO main.city (value) VALUES ('Santa Cruz de Barahona');
+INSERT INTO main.city (value) VALUES ('Santa Cruz del Seibo');
+INSERT INTO main.city (value) VALUES ('Santiago de los Caballeros');
+INSERT INTO main.city (value) VALUES ('Santo Domingo de Guzmán');
+INSERT INTO main.city (value) VALUES ('Santo Domingo Este');
+INSERT INTO main.city (value) VALUES ('Santo Domingo Norte');
+INSERT INTO main.city (value) VALUES ('Santo Domingo Oeste');
+INSERT INTO main.city (value) VALUES ('Tamboril');
+INSERT INTO main.city (value) VALUES ('Villa Altagracia');
+INSERT INTO main.city (value) VALUES ('Villa Bisonó');
+INSERT INTO main.city (value) VALUES ('Las Terrenas');
 
 -- posts ---------------------------------------------------------------------------------------------------------------
 
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room, main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (27.4, 0, 2, 800, 3, 1, 1, 1, 1, 1, '/img/1.1.jpg', '/vid/1.mp4', 1, 1, 'ACTIVE', true, 157000, '2022-01-01', 'APARTMENT', 1, 0, 1, 1,     18.731349, -68.480693, 'Cana Pearl', 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (184, 1, 2, 10, 2, 0, 1, 0, 1, 1, '/img/2.1.jpg', '/vid/2.mp4', 0, 2, 'ACTIVE', true, 500000, '2022-01-05', 'VILLA', 1, 0, 1, 1,           18.858772, -68.63141, 'Coconut villages Dominicana', 2);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (63.39, 0, 2, 350, 2, 1, 0, 1, 1, 1, '/img/3.1.jpg', '/vid/3.mp4', 1, 1, 'ACTIVE', true, 123000, '2022-01-05', 'APARTMENT', 2, 1, 1, 1,    18.683839, -68.417952, 'Coral Village ll', 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (135, 0, 3, 500, 3, 0, 1, 0, 1, 1, '/img/4.1.jpg', null, 1, 2, 'ACTIVE', true, 150000, '2022-01-08', 'VILLA', 1, 0, 1, 1,                  18.625894, -68.411858, 'Drake village', 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (2687, 0, 0, 500, 0, 0, 0, 0, 0, 0, '/img/5.1.jpg', null, 0, 0, 'ACTIVE', false, 250, '2022-01-08', 'LAND', 0, 0, 0, 1,                     18.685664, -68.421204, ' ', 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (69, 0, 1, 300, 1, 1, 0, 0, 1, 1, '/img/7.1.jpg', '/vid/7.mp4', 1, 1, 'ACTIVE', false, 194000, '2022-01-13', 'APARTMENT', 1, 0, 1, 1,      18.683792, -68.419501, 'Oceana', 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, living_room,  main_image, main_video, mall, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, latitude,  longitude, name, city_id) VALUES (65.58, 0, 3, 600, 3, 0, 0, 1, 1, 1, '/img/6.1.jpg', '/vid/6.mp4', 1, 1, 'ACTIVE', true, 194000, '2022-01-11', 'APARTMENT', 1, 0, 1, 1,    18.671804, -68.406046, 'Paseo playa coral', 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (27.4, 0, 2, 800, 3, 1, 1, 1, 1, 18.731349, 1, -68.480693, '/img/1.1.jpg', '/vid/1.mp4', 1, 'Cana Pearl', 1, 'ACTIVE', false, 157000, '2022-01-01', 'APARTMENT', 1, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (184, 1, 2, 10, 2, 0, 1, 0, 1, 18.858772, 1, -68.63141, '/img/2.1.jpg', '/vid/2.mp4', 0, 'Coconut villages Dominicana', 2, 'ACTIVE', true, 500000, '2022-01-05', 'VILLA', 1, 0, 1, 1, 2);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (63.39, 0, 2, 350, 2, 1, 0, 1, 1, 18.683839, 1, -68.417952, '/img/3.1.jpg', '/vid/3.mp4', 1, 'Coral Village ll', 1, 'ACTIVE', false, 123000, '2022-01-05', 'APARTMENT', 2, 1, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (135, 0, 3, 500, 3, 0, 1, 0, 1, 18.625894, 1, -68.411858, '/img/4.1.jpg', null, 1, 'Drake village', 2, 'ACTIVE', false, 150000, '2022-01-08', 'VILLA', 1, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (2687, 0, 0, 500, 0, 0, 0, 0, 0, 18.685664, 0, -68.421204, '/img/5.1.jpg', null, 0, ' ', 0, 'ACTIVE', false, 250, '2022-01-08', 'LAND', 0, 0, 0, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (69, 0, 1, 300, 1, 1, 0, 0, 1, 18.683792, 1, -68.419501, '/img/7.1.jpg', '/vid/7.mp4', 1, 'Oceana', 1, 'ACTIVE', false, 194000, '2022-01-13', 'APARTMENT', 1, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (65.58, 0, 3, 600, 3, 0, 0, 1, 1, 18.671804, 1, -68.406046, '/img/6.1.jpg', '/vid/6.mp4', 1, 'Paseo playa coral', 1, 'ACTIVE', false, 194000, '2022-01-11', 'APARTMENT', 1, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (34, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, '/img/4107b42e-f6d9-45f1-a44c-e23f18db7f1b.jpg', null, 0, 'Caribbean Magic Village ', 1, 'ACTIVE', true, 37300, '2022-01-27', 'VILLA', 0, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (55, 1, 2, 0, 2, 0, 0, 0, 1, 0, 1, 0, '/img/43cbc29f-0ef1-4fd7-843f-fb87339bdc59.jpg', null, 0, 'Caribbean Magic Village', 1, 'ACTIVE', true, 50700, '2022-01-27', 'VILLA', 0, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (125.44, 0, 3, 0, 3, 3, 1, 1, 1, 18.505622, 1, -68.383227, '/img/b4e1b53f-3b97-4bf9-a41e-2748fdc18dc2.jpg', null, 1, 'Harbor Bay', 0, 'ACTIVE', true, 395000, '2022-02-01', 'APARTMENT', 1, 0, 1, 1, 3);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (167.9, 1, 3, 1, 3, 0, 0, 1, 1, 19.309526, 1, -69.57166, '/img/9f216a90-f9ee-45d1-84dc-0da1ff0b2c73.jpg', '/vid/11.mp4', 2, 'The Reef', 1, 'ACTIVE', true, 259999, '2022-02-01', 'APARTMENT', 1, 1, 1, 1, 40);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (103.64, 1, 3, 1, 3, 0, 0, 1, 0, 18.502233, 0, -68.383083, '/img/7794de0d-75ef-4f19-9174-5c9e9f06e19e.jpg', '/vid/12.mp4', 2, 'Atlantida', 1, 'ACTIVE', true, 139000, '2022-02-02', 'APARTMENT', 1, 1, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (180, 1, 3, 0, 3, 0, 1, 0, 1, 0, 1, 0, '/img/9021e9ba-ee77-4de5-ad96-21ea8ed8ed41.png', '/vid/13.mp4', 0, 'Bella Residences', 1, 'ACTIVE', true, 180000, '2022-02-05', 'VILLA', 1, 0, 2, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 1, 0, 1, 0, 1, 0, '/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', null, 0, 'Presidential Suites', 0, 'MODERATED', false, 435000, '2022-02-13', 'APARTMENT', 0, 0, 0, 2, 1);
 
 -- localized body ------------------------------------------------------------------------------------------------------
 
@@ -228,6 +274,45 @@ INSERT INTO main.localized_body (description, features, locale_code_id, post_id)
 <p>Сделайте каждый момент уникальным, а каждый день празднуйте лучшее, что может предложить жизнь</p>', '-', 2, 7);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Ubicadas en la exclusiva zona de Playa Coral entre los hoteles Barceló y Meliá, estas 76 amplias y elegantes master suites de 1 dormitorio están diseñadas para cautivar todos los sentidos. Estilo sofisticado y lujosos acabados crean un ambiente de exclusividad e intimidad.</p>
 <p>Haz que cada momento sea único y que cada día sea una celebración de lo mejor que la vida tiene para ofrecer</p>', '-', 3, 7);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Form of Payment&nbsp; </p><ul><li>Reservation with&nbsp; 3000 US$ </li><li>50% Contract signature </li><li>30% During construction&nbsp; </li><li>20% Upon delivery </li></ul>', 'Best Investment Project 2022!', 1, 8);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Форма оплаты</p><ul><li>Бронирование от 3000 долларов США</li><li>50% Подписание контракта</li><li>30% Во время строительства</li><li>20% при доставке</li></ul>', 'Лучший инвестиционный проект 2022 года!', 2, 8);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Forma de pago</p><ul><li>Reserva con 3000 US$</li><li>50% Firma de contrato</li><li>30% Durante la construcción</li><li>20% A la entrega</li></ul>', '¡Mejor Proyecto de Inversión 2022!', 3, 8);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Form of Payment&nbsp; </p><ul><li>Reservation with&nbsp; 3000 US$ </li><li>50% Contract signature </li><li>30% During construction&nbsp; </li><li>20% Upon delivery </li></ul>', 'Best Investment Project 2022!', 1, 9);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Форма оплаты<ul><li>Бронирование от 3000 долларов США</li><li>50% Подписание контракта</li><li>30% Во время строительства</li><li>20% при доставке</li></ul>', 'Лучший инвестиционный проект 2022 года!', 2, 9);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Forma de pago<ul><li>Reserva con 3000 US$</li><li>50% Firma de contrato</li><li>30% Durante la construcción</li><li>20% A la entrega</li></ul>', '¡Mejor Proyecto de Inversión 2022!', 3, 9);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p><span class="">186 flats with views of the beach.</span></p><p><span class="">Reservation with 1000 $</span></p><p><span class=""></span></p><ul><li><span class="">20% Contract signature</span></li><li><span class="">60% During construction</span></li><li><span class="">20% Upon delivery</span></li></ul>', '
+ <ul><li>Access to three golf clubs</li><li>Roof with panoramic view</li></ul>
+ ', 1, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>186 апартаментов с видом на пляж.</p><p>Бронирование с 1000 $</p><ul><li>20% Подписание контракта</li><li>60% Во время строительства</li><li>20% при доставке</li></ul>
+ ', '
+ <ul><li>Доступ к трем гольф-клубам</li><li>Крыша с панорамным видом</li></ul>
+ ', 2, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('186 viviendas con vistas a la playa.<br><br><p>Reserva con 1000 $</p><ul><li>20% Firma de contrato</li><li>60% Durante la construcción</li><li>20% A la entrega</li></ul>
+ ', '
+ <ul><li>Acceso a tres clubes de golf</li><li>Azotea con vista panorámica</li></ul>
+ ', 3, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('-', '<ul><li> Natural pool</li><li>Ecological garden<br></li></ul>', 1, 11);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '<ul><li>Природный бассейн</li><li>Экологический сад </li></ul>', 2, 11);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '<ul><li>piscina natural</li><li>Jardín ecológico</li></ul>', 3, 11);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
+ <p>A lost city rising from the depths has been discovered in the city of Bavaro, Punta Cana.<br></p><p>With an iconic Atlantida building, it offers 18,000 meters of swimming pools, spectacular terraces, where you can feel like you are in a boutique hotel, in the privacy of an exclusive residence.
+ </p>
+ ', '<ul><li>Bavaro beaches within walking distance.</li><li>Ecological garden.</li></ul>', 1, 12);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
+ <p>В городе Баваро, Пунта-Кана, обнаружен затерянный город, поднимающийся из глубин.<br></p><p>Культовое здание Atlantida предлагает 18 000 метров плавательных бассейнов, впечатляющие террасы, где вы можете посетить бутик-отеле и уединится эксклюзивной резиденции.
+ </p>
+ ', '<ul><li>
+ Пляжи Баваро в шаговой доступности.</li><li>Зеленая зона.</li></ul>', 2, 12);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
+ <p>Una ciudad perdida que surge de las profundidades ha sido descubierta en la ciudad de Bávaro, Punta Cana.<br></p><p>Con un icónico edificio Atlántida, ofrece 18,000 metros de piscinas, espectaculares terrazas, donde puedes sentirte como en un hotel boutique, en la privacidad de una residencia exclusiva.
+ </p>
+ ', '<ul><li>Playas de Bávaro a poca distancia.</li><li>Jardín ecológico.</li></ul>', 3, 12);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 1, 13);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 2, 13);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 3, 13);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 1, 14);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Продаётся шикарная квартира на первой линии с видом на океан в Баваро, Пунта Кана.</p><p>Расположена на территории отельного комплекса Presidential Suits. В пешей доступности рестораны, магазины, бары&nbsp;</p><p>Общая площадь 163 м2</p><p>2 спальни&nbsp;</p><p>2 санузла&nbsp;</p><p>Огромная терраса с барбекью</p><p>Охрана 24/7</p><p>Полностью закрытая территория&nbsp;</p><p>Пляжный клуб с баром и рестораном&nbsp;</p><p>Комфортабельные лежаки&nbsp;</p><p>Стоимость 435 000 USD.</p>', '', 2, 14);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 3, 14);
 
 -- post image ----------------------------------------------------------------------------------------------------------
 
@@ -271,3 +356,43 @@ INSERT INTO main.post_image (image, post_id) VALUES ('/img/7.1.jpg', 7);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/7.2.jpg', 7);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/7.3.jpg', 7);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/7.4.jpg', 7);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/4107b42e-f6d9-45f1-a44c-e23f18db7f1b.jpg', 8);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/344d8820-b452-4cfd-807f-909e8745d0c2.jpg', 8);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/43cbc29f-0ef1-4fd7-843f-fb87339bdc59.jpg', 9);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/9dfd23ca-f4de-4117-b680-838a100378f8.jpg', 9);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/b4e1b53f-3b97-4bf9-a41e-2748fdc18dc2.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/e98ea091-aaa1-4c83-abe8-6c1d8deb0cba.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/730c14f5-80b5-42a9-940c-8492257426f8.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/2c05cff8-f04c-4264-ba5b-d369dfe2536c.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/cf736aa0-f0a2-475c-b1a8-4d97b37bcb69.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/841c378a-3a9c-4189-9795-5852e92c5bdd.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/98bc6a0a-a55a-4466-baf6-9afae4d73274.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/1f5c1b72-05dd-43a9-867b-801e85625853.jpg', 10);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/9f216a90-f9ee-45d1-84dc-0da1ff0b2c73.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/ec6f0ad6-6029-4547-bd5f-8e753bab1961.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/ddcea7b6-3639-4c06-9cc0-81b4c57a9608.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/693e5e5a-6636-41a8-96da-dd21668b0d4c.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/5bc52c53-aa9e-43ee-a8ff-65a11a67d33f.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/53b28ccc-d49c-4733-a099-c23540b72ee0.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/df3bb5fa-aa83-4a2b-a890-8738d0682550.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/d61e234a-99f2-439e-9e57-8a4e2b75fea5.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/2003541f-e157-4512-b0b1-660cd40c3619.jpg', 11);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/7794de0d-75ef-4f19-9174-5c9e9f06e19e.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/a1483ce9-f801-4cf7-a914-40c16945f55c.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/60f32b73-2064-4067-9e90-a79e83729bef.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/c6117688-bca3-4689-92f7-03fe51ccb078.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/6fe4cd12-fb2b-4d42-92fb-d55777cb3518.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/5f80aba7-b721-4dcb-9d0a-ac6af21805ca.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/3a059317-973f-44c2-9fb8-f4b0643fc3ab.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/1fe3a27d-8203-4ae1-a9cd-035e08d819b8.jpg', 12);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/9021e9ba-ee77-4de5-ad96-21ea8ed8ed41.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/beb7d99d-256f-46ef-b787-9de4ff3b1b9a.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/222b9dc1-1834-4f57-892b-fe3870bc7f6e.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/6131cab6-5c38-4cb4-9277-1566129ba667.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/566f07e1-a605-40bc-99eb-6df6ab19b8d1.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/e8ba2523-f8b9-4277-b18f-78aaa29d4807.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/4ba4054b-18d4-487d-b370-fcce95bf6c6b.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/eecf239e-55c6-4e6d-9bbe-4b36105c8173.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/7adf97da-b4ab-4d75-b935-d94c24154d76.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/fdf2f7d5-0843-4e65-8b67-b5627a597826.png', 13);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', 14);

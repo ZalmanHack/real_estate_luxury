@@ -63,7 +63,7 @@
                             <#if post.author??>
                                 <a href="/users/${post.author.id}/show" class="link-light">${post.author.companyName}</a>
                             </#if>
-                            <#if security.know &&  security.auth_user.id == post.author.id>
+                            <#if security.know && (security.auth_user.id == post.author.id || security.auth_user.isAdmin())>
                                 <a class="btn btn-primary mt-4" href="/real_estate/${post.id}/edit" role="button"><@spring.message "real_estate.title.buttons.edit"/></a>
                             <#else>
                                 <a class="btn btn-outline-light mt-4" href="" data-bs-toggle="modal" data-bs-target="#feedbackModal" role="button"><@spring.message "real_estate.title.buttons.callback"/></a>

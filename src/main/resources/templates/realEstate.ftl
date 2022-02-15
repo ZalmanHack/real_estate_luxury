@@ -77,7 +77,7 @@
                         <select class="form-select w-auto m-3 mt-0" id="dropdown_company_name" aria-label="<@spring.message "real_estate.group_control.dropdown_company_name"/>">
                             <option value="" selected><@spring.message "real_estate.group_control.dropdown_company_name"/></option>
                             <#list companies as company>
-                                <option >${company}</option>
+                                <option>${company}</option>
                             </#list>
                         </select>
 

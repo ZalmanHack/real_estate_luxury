@@ -67,7 +67,7 @@ public class RealEstateController {
     }
 
     @GetMapping("{post}/edit")
-    @PreAuthorize("#authUser.id.equals(#post.author.id) && hasAuthority('USER')")
+    @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public String new_post(@AuthenticationPrincipal User authUser,
                            @PathVariable Post post,
                            Locale locale, Model model) {

@@ -142,8 +142,8 @@
                         <select class="form-select w-auto m-3 mt-0" id="dropdown_post_status" aria-label="<@spring.message "real_estate.group_control.dropdown_post_status"/>">
                             <#--                        value="" НЕ УДАЛЯТЬ, нужно для пустой строки-->
                             <option value="" selected><@spring.message "real_estate.group_control.dropdown_post_status"/></option>
-                            <#list posts_status as status>
-                                <option >${status}</option>
+                            <#list posts_status as key, value>
+                                <option value="${key}">${value}</option>
                             </#list>
                         </select>
 

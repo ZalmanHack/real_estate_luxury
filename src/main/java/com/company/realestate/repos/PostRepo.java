@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Arrays;
 import java.util.List;
 
 public interface PostRepo extends CrudRepository<Post, Long> {
@@ -23,7 +24,7 @@ public interface PostRepo extends CrudRepository<Post, Long> {
             "   WHERE P.postStatus = :status AND" +
             "         P.realEstateType = :realEstateType AND" +
             "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
-            "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
+            "         LOWER(P.author.companyName) LIKE LOWER(:companyName) AND " +
             "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to" +
             "   ORDER BY P.publicationDate DESC")
@@ -40,7 +41,7 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     @Query(value = "SELECT P FROM Post as P " +
             "   WHERE P.postStatus = :status AND " +
             "         LOWER(P.city.value) LIKE LOWER(concat('%', concat(:city, '%'))) AND " +
-            "         LOWER(P.author.companyName) LIKE LOWER(concat('%', concat(:companyName, '%'))) AND " +
+            "         LOWER(P.author.companyName) LIKE LOWER(:companyName) AND " +
             "         LOWER(P.name)       LIKE LOWER(concat('%', concat(:name, '%'))) AND " +
             "         P.price                      BETWEEN :price_from AND :price_to" +
             "   ORDER BY P.publicationDate DESC")
@@ -57,4 +58,6 @@ public interface PostRepo extends CrudRepository<Post, Long> {
     Long findMaxPrice();
 
     Post findFirstById(long id);
+
+    List<Post> findByPostStatusOrderByPublicationDateDesc(PostStatus postStatus);
 }

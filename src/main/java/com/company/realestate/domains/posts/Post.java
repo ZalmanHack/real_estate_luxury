@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,8 @@ public class Post {
     private double latitude;
     private double longitude;
 
-    @Length(min = 1, max = 64)
-    @NotBlank
+    @Length(min = 0, max = 64)
+    @NotNull
     private String name;
 
     @Enumerated(EnumType.STRING)

@@ -1,6 +1,7 @@
 <#import 'parts/common.ftl' as common>
 <#import "/spring.ftl" as spring>
 <#import "parts/item.ftl" as item>
+<#import "parts/security.ftl" as security/>
 
 <#--Также можно еще:-->
 <#--<#assign title> <@spring.message code="home.title"/> + какой то текст </#assign>-->
@@ -20,6 +21,10 @@
     <div class="block_container">
         <div class="container-xl block">
             <h2 class="text-start"><@spring.message "edit_post.title.h2.load_images"/></h2>
+
+            <div id="load_images_count_invalid" class="alert alert-danger" role="alert" hidden><@spring.message code="edit_post.invalids.load_images.count"/></div>
+            <div id="load_images_size_invalid" class="alert alert-danger" role="alert" hidden><@spring.message code="edit_post.invalids.load_images.size"/></div>
+
             <div class="" id="control_images_container">
 
                 <div class="input-group py-3" id="img_upload_control">
@@ -38,7 +43,7 @@
                         <#list post.postImages as image>
                             <div class="p-3 d-flex flex-column" id="post_image_container_${image.id}">
                                 <img src="${image.image}" id="post_image_${image.id}" alt="">
-                                <button type="button" class="btn btn-outline-danger mt-3" id="btn_delete_img_${image.id}" onclick="deleteImg(event)" ><@spring.message "edit_post.title.buttons.delete"/></button>
+                                <button type="button" class="btn btn-outline-danger mt-3" id="btn_delete_img_${image.id}" onclick="deleteImg(event)" ><@spring.message "edit_post.buttons.delete"/></button>
                             </div>
                         </#list>
                     </#if>
@@ -304,6 +309,9 @@
         <div class="container-xl block">
 
             <h2 class="text-start"><@spring.message "edit_post.title.h2.description"/></h2>
+
+            <div id="description_invalid" class="alert alert-danger" role="alert" hidden><@spring.message code="edit_post.invalids.description"/></div>
+
             <ul class="nav nav-pills nav-justified pb-3" id="locale_description">
                 <#if localizedBodies??>
                     <#assign index=0>
@@ -347,6 +355,9 @@
     <div class="block_container">
         <div class="container-xl block">
             <h2 class="text-start"><@spring.message "edit_post.title.h2.features"/></h2>
+
+            <div id="features_invalid" class="alert alert-danger" role="alert" hidden><@spring.message code="edit_post.invalids.features"/></div>
+
             <ul class="nav nav-pills nav-justified pb-3" id="locale_features">
                 <#if localizedBodies??>
                     <#assign index=0>
@@ -390,13 +401,20 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-md-3">
                 <div class="col mb-3">
-                    <button class="btn btn-danger mb-3 w-100" onclick="disablePost()" type="button"><@spring.message "edit_post.title.buttons.disable"/></button>
+                    <button class="btn btn-danger mb-3 w-100" onclick="disablePost()" type="button"><@spring.message "edit_post.buttons.disable"/></button>
                 </div>
                 <div class="col mb-3">
-                    <button class="btn btn-success mb-3 w-100" onclick="soldOutPost()" type="button"><@spring.message "edit_post.title.buttons.sold_out"/></button>
+                    <button class="btn btn-success mb-3 w-100" onclick="soldOutPost()" type="button"><@spring.message "edit_post.buttons.sold_out"/></button>
                 </div>
                 <div class="col mb-3">
-                    <button class="btn btn-primary mb-3 w-100" onclick="savePost(event)" type="submit"><@spring.message "edit_post.title.buttons.submit"/></button>
+                    <button id="btn_submit_user" class="btn btn-primary mb-3 w-100" onclick="savePostUser()" type="submit"><@spring.message "edit_post.buttons.submit"/></button>
+                    <#if security.know && security.auth_user.isAdmin()>
+                        <button id="btn_submit_sudo" class="btn btn-light mb-3 w-100" onclick="savePostSudo()" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill me-3" viewBox="0 0 16 16">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                            <@spring.message "edit_post.buttons.sudo_submit"/></button>
+                    </#if>
                 </div>
         <#--        <div class="container-xl block d-flex justify-content-end row">-->
         <#--        </div>-->

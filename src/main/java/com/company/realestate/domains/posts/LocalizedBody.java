@@ -25,9 +25,12 @@ public class LocalizedBody {
     @JoinColumn(name = "localeCodeId")
     private LocaleCode localeCode;
 
-    @Length(max = 2048)
+    // без уета html задано 2048
+    @Length(max = 3048)
     private String description;
 
+    // без уета html задано 255
+    @Length(max = 1255)
     private String features;
 
 }
