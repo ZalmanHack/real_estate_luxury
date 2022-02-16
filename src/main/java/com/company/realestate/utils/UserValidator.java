@@ -30,13 +30,19 @@ public class UserValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         User user = (User) o;
-        if(userRepo.findFirstByUsername(user.getUsername()).isPresent()) {
+
+        Optional<User> userUsernameDb = userRepo.findFirstByUsername(user.getUsername());
+        if(userUsernameDb.isPresent() && userUsernameDb.get().getId() != user.getId()) {
             errors.rejectValue("username", "", aliasService.getAlias("username.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
         }
-        if(userRepo.findFirstByCompanyName(user.getCompanyName()).isPresent()) {
+
+        Optional<User> userCompanyNameDb = userRepo.findFirstByCompanyName(user.getCompanyName());
+        if(userCompanyNameDb.isPresent() && userCompanyNameDb.get().getId() != user.getId()) {
             errors.rejectValue("companyName", "", aliasService.getAlias("companyName.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
         }
-        if(userRepo.findFirstByEmail(user.getEmail()).isPresent()) {
+
+        Optional<User> userEmailDb = userRepo.findFirstByEmail(user.getEmail());
+        if(userEmailDb.isPresent() && userEmailDb.get().getId() != user.getId()) {
             errors.rejectValue("email", "", aliasService.getAlias("email.invalid.alreadyExist", localeResolver.getLastRequestLocale()));
         }
     }

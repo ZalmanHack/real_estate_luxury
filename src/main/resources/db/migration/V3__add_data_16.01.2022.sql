@@ -6,68 +6,64 @@ INSERT INTO main.locale_code (id, code) VALUES (3, 'es');
 
 -- field_name ----------------------------------------------------------------------------------------------------------
 
-INSERT INTO main.field_name (id, value) VALUES (1, 'APARTMENT');
-INSERT INTO main.field_name (id, value) VALUES (2, 'HOUSE');
-INSERT INTO main.field_name (id, value) VALUES (3, 'VILLA');
-INSERT INTO main.field_name (id, value) VALUES (4, 'LAND');
-INSERT INTO main.field_name (id, value) VALUES (5, 'BUSINESS');
-INSERT INTO main.field_name (id, value) VALUES (6, 'RENT');
-INSERT INTO main.field_name (id, value) VALUES (7, 'username.invalid.alreadyExist');
-INSERT INTO main.field_name (id, value) VALUES (8, 'infoMessage.login.activationCode');
-INSERT INTO main.field_name (id, value) VALUES (9, 'email.activationCode.body');
-INSERT INTO main.field_name (id, value) VALUES (10, 'email.activationCode.title');
-INSERT INTO main.field_name (id, value) VALUES (11, 'infoMessage.activateCode.success');
-INSERT INTO main.field_name (id, value) VALUES (12, 'infoMessage.activateCode.fail');
-INSERT INTO main.field_name (id, value) VALUES (13, 'email.invalid.alreadyExist');
-INSERT INTO main.field_name (id, value) VALUES (14, 'email.restorePasswordCode.title');
-INSERT INTO main.field_name (id, value) VALUES (15, 'email.restorePasswordCode.body');
-INSERT INTO main.field_name (id, value) VALUES (16, 'infoMessage.restorePasswordCode.success');
-INSERT INTO main.field_name (id, value) VALUES (17, 'infoMessage.restorePasswordCode.fail');
-INSERT INTO main.field_name (id, value) VALUES (18, 'infoMessage.changePassword.success');
-INSERT INTO main.field_name (id, value) VALUES (19, 'infoMessage.changePassword.fail');
-INSERT INTO main.field_name (id, value) VALUES (20, 'companyName.invalid.alreadyExist');
-INSERT INTO main.field_name (id, value) VALUES (21, 'MODERATED');
-INSERT INTO main.field_name (id, value) VALUES (22, 'REJECTED');
-INSERT INTO main.field_name (id, value) VALUES (23, 'ACTIVE');
-INSERT INTO main.field_name (id, value) VALUES (24, 'DISABLED');
-INSERT INTO main.field_name (id, value) VALUES (25, 'SOLD_OUT');
+INSERT INTO main.field_name (value) VALUES ('APARTMENT');
+INSERT INTO main.field_name (value) VALUES ('HOUSE');
+INSERT INTO main.field_name (value) VALUES ('VILLA');
+INSERT INTO main.field_name (value) VALUES ('LAND');
+INSERT INTO main.field_name (value) VALUES ('BUSINESS');
+INSERT INTO main.field_name (value) VALUES ('RENT');
+INSERT INTO main.field_name (value) VALUES ('username.invalid.alreadyExist');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.login.activationCode');
+INSERT INTO main.field_name (value) VALUES ('email.activationCode.body');
+INSERT INTO main.field_name (value) VALUES ('email.activationCode.title');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.activateCode.success');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.activateCode.fail');
+INSERT INTO main.field_name (value) VALUES ('email.invalid.alreadyExist');
+INSERT INTO main.field_name (value) VALUES ('email.restorePasswordCode.title');
+INSERT INTO main.field_name (value) VALUES ('email.restorePasswordCode.body');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.restorePasswordCode.success');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.restorePasswordCode.fail');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.changePassword.success');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.changePassword.fail');
+INSERT INTO main.field_name (value) VALUES ('companyName.invalid.alreadyExist');
+INSERT INTO main.field_name (value) VALUES ('MODERATED');
+INSERT INTO main.field_name (value) VALUES ('REJECTED');
+INSERT INTO main.field_name (value) VALUES ('ACTIVE');
+INSERT INTO main.field_name (value) VALUES ('DISABLED');
+INSERT INTO main.field_name (value) VALUES ('SOLD_OUT');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.changeUserInfo.success');
+INSERT INTO main.field_name (value) VALUES ('email.changeActivationCode.title');
+INSERT INTO main.field_name (value) VALUES ('email.changeActivationCode.body');
+INSERT INTO main.field_name (value) VALUES ('infoMessage.changeUserEmail');
+
 
 -- alias ---------------------------------------------------------------------------------------------------------------
 
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (1, 'Apartment', 1, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (2, 'House', 2, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (3, 'Villa', 3, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (4, 'Land', 4, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (5, 'Business', 5, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (6, 'Rent', 6, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (7, 'Квартиры', 1, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (8, 'Дома', 2, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (9, 'Виллы', 3, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (10, 'Земля', 4, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (12, 'Аренда', 6, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (11, 'Бизнес', 5, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (13, 'Departamento', 1, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (14, 'casa', 2, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (15, 'Villa', 3, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (16, 'Tierra', 4, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (17, 'Negocio', 5, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (18, 'Alquiler', 6, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (19, 'This username already exists', 7, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (20, 'Такое имя пользователя уже существует', 7, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (21, 'Este nombre de usuario ya existe', 7, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (22, '%s, an email with an activation key has been sent to your e-mail %s! ', 8, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (23, '%s, Вам на почту %s было отправлено письмо с ключём активации!', 8, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (24, '¡%s, se ha enviado un correo electrónico con una clave de activación a su correo electrónico %s! ', 8, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (28, 'Activation code', 10, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (29, 'Код активации', 10, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (30, 'Código de activación', 10, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (31, 'Activation completed successfully!', 11, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (32, 'Активация успешно пройдена!', 11, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (34, 'The activation code is not valid!', 12, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (35, 'Код активации не действителен!', 12, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (36, '¡El código de activación no es válido!', 12, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (33, '¡Activación completada con éxito!', 11, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (25, '<html lang="en">
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Apartment', 1, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('House', 2, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Villa', 3, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Land', 4, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Business', 5, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Rent', 6, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Квартиры', 1, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Дома', 2, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Виллы', 3, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Земля', 4, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Бизнес', 5, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Аренда', 6, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Departamento', 1, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('casa', 2, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Villa', 3, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Tierra', 4, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Negocio', 5, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Alquiler', 6, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('This username already exists', 7, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Такое имя пользователя уже существует', 7, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Este nombre de usuario ya existe', 7, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('%s, an email with an activation key has been sent to your e-mail %s! ', 8, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('%s, Вам на почту %s было отправлено письмо с ключём активации!', 8, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('¡%s, se ha enviado un correo electrónico con una clave de activación a su correo electrónico %s! ', 8, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="en">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -77,17 +73,7 @@ Welcome to %s!
 Please go to <a href="https://%s/registration/activate/%s">link</a> to activate your account.
 </body>
 </html>', 9, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (27, '<html lang="es">
-<head>
-<meta charset="UTF-8">
-</head>
-<body>
-¡Oye, %s!
-¡Bienvenido a %s!
-Siga el <a href="https://%s/registration/activate/%s">enlace</a> para activar su cuenta.
-</body>
-</html>', 9, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (26, '<html lang="ru">
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="ru">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -97,11 +83,32 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (26, '<
 Пожалуйста, для активации аккаунта, перейдите по <a href="https://%s/registration/activate/%s">ссылке</a>.
 </body>
 </html>', 9, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (38, 'Такая почта уже привязана', 13, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (40, 'Password recovery', 14, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (41, 'Восстановление пароля', 14, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (42, 'Recuperación de contraseña', 14, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (43, '<html lang="en">
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="es">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+¡Oye, %s!
+¡Bienvenido a %s!
+Siga el <a href="https://%s/registration/activate/%s">enlace</a> para activar su cuenta.
+</body>
+</html>', 9, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Activation code', 10, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Код активации', 10, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Código de activación', 10, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Activation completed successfully!', 11, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Активация успешно пройдена!', 11, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('¡Activación completada con éxito!', 11, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('The activation code is not valid!', 12, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Код активации не действителен!', 12, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('¡El código de activación no es válido!', 12, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('This email is already linked', 13, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Такая почта уже привязана', 13, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Este correo electrónico ya está vinculado', 13, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Password recovery', 14, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Восстановление пароля', 14, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Recuperación de contraseña', 14, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="en">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -110,7 +117,7 @@ Hey %s!
 Please follow the <a href="https://%s/restore/password/change?code=%s">link</a> to restore access to your account.
 </body>
 </html>', 15, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (44, '<html lang="ru">
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="ru">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -119,7 +126,7 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (44, '<
 Пожалуйста, перейдите по <a href="https://%s/restore/password/change?code=%s">ссылке</a>, чтобы восстановить доступ к аккаунту.
 </body>
 </html>', 15, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (45, '<html lang="es">
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="es">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -128,38 +135,73 @@ INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (45, '<
 Siga el <a href="https://%s/restore/password/change?code=%s">enlace</a> para restaurar el acceso a su cuenta.
 </body>
 </html>', 15, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (39, 'Este correo electrónico ya está vinculado', 13, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (37, 'This email is already linked', 13, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (49, 'There are no accounts linked to email', 17, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (50, 'К электронной почте нет привязанных аккаунтов', 17, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (51, 'No hay cuentas vinculadas al correo electrónico', 17, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (47, 'Вам на почту %s было отправлено письмо с ссылкой для восстановления пароля!', 16, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (46, 'An email has been sent to %s with a link to reset your password!', 16, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (48, 'Se ha enviado un correo electrónico a %s con un enlace para restablecer su contraseña.', 16, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (52, 'Password changed successfully!', 18, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (53, 'Пароль успешно изменен!', 18, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (54, '¡Contraseña cambiada con éxito!', 18, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (55, 'Failed to change password', 19, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (56, 'Не удалось изменить пароль', 19, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (57, 'No se pudo cambiar la contraseña', 19, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (58, 'This company already exists', 20, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (59, 'Такая компания уже существует', 20, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (60, 'Esta empresa ya existe', 20, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (61, 'Moderated', 21, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (62, 'Declined', 22, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (63, 'Active', 23, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (64, 'Disabled', 24, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (65, 'Sold out', 25, 1);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (66, 'Модерируется', 21, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (67, 'Отклонено', 22, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (68, 'Активный', 23, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (69, 'Отключено', 24, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (70, 'Продано', 25, 2);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (71, 'Moderado', 21, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (72, 'Rechazado', 22, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (73, 'Activo', 23, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (74, 'Inhabilitado', 24, 3);
-INSERT INTO main.alias (id, value, field_name_id, locale_code_id) VALUES (75, 'Agotado', 25, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('An email has been sent to %s with a link to reset your password!', 16, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Вам на почту %s было отправлено письмо с ссылкой для восстановления пароля!', 16, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Se ha enviado un correo electrónico a %s con un enlace para restablecer su contraseña.', 16, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('There are no accounts linked to email', 17, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('К электронной почте нет привязанных аккаунтов', 17, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('No hay cuentas vinculadas al correo electrónico', 17, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Password changed successfully!', 18, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Пароль успешно изменен!', 18, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('¡Contraseña cambiada con éxito!', 18, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Failed to change password', 19, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Не удалось изменить пароль', 19, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('No se pudo cambiar la contraseña', 19, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('This company already exists', 20, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Такая компания уже существует', 20, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Esta empresa ya existe', 20, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Moderated', 21, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Declined', 22, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Active', 23, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Disabled', 24, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Sold out', 25, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Модерируется', 21, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Отклонено', 22, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Активный', 23, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Отключено', 24, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Продано', 25, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Moderado', 21, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Rechazado', 22, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Activo', 23, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Inhabilitado', 24, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Agotado', 25, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Information successfully updated', 26, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Информация успешно обновлена', 26, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Información actualizada con éxito', 26, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Activation code', 27, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Код активации', 27, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Código de activación', 27, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+Hey %s!
+Please go to <a href="https://%s/users/email/activate/%s">link</a> to activate your email.
+</body>
+</html>', 28, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="ru">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+Привет, %s!
+Пожалуйста, для активации нового почтового адреса, перейдите по <a href="https://%s/users/email/activate/%s">ссылке</a>.
+</body>
+</html>', 28, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('<html lang="es">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+¡Oye, %s!
+¡Bienvenido a %s!
+Vaya al <a href="https://%s/users/email/activate/%s">enlace</a> para activar su correo electrónico.
+</body>
+</html>', 28, 3);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Para confirmar su cambio de correo electrónico, siga el enlace enviado a su nuevo correo electrónico', 29, 1);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('Для подтверждения смены электронной почты перейдите по ссылке, отправленной Вам на новую электронную почту', 29, 2);
+INSERT INTO main.alias (value, field_name_id, locale_code_id) VALUES ('To confirm your email change, follow the link sent to your new email', 29, 3);
 
 -- city ----------------------------------------------------------------------------------------------------------------
 
@@ -215,11 +257,13 @@ INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, gu
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (65.58, 0, 3, 600, 3, 0, 0, 1, 1, 18.671804, 1, -68.406046, '/img/6.1.jpg', '/vid/6.mp4', 1, 'Paseo playa coral', 1, 'ACTIVE', false, 194000, '2022-01-11', 'APARTMENT', 1, 0, 1, 1, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (34, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, '/img/4107b42e-f6d9-45f1-a44c-e23f18db7f1b.jpg', null, 0, 'Caribbean Magic Village ', 1, 'ACTIVE', true, 37300, '2022-01-27', 'VILLA', 0, 0, 1, 1, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (55, 1, 2, 0, 2, 0, 0, 0, 1, 0, 1, 0, '/img/43cbc29f-0ef1-4fd7-843f-fb87339bdc59.jpg', null, 0, 'Caribbean Magic Village', 1, 'ACTIVE', true, 50700, '2022-01-27', 'VILLA', 0, 0, 1, 1, 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (125.44, 0, 3, 0, 3, 3, 1, 1, 1, 18.505622, 1, -68.383227, '/img/b4e1b53f-3b97-4bf9-a41e-2748fdc18dc2.jpg', null, 1, 'Harbor Bay', 0, 'ACTIVE', true, 395000, '2022-02-01', 'APARTMENT', 1, 0, 1, 1, 3);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (167.9, 1, 3, 1, 3, 0, 0, 1, 1, 19.309526, 1, -69.57166, '/img/9f216a90-f9ee-45d1-84dc-0da1ff0b2c73.jpg', '/vid/11.mp4', 2, 'The Reef', 1, 'ACTIVE', true, 259999, '2022-02-01', 'APARTMENT', 1, 1, 1, 1, 40);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (103.64, 1, 3, 1, 3, 0, 0, 1, 0, 18.502233, 0, -68.383083, '/img/7794de0d-75ef-4f19-9174-5c9e9f06e19e.jpg', '/vid/12.mp4', 2, 'Atlantida', 1, 'ACTIVE', true, 139000, '2022-02-02', 'APARTMENT', 1, 1, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (125.44, 0, 3, 0, 3, 3, 1, 1, 1, 18.505622, 1, -68.383227, '/img/b4e1b53f-3b97-4bf9-a41e-2748fdc18dc2.jpg', null, 1, 'Harbor Bay', 0, 'ACTIVE', false, 369999, '2022-02-01', 'APARTMENT', 1, 0, 1, 1, 3);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (167.9, 1, 3, 1, 3, 0, 0, 1, 1, 19.309526, 1, -69.57166, '/img/9f216a90-f9ee-45d1-84dc-0da1ff0b2c73.jpg', '/vid/11.mp4', 2, 'The Reef', 1, 'ACTIVE', false, 249999, '2022-02-01', 'APARTMENT', 1, 1, 1, 1, 40);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (103.64, 1, 3, 1, 3, 0, 0, 1, 0, 18.502233, 0, -68.383083, '/img/7794de0d-75ef-4f19-9174-5c9e9f06e19e.jpg', '/vid/12.mp4', 2, 'Atlantida', 1, 'ACTIVE', false, 129999, '2022-02-02', 'APARTMENT', 1, 1, 1, 1, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (180, 1, 3, 0, 3, 0, 1, 0, 1, 0, 1, 0, '/img/9021e9ba-ee77-4de5-ad96-21ea8ed8ed41.png', '/vid/13.mp4', 0, 'Bella Residences', 1, 'ACTIVE', true, 180000, '2022-02-05', 'VILLA', 1, 0, 2, 1, 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 1, 0, 1, 0, 1, 0, '/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', null, 0, 'Presidential Suites', 0, 'MODERATED', false, 435000, '2022-02-13', 'APARTMENT', 0, 0, 0, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 1, 0, 1, 0, 1, 0, '/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', null, 0, 'Presidential Suites', 0, 'REJECTED', false, 435000, '2022-02-13', 'APARTMENT', 0, 0, 0, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 0, 0, 1, 0, 1, 0, '/img/dc8d0602-ce66-4554-959b-f8930c1a26c7.jpg', null, 0, 'Presidential Suites', 1, 'ACTIVE', false, 435000, '2022-02-15', 'APARTMENT', 0, 0, 1, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 0, '2022-02-15', 0, 'DISABLED', false, 0, '2022-02-15', 'APARTMENT', 0, 0, 0, 2, 1);
 
 -- localized body ------------------------------------------------------------------------------------------------------
 
@@ -280,39 +324,31 @@ INSERT INTO main.localized_body (description, features, locale_code_id, post_id)
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Form of Payment&nbsp; </p><ul><li>Reservation with&nbsp; 3000 US$ </li><li>50% Contract signature </li><li>30% During construction&nbsp; </li><li>20% Upon delivery </li></ul>', 'Best Investment Project 2022!', 1, 9);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Форма оплаты<ul><li>Бронирование от 3000 долларов США</li><li>50% Подписание контракта</li><li>30% Во время строительства</li><li>20% при доставке</li></ul>', 'Лучший инвестиционный проект 2022 года!', 2, 9);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Forma de pago<ul><li>Reserva con 3000 US$</li><li>50% Firma de contrato</li><li>30% Durante la construcción</li><li>20% A la entrega</li></ul>', '¡Mejor Proyecto de Inversión 2022!', 3, 9);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p><span class="">186 flats with views of the beach.</span></p><p><span class="">Reservation with 1000 $</span></p><p><span class=""></span></p><ul><li><span class="">20% Contract signature</span></li><li><span class="">60% During construction</span></li><li><span class="">20% Upon delivery</span></li></ul>', '
- <ul><li>Access to three golf clubs</li><li>Roof with panoramic view</li></ul>
- ', 1, 10);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>186 апартаментов с видом на пляж.</p><p>Бронирование с 1000 $</p><ul><li>20% Подписание контракта</li><li>60% Во время строительства</li><li>20% при доставке</li></ul>
- ', '
- <ul><li>Доступ к трем гольф-клубам</li><li>Крыша с панорамным видом</li></ul>
- ', 2, 10);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('186 viviendas con vistas a la playa.<br><br><p>Reserva con 1000 $</p><ul><li>20% Firma de contrato</li><li>60% Durante la construcción</li><li>20% A la entrega</li></ul>
- ', '
- <ul><li>Acceso a tres clubes de golf</li><li>Azotea con vista panorámica</li></ul>
- ', 3, 10);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('-', '<ul><li> Natural pool</li><li>Ecological garden<br></li></ul>', 1, 11);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>186 flats with views of the beach.</p><p>Reservation with 1000 $</p><p></p><ul><li>20% Contract signature</li><li>60% During construction</li><li>20% Upon delivery</li></ul>', '<ul><li>Access to three golf clubs</li><li>Roof with panoramic view</li></ul>', 1, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>186 апартаментов с видом на пляж.</p><p>Бронирование с 1000 $</p><ul><li>20% Подписание контракта</li><li>60% Во время строительства</li><li>20% при доставке</li></ul>', '<ul><li>Доступ к трем гольф-клубам</li><li>Крыша с панорамным видом</li></ul>', 2, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('186 viviendas con vistas a la playa.<p>Reserva con 1000 $</p><ul><li>20% Firma de contrato</li><li>60% Durante la construcción</li><li>20% A la entrega</li></ul>', '<ul><li>Acceso a tres clubes de golf</li><li>Azotea con vista panorámica</li></ul>', 3, 10);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('-', '<ul><li> Natural pool</li><li>Ecological garden</li></ul>', 1, 11);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '<ul><li>Природный бассейн</li><li>Экологический сад </li></ul>', 2, 11);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '<ul><li>piscina natural</li><li>Jardín ecológico</li></ul>', 3, 11);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
- <p>A lost city rising from the depths has been discovered in the city of Bavaro, Punta Cana.<br></p><p>With an iconic Atlantida building, it offers 18,000 meters of swimming pools, spectacular terraces, where you can feel like you are in a boutique hotel, in the privacy of an exclusive residence.
- </p>
- ', '<ul><li>Bavaro beaches within walking distance.</li><li>Ecological garden.</li></ul>', 1, 12);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
- <p>В городе Баваро, Пунта-Кана, обнаружен затерянный город, поднимающийся из глубин.<br></p><p>Культовое здание Atlantida предлагает 18 000 метров плавательных бассейнов, впечатляющие террасы, где вы можете посетить бутик-отеле и уединится эксклюзивной резиденции.
- </p>
- ', '<ul><li>
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>A lost city rising from the depths has been discovered in the city of Bavaro, Punta Cana.</p><p>With an iconic Atlantida building, it offers 18,000 meters of swimming pools, spectacular terraces, where you can feel like you are in a boutique hotel, in the privacy of an exclusive residence.
+ </p>', '<ul><li>Bavaro beaches within walking distance.</li><li>Ecological garden.</li></ul>', 1, 12);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>В городе Баваро, Пунта-Кана, обнаружен затерянный город, поднимающийся из глубин.</p><p>Культовое здание Atlantida предлагает 18 000 метров плавательных бассейнов, впечатляющие террасы, где вы можете посетить бутик-отеле и уединится эксклюзивной резиденции.
+ </p>', '<ul><li>
  Пляжи Баваро в шаговой доступности.</li><li>Зеленая зона.</li></ul>', 2, 12);
-INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('
- <p>Una ciudad perdida que surge de las profundidades ha sido descubierta en la ciudad de Bávaro, Punta Cana.<br></p><p>Con un icónico edificio Atlántida, ofrece 18,000 metros de piscinas, espectaculares terrazas, donde puedes sentirte como en un hotel boutique, en la privacidad de una residencia exclusiva.
- </p>
- ', '<ul><li>Playas de Bávaro a poca distancia.</li><li>Jardín ecológico.</li></ul>', 3, 12);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Una ciudad perdida que surge de las profundidades ha sido descubierta en la ciudad de Bávaro, Punta Cana.</p><p>Con un icónico edificio Atlántida, ofrece 18,000 metros de piscinas, espectaculares terrazas, donde puedes sentirte como en un hotel boutique, en la privacidad de una residencia exclusiva.
+ </p>', '<ul><li>Playas de Bávaro a poca distancia.</li><li>Jardín ecológico.</li></ul>', 3, 12);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 1, 13);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 2, 13);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 3, 13);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 1, 14);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Продаётся шикарная квартира на первой линии с видом на океан в Баваро, Пунта Кана.</p><p>Расположена на территории отельного комплекса Presidential Suits. В пешей доступности рестораны, магазины, бары&nbsp;</p><p>Общая площадь 163 м2</p><p>2 спальни&nbsp;</p><p>2 санузла&nbsp;</p><p>Огромная терраса с барбекью</p><p>Охрана 24/7</p><p>Полностью закрытая территория&nbsp;</p><p>Пляжный клуб с баром и рестораном&nbsp;</p><p>Комфортабельные лежаки&nbsp;</p><p>Стоимость 435 000 USD.</p>', '', 2, 14);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('', '', 3, 14);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Luxury apartment for sale on the first line with ocean views in Bavaro, Punta Cana.</p><p>Located on the territory of the Presidential Suits hotel complex. Restaurants, shops, bars within walking distance</p><p>Total area 163 m2</p><p>2 bedrooms</p><p>2 bathrooms</p><p>Huge terrace with barbecue</p><p>Security 24/7</p><p>Completely enclosed area</p><p>Beach club with bar and restaurant</p><p>Comfortable sunbeds</p><p>The cost is 435,000 USD.</p>', '', 1, 15);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Продаётся шикарная квартира на первой линии с видом на океан в Баваро, Пунта Кана.</p><p>Расположена на территории отельного комплекса Presidential Suits. В пешей доступности рестораны, магазины, бары&nbsp;</p><p>Общая площадь 163 м2</p><p>2 спальни&nbsp;</p><p>2 санузла&nbsp;</p><p>Огромная терраса с барбекью</p><p>Охрана 24/7</p><p>Полностью закрытая территория&nbsp;</p><p>Пляжный клуб с баром и рестораном&nbsp;</p><p>Комфортабельные лежаки&nbsp;</p><p>Стоимость 435 000 USD.</p>', '', 2, 15);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Apartamento de lujo en venta en primera línea con vista al mar en Bávaro, Punta Cana.</p><p>Ubicado en el territorio del complejo hotelero Presidential Suits. Restaurantes, tiendas, bares a poca distancia</p><p>Superficie total 163 m2</p><p>2 dormitorios</p><p>2 baños</p><p>Enorme terraza con barbacoa</p><p>Seguridad 24/7</p><p>Zona completamente cerrada</p><p>Club de playa con bar y restaurante</p><p>Tumbonas cómodas</p><p>El costo es de 435,000 USD.</p>', '', 3, 15);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 1, 16);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 2, 16);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 3, 16);
 
 -- post image ----------------------------------------------------------------------------------------------------------
 
@@ -396,3 +432,27 @@ INSERT INTO main.post_image (image, post_id) VALUES ('/img/eecf239e-55c6-4e6d-9b
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/7adf97da-b4ab-4d75-b935-d94c24154d76.png', 13);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/fdf2f7d5-0843-4e65-8b67-b5627a597826.png', 13);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', 14);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/dc8d0602-ce66-4554-959b-f8930c1a26c7.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/82b07090-7bd8-406c-8085-a7aa9a67df06.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/d8cb9c85-630f-4ff7-b543-560351bd1084.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/f1330ff8-387d-4221-92e8-4fddc2108fc0.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/c6c9ed10-805b-4d0f-ba72-ae47df4413e8.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/bed8866f-c83b-414d-84e8-a6712e4b8df2.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/564049ec-9b3e-42b9-9026-13aaaebf75fe.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/b9672ac2-f161-426c-8613-7ce1704d72d6.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/deb26105-ee94-468a-8467-1130941ca36f.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/51ae9a74-25d5-4b8f-af31-2ee0a8c5eaac.jpg', 15);
+
+-- post registry -------------------------------------------------------------------------------------------------------
+
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'REJECTED', 14);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'DISABLED', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 10);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'DISABLED', 16);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 11);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 12);

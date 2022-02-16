@@ -36,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/users/*/edit", "/users/*/change_info", "/users/*/change_password").authenticated()
                 .antMatchers("/real_estate/*/new_post", "/real_estate/*/edit").authenticated()
                 .antMatchers("/api/posts/*/new_post", "/api/posts/*/add_img", "/api/posts/*/del_img").authenticated()
 //                .antMatchers("/admin/login", "/admin/logout").permitAll()

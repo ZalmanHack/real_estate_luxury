@@ -49,7 +49,6 @@ public class PostRegistryService {
         postRegistry.setPost(post);
         postRegistry.setChangePostStatus(post.getPostStatus());
         postRegistry.setChangeDate(LocalDate.now());
-        System.out.println(postRegistry);
         postRegistryRepo.save(postRegistry);
         sendEmailOfChangePostStatus(post);
     }

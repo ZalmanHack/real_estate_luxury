@@ -81,8 +81,6 @@ public class PostService {
         RealEstateType realEstateType = RealEstateType.get(body.getRealEstateType());
         Page<Post> posts;
 
-        System.out.println(body);
-
         if(realEstateType == null) {
             posts = postRepo.findPostsWithPagination(
                     postStatus,

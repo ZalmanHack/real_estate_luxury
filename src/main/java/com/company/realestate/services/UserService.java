@@ -176,4 +176,53 @@ public class UserService implements UserDetailsService {
     public List<User> getAll() {
         return userRepo.findAll();
     }
+
+    public boolean updateInfoUser(User user) {
+        Optional<User> userDb = userRepo.findFirstById(user.getId());
+        if(!userDb.isPresent()) {
+            return false;
+        }
+        User newInfoUser = userDb.get();
+        newInfoUser.setFirstName(user.getFirstName());
+        newInfoUser.setLastName(user.getLastName());
+        newInfoUser.setCompanyName(user.getCompanyName());
+        newInfoUser.setPhone(user.getPhone());
+        newInfoUser.setUsername(user.getUsername());
+        userRepo.save(newInfoUser);
+        return true;
+    }
+
+    public boolean changeEmail(User user) {
+        if(user.getNewEmail().isEmpty() || user.getEmail().equals(user.getNewEmail())) {
+            return false;
+        }
+
+        user.setActivationCode(UUID.randomUUID().toString());
+        userRepo.save(user);
+
+        String title = aliasService.getAlias("email.changeActivationCode.title", localeResolver.getLastRequestLocale());
+        String message = String.format(
+                aliasService.getAlias("email.changeActivationCode.body", localeResolver.getLastRequestLocale()),
+                user.getUsername(), hostName, user.getActivationCode());
+        emailSender.send(user.getNewEmail(), title, message);
+        return true;
+    }
+
+    public boolean activateEmailUser(String code) {
+        Optional<User> userDb = userRepo.findByActivationCode(code);
+        if (!userDb.isPresent()) {
+            return false;
+        }
+        User user = userDb.get();
+        user.setActivationCode(null);
+        user.setEmail(user.getNewEmail());
+        user.setNewEmail(null);
+        userRepo.save(user);
+        return true;
+    }
+
+    public void changePassword(String password, User user) {
+        user.setPassword(passwordEncoder.encode(password));
+        userRepo.save(user);
+    }
 }

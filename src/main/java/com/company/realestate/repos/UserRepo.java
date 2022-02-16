@@ -19,6 +19,7 @@ import java.util.Optional;
 public interface UserRepo extends CrudRepository<User, Long> {
     List<User> findAll();
     Page<User> findAll(Pageable pageable);
+    Optional<User> findFirstById(Long id);
     Optional<User> findFirstByUsername(String username);
     Optional<User> findFirstByEmail(String email);
     Optional<User> findFirstByRestorePasswordCode(String code);
@@ -29,4 +30,5 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     @Query(value = "SELECT DISTINCT U.companyName FROM User as U")
     List<String> findAllCompanyNamesUnique();
+
 }

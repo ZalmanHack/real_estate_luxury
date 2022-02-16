@@ -3,23 +3,24 @@
 
 <#--Также можно еще:-->
 <#--<#assign title> <@spring.message code="home.title"/> + какой то текст </#assign>-->
-<#assign title><@spring.message code="sign_up.title"/></#assign>
+<#assign title><@spring.message code="profile.edit.title"/></#assign>
 
 <@common.page title>
     <div class="img_parallax" style="background-image: url('/static/img/bg.jpg');">
         <#-- в диве был screen-50 -->
         <div class="block_container dark-50 text-light after_navbar">
             <div class="container_center block">
-                <h1><@spring.message "sign_up.title.h1"/></h1>
+                <h1><@spring.message "profile.edit.title.h1"/></h1>
             </div>
         </div>
     </div>
 
     <div class="block_container light-100" >
         <div class="container-xl  mt-5 mb-5">
-            <form action="/registration" method="post" id="registration_form">
+            <form action="/users/${user.id}/change_info" method="post" id="change_info_form">
                 <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 <div class="mx-auto" style="max-width: 300px">
+                    <@common.messages/>
                     <div class="mb-3">
                         <label for="inputFirstName" class="form-label"><@spring.message "sign_up.inputs.first_name"/> <span class="text-danger">*</span></label>
                         <input name="firstName"
@@ -60,22 +61,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputEmail"
-                               class="form-label"><@spring.message "sign_up.inputs.email"/> <span class="text-danger">*</span></label>
-                        <input name="email"
-                               type="text"
-                               value="<#if user??>${user.email}</#if>"
-                               class="form-control ${(emailError??)?string("is-invalid","")}"
-                               id="inputEmail"
-                               minlength="5" maxlength="320" required
-                               pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-                               aria-describedby="emailHelp">
-                        <div class="invalid-feedback">
-                            <#if emailError??> ${emailError} <#else> <@spring.message "sign_up.inputs.email.invalid"/> </#if>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
                         <label for="inputPhone"
                                class="form-label"><@spring.message "sign_up.inputs.phone"/> <span class="text-danger">*</span></label>
                         <input name="phone"
@@ -106,39 +91,74 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputPassword" class="form-label"><@spring.message "sign_up.inputs.password"/> <span class="text-danger">*</span></label>
-                        <input name="password" type="password"
-                               class="form-control ${(passwordError??)?string("is-invalid","")}"
-                               id="inputPassword"
-                               minlength="1" maxlength="24" required>
+                        <label for="inputEmail"
+                               class="form-label"><@spring.message "sign_up.inputs.email"/> <span class="text-danger">*</span></label>
+                        <input name="email"
+                               type="text"
+                               value="<#if user??>${user.email}</#if>"
+                               class="form-control ${(emailError??)?string("is-invalid","")}"
+                               id="inputEmail"
+                               minlength="5" maxlength="320" required
+                               pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+                               aria-describedby="emailHelp"
+                               disabled>
                         <div class="invalid-feedback">
-                            <#if passwordError??> ${passwordError} <#else> <@spring.message "sign_up.inputs.password.invalid"/> </#if>
+                            <#if emailError??> ${emailError} <#else> <@spring.message "sign_up.inputs.email.invalid"/> </#if>
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="inputRepeatPassword" class="form-label"><@spring.message "sign_up.inputs.repeat_password"/> <span class="text-danger">*</span></label>
-                        <input type="password"
-                               class="form-control ${(passwordError??)?string("is-invalid","")}"
-                               id="inputRepeatPassword"
-                               minlength="1" maxlength="24" required>
+                        <label for="inputNewEmail"
+                               class="form-label"><@spring.message "sign_up.inputs.new_email"/> <span class="text-danger">*</span></label>
+                        <input name="newEmail"
+                               type="text"
+                               value="<#if user??>${user.newEmail!''}</#if>"
+                               class="form-control ${(newEmailError??)?string("is-invalid","")}"
+                               id="inputNewEmail"
+                               minlength="5" maxlength="320" required
+                               pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+                               aria-describedby="emailHelp">
                         <div class="invalid-feedback">
-                            <@spring.message "sign_up.inputs.repeat_password.invalid"/>
+                            <#if newEmailError??> ${newEmailError} <#else> <@spring.message "sign_up.inputs.new_email.invalid"/> </#if>
                         </div>
                     </div>
 
-                    <button type="button" id="submitRegistrationButton" class="btn btn-primary w-100 mb-4 mt-2"><@spring.message "sign_up.buttons.submit"/></button>
-
-                    <div class="d-flex justify-content-center mb-3">
-                        <a class="link-secondary" href="/login"><@spring.message "sign_up.buttons.sign_in"/></a>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <a class="link-secondary" href="/restore/password"><@spring.message "sign_up.buttons.forgot_password"/></a>
-                    </div>
+                    <button type="button" id="submitChangeInfo" class="btn btn-primary w-100 mt-2 mb-3"><@spring.message "profile.edit.buttons.change_info"/></button>
                 </div>
             </form>
+
+            <form action="/users/${user.id}/change_password" method="post" id="change_password_form" enctype="application/json;charset=UTF-8">
+                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                <div class="mx-auto" style="max-width: 300px">
+                    <div class="mb-3">
+                            <hr style="height: 1px; border: 0 solid  rgba(100,100,100,100.125); border-top-width: 1px;"/>
+                            <label for="inputPassword" class="form-label"><@spring.message "sign_up.inputs.password"/> <span class="text-danger">*</span></label>
+                            <input name="password" type="password"
+                                   class="form-control ${(passwordError??)?string("is-invalid","")}"
+                                   id="inputPassword"
+                                   minlength="1" maxlength="24" required>
+                            <div class="invalid-feedback">
+                                <#if passwordError??> ${passwordError} <#else> <@spring.message "sign_up.inputs.password.invalid"/> </#if>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputRepeatPassword" class="form-label"><@spring.message "sign_up.inputs.repeat_password"/> <span class="text-danger">*</span></label>
+                            <input type="password"
+                                   class="form-control ${(passwordError??)?string("is-invalid","")}"
+                                   id="inputRepeatPassword"
+                                   minlength="1" maxlength="24" required>
+                            <div class="invalid-feedback">
+                                <@spring.message "sign_up.inputs.repeat_password.invalid"/>
+                            </div>
+                        </div>
+
+                        <button type="button" id="submitChangePassword" class="btn btn-primary w-100 mt-2"><@spring.message "profile.edit.buttons.change_password"/></button>
+                </div>
+            </form>
+
         </div>
     </div>
 
-    <script src="/static/js/registration.js"></script>
+    <script src="/static/js/profileEdit.js"></script>
 </@common.page>

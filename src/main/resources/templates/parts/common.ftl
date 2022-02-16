@@ -71,6 +71,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                                 <li><a class="dropdown-item" href="/users/${security.auth_user.id}/show"><@spring.message "navbar.auth.profile"/></a></li>
+                                <li><a class="dropdown-item" href="/users/${security.auth_user.id}/edit"><@spring.message "navbar.auth.edit"/></a></li>
 <#--                                <li><a class="dropdown-item" href="#"><@spring.message "navbar.auth.settings"/></a></li>-->
                                 <li><hr class="dropdown-divider"></li>
                                 <#if security.auth_user.isAdmin()>

@@ -5,6 +5,7 @@ create table _user
     active                boolean,
     company_name          varchar(64),
     email                 varchar(320),
+    new_email             varchar(320),
     first_name            varchar(26),
     last_name             varchar(26),
     password              varchar(255),

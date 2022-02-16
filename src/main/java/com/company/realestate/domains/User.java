@@ -39,6 +39,9 @@ public class User implements UserDetails {
     @NotBlank
     private String email;
 
+    @Length(max = 320)
+    private String newEmail;
+
     @Length(min = 1, max = 64)
     @NotBlank
     private String username;
