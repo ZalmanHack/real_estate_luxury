@@ -19,19 +19,21 @@ public class EmailSenderService {
     @Value("${spring.mail.username}")
     private String username;
 
+    //TODO На google больше не работает автоизация через логин и пароль
     public boolean send(String emailTo, String subject, String message) {
-        try {
-            MimeMessage mailMessage = mailSender.createMimeMessage();
-            mailMessage.setSubject(subject);
-            MimeMessageHelper helper = new MimeMessageHelper(mailMessage, true);
-            helper.setFrom(username);
-            helper.setTo(emailTo);
-            mailMessage.setContent(message, "text/html; charset=UTF-8");
-            mailSender.send(mailMessage);
-            return true;
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return true;
+//        try {
+//            MimeMessage mailMessage = mailSender.createMimeMessage();
+//            mailMessage.setSubject(subject);
+//            MimeMessageHelper helper = new MimeMessageHelper(mailMessage, true);
+//            helper.setFrom(username);
+//            helper.setTo(emailTo);
+//            mailMessage.setContent(message, "text/html; charset=UTF-8");
+//            mailSender.send(mailMessage);
+//            return true;
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
     }
 }

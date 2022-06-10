@@ -262,8 +262,12 @@ INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, gu
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (103.64, 1, 3, 1, 3, 0, 0, 1, 0, 18.502233, 0, -68.383083, '/img/7794de0d-75ef-4f19-9174-5c9e9f06e19e.jpg', '/vid/12.mp4', 2, 'Atlantida', 1, 'ACTIVE', false, 129999, '2022-02-02', 'APARTMENT', 1, 1, 1, 1, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (180, 1, 3, 0, 3, 0, 1, 0, 1, 0, 1, 0, '/img/9021e9ba-ee77-4de5-ad96-21ea8ed8ed41.png', '/vid/13.mp4', 0, 'Bella Residences', 1, 'ACTIVE', true, 180000, '2022-02-05', 'VILLA', 1, 0, 2, 1, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 1, 0, 1, 0, 1, 0, '/img/df1daac9-8a32-4bbb-a6f4-0cac9ce8b6e6.jpg', null, 0, 'Presidential Suites', 0, 'REJECTED', false, 435000, '2022-02-13', 'APARTMENT', 0, 0, 0, 2, 1);
-INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 0, 0, 1, 0, 1, 0, '/img/dc8d0602-ce66-4554-959b-f8930c1a26c7.jpg', null, 0, 'Presidential Suites', 1, 'ACTIVE', false, 435000, '2022-02-15', 'APARTMENT', 0, 0, 1, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (163, 1, 2, 1, 2, 0, 0, 0, 1, 0, 1, 0, '/img/dc8d0602-ce66-4554-959b-f8930c1a26c7.jpg', null, 0, 'Presidential Suites', 1, 'ACTIVE', false, 390000, '2022-02-15', 'APARTMENT', 0, 0, 1, 2, 1);
 INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, null, null, 0, '2022-02-15', 0, 'DISABLED', false, 0, '2022-02-15', 'APARTMENT', 0, 0, 0, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (125, 1, 2, 0, 2, 0, 0, 1, 2, 18.691406, 2, -68.424129, '/img/f816e285-ae90-43c7-a4cf-d8f969871e10.jpg', null, 0, 'Maples Beach', 1, 'ACTIVE', false, 160000, '2022-02-16', 'APARTMENT', 1, 0, 0, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (155, 0, 1, 100, 3, 1, 0, 1, 1, 0, 1, 0, '/img/cca7eddf-47db-43ab-bbce-b9f1c829b913.jpg', null, 1, 'Marina Garden', 1, 'ACTIVE', false, 355000, '2022-02-19', 'APARTMENT', 1, 0, 1, 2, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (190, 1, 1, 0, 3, 0, 0, 1, 0, 0, 0, 0, '/img/56139794-f302-4635-9b35-58e76e7e5bd9.jpg', null, 0, 'Gardenia', 1, 'ACTIVE', false, 250000, '2022-02-22', 'APARTMENT', 1, 0, 1, 1, 1);
+INSERT INTO main.post (area, barbecue_area, bathrooms, beach, bedrooms, golf, guest_bathrooms, gym, kitchen, latitude, living_room, longitude, main_image, main_video, mall, name, parking, post_status, premium, price, publication_date, real_estate_type, swimming_pool, tennis, terrace, user_id, city_id) VALUES (115.22, 0, 1, 0, 3, 1, 0, 0, 1, 0, 1, 0, '/img/5c9d86bd-c732-44bf-817f-d365ced51073.jpg', null, 0, 'The Golf Garden 2', 2, 'ACTIVE', false, 195000, '2022-02-22', 'APARTMENT', 1, 0, 1, 1, 1);
 
 -- localized body ------------------------------------------------------------------------------------------------------
 
@@ -349,9 +353,26 @@ INSERT INTO main.localized_body (description, features, locale_code_id, post_id)
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 1, 16);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 2, 16);
 INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES (null, null, 3, 16);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MAPLES BEACH</p><p></p><p></p><p></p><p>Area Cortecito</p><p></p><p>Punta el Cortecito</p><p></p><p>150 meters to the beach.</p><p></p><p>&nbsp; 2-room apartments in which there are two full-fledged 1-room apartments with a separate entrance to each.</p><p></p><p>&nbsp; 2 in 1</p><p></p><p>Location close to shops and restaurants</p>', '', 1, 17);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MAPLES BEACH</p><p></p><p>Район Cortecito</p><p>Punta el Cortecito</p><p>Сдача первая очередь - сентябрь 2022/ вторая очередь начало 2023&nbsp;</p><p>150 метров до пляжа.&nbsp;</p><p></p><p></p><p>&nbsp;2-х комнатные апартаменты в которых полноценные две &nbsp;1 комнатные квартиры с отдельным входом в каждую.</p><p>&nbsp;2 в 1 &nbsp;&nbsp;</p><p>Расположение рядом с магазинами и ресторанами</p><p></p><p></p><p></p>', '', 2, 17);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; MAPLES BEACH</p><p></p><p></p><p></p><p>Zona Cortecito</p><p></p><p>punta el cortecito</p><p></p><p>150 metros de la playa.</p><p></p><p>&nbsp; Apartamentos de 2 habitaciones en los que hay dos apartamentos completos de 1 habitación con entrada independiente para cada uno.</p><p></p><p>&nbsp; 2 en 1</p><p></p><p>Ubicación cerca de tiendas y restaurantes.</p>', '', 3, 17);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Marina Garden comes with an innovative concept for</p><p>those who seek tranquility and rest in rhythm</p><p>waves. It has 40 apartments and 15 penthouses. Located</p><p>in the luxurious area of ​​Cap Cana Marina, Dominican Republic</p><p>Republic, the best place to enjoy incredible beaches</p><p>crystal clear waters and white sands of the Caribbean. The</p><p>The world class golf center has two golf courses. Punta</p><p>Espada golf course with impressive holes along</p><p>coastline and turquoise lakes.</p><p></p><p>Marina Garden in Cap Can</p><p>From 335 000 $</p><p>Booking for $1000</p><p>20% Signing a contract</p><p>60% during construction</p><p>20% on delivery</p>', '', 1, 18);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Marina Garden поставляется с инновационной концепцией дляте, кто ищет спокойствия и отдыхает в ритмеволны. В нем 40 квартир и 15 пентхаусов. Расположенныйв роскошном районе Кап-Кана Марина, Доминиканская РеспубликаРеспублика, лучшее место, чтобы насладиться невероятными пляжамикристально чистые воды и белый песок Карибского бассейна. TheВ гольф-центре мирового класса есть два поля для гольфа. ПунтаПоле для гольфа Espada с впечатляющими лунками вдольпобережье и бирюзовые озера.Марина Гарден в Кап-КанеОт 335 000 $Бронирование за 1000 $20% Подписание контракта60% во время строительства20% при доставке', '', 2, 18);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('<p>Marina Garden llega con un concepto innovador para</p><p>los que buscan tranquilidad y descanso en ritmo</p><p>ondas. Tiene 40 apartamentos y 15 áticos. Situado</p><p>en la lujosa zona de Cap Cana Marina, República Dominicana</p><p>República, el mejor lugar para disfrutar de increíbles playas</p><p>aguas cristalinas y arenas blancas del Caribe. los</p><p>El centro de golf de clase mundial tiene dos campos de golf. Punta</p><p>Campo de golf Espada con impresionantes hoyos a lo largo</p><p>costa y lagos turquesas.</p><p></p><p>Marina Garden en Cap Can</p><p>Desde 335 000 $</p><p>Reserva por $1000</p><p>20% Firma de un contrato</p><p>60% durante la construcción</p><p>20% en la entrega</p>', '', 3, 18);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('The project consists of a Clubhouse, The Garden Club, which will have a double height infinity pool, lounge area, gym, spa and restaurant, which will offer all kinds of services.', '<ul><li>
+
+                        Private pool</li><li>BBQ area</li></ul>', 1, 19);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('Проект состоит из Clubhouse, The Garden Club, в котором будет панорамный бассейн двойной высоты, зона отдыха, тренажерный зал, спа-салон и ресторан, который будет предлагать все виды услуг.', '<ul><li>Частный бассейн</li><li>Зона барбекю</li></ul>', 2, 19);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('El proyecto consta de una Casa Club, The Garden Club, que contará con una piscina infinita de doble altura, área lounge, gimnasio, spa y restaurante, que ofrecerá todo tipo de servicios.', '<ul><li>Piscina privada</li><li>zona de barbacoa</li></ul>', 3, 19);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('The
+ Golf Garden 2 has 42 exclusive 2 and 3 bedroom apartments distributed
+on three levels. Pool with more than 50 meters and large gardens.', '<ul><li>
+
+                        View of the golf course</li><li>10 min Bavaro beach</li></ul>', 1, 20);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('В Golf Garden 2 есть 42 эксклюзивных апартамента с 2 и 3 спальнями, расположенных на трех уровнях. Бассейн более 50 метров и большие сады.', '<ul><li>Вид на поле для гольфа</li><li>10 мин до пляжа Баваро</li></ul>', 2, 20);
+INSERT INTO main.localized_body (description, features, locale_code_id, post_id) VALUES ('The Golf Garden 2 cuenta con 42 exclusivos apartamentos de 2 y 3 dormitorios distribuidos en tres niveles. Piscina con más de 50 metros y amplios jardines.', '<ul><li>Vista del campo de golf</li><li>10 min playa Bávaro</li></ul>', 3, 20);
 
 -- post image ----------------------------------------------------------------------------------------------------------
-
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/1.3.jpg', 1);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/1.4.jpg', 1);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/1.2.jpg', 1);
@@ -442,6 +463,36 @@ INSERT INTO main.post_image (image, post_id) VALUES ('/img/564049ec-9b3e-42b9-90
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/b9672ac2-f161-426c-8613-7ce1704d72d6.jpg', 15);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/deb26105-ee94-468a-8467-1130941ca36f.jpg', 15);
 INSERT INTO main.post_image (image, post_id) VALUES ('/img/51ae9a74-25d5-4b8f-af31-2ee0a8c5eaac.jpg', 15);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/f816e285-ae90-43c7-a4cf-d8f969871e10.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/8840644c-36f9-4e02-b4ba-1899cbee627f.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/9b71b450-dfef-4fc3-9424-39c1dd4a7014.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/e59ec382-03c7-4bd8-87b7-181c1abf256f.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/e5771a1a-4c82-4139-801f-1ef7559ba2eb.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/88926c28-8fa8-4be4-b1b2-473a10c3ce8b.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/b2db188b-c303-4e3b-9826-094dbec4880a.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/5a7561ad-95b3-4cb9-bcdc-1c78967fbb97.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/0f914559-6c17-4029-b1fc-0af5f2edd2a2.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/8d8c2ab9-c820-4768-ba67-02bad0995c98.jpg', 17);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/cca7eddf-47db-43ab-bbce-b9f1c829b913.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/73e10397-ed25-47cc-a146-5a8dfd4ec5ca.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/a002a705-3db9-4c95-a225-74989b721bfc.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/87add082-7ce5-45c1-9c3e-60602492f156.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/316ccacc-9421-4d7c-ae81-0c84dc925dfe.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/c5e59eba-fe00-48a4-8e75-a9de057c631f.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/2c265187-2f06-4b9e-9f98-92e5937c4a60.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/98f2b7a9-06ab-4a4b-93c6-91754a4fd0ce.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/853ba0f8-c5d0-4255-a96c-b8d49297878b.jpg', 18);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/56139794-f302-4635-9b35-58e76e7e5bd9.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/a4196f02-3d99-44bc-a74e-0bb75c788349.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/9b6c7048-a8f4-4d26-b252-991a8e87abb8.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/ad97db5f-97ad-4a63-9d3a-ab77d18784d8.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/4878ef35-4e6b-49d0-a33b-3cc5b0310e8c.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/be0a7ed8-2313-43d1-995d-48f0cebe435d.jpg', 19);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/5c9d86bd-c732-44bf-817f-d365ced51073.jpg', 20);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/54bf741b-4085-4b40-83a7-e597e42f2f94.jpg', 20);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/b74cf190-886a-46e5-9428-0b5f7c90a26d.jpg', 20);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/dff070d0-e065-4607-8053-23b1c913567c.jpg', 20);
+INSERT INTO main.post_image (image, post_id) VALUES ('/img/cd445888-0129-4cf2-8473-719fe03687fe.jpg', 20);
 
 -- post registry -------------------------------------------------------------------------------------------------------
 
@@ -456,3 +507,35 @@ INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES
 INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'DISABLED', 16);
 INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 11);
 INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-15', 'ACTIVE', 12);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-16', 'DISABLED', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-16', 'ACTIVE', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-16', 'ACTIVE', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-16', 'ACTIVE', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-16', 'ACTIVE', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-19', 'DISABLED', 18);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-19', 'ACTIVE', 18);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-22', 'DISABLED', 19);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-22', 'ACTIVE', 19);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-22', 'ACTIVE', 19);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-22', 'DISABLED', 20);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-02-22', 'ACTIVE', 20);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-15', 'ACTIVE', 15);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-15', 'ACTIVE', 19);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-15', 'ACTIVE', 20);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-16', 'ACTIVE', 17);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-16', 'ACTIVE', 20);
+INSERT INTO main.post_registry (change_date, change_post_status, post_id) VALUES ('2022-03-16', 'ACTIVE', 19);
+
+-- registry feedback ---------------------------------------------------------------------------------------------------
+
+INSERT INTO main.registry_feedback (email, name, question, sent_date) VALUES ('ttrinda@mail.ru', 'Natalya', 'Здраствуйте Александр. Быть может вам будет полезна информация.
+Поищите в интернете. Алексей Унжаков рассказал
+🔹Какие инвестиционные стратегии мы видим на время кризиса
+🔹Какие 3 варианта развития событий наиболее вероятны в текущей ситуации
+🔹Какие инвестиционные сделки мы будем продолжать публиковать и почему
+
+⚠️ Мы продолжаем действовать, опираясь на вековые законы экономики: первичное богатство (золото, земля, природные ресурсы) и недвижимость всегда являются защитными активами для вашего капитала.
+
+📈 Ипотечные ставки, которые сейчас предлагают банки, находятся в диапазоне от 18% до 23% годовых. Покупать инвестиционную недвижимость с такими процентными ставками НЕЛЬЗЯ. Поэтому мы будем ждать стабилизации ситуации и снижения ключевой ставки ЦБ до приемлемых уровней.
+
+В связи с тем, что большинство инвестиционных стратегий за пределами РФ недоступны ❌ , мы нацелены на то, чтобы находить инвестиционные сделки внутри страны, которые помогут Вам защитить свой ', '2022-03-03');

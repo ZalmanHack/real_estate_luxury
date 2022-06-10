@@ -26,8 +26,8 @@
             <@spring.message "home.real_estate.text"/>
             <div class="card_container overflow_bottom">
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.apartments"/></h5>
@@ -35,8 +35,8 @@
                     </div>
                 </div>
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow ">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.houses"/></h5>
@@ -44,8 +44,8 @@
                     </div>
                 </div>
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.villas"/></h5>
@@ -53,8 +53,8 @@
                     </div>
                 </div>
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.land"/></h5>
@@ -62,8 +62,8 @@
                     </div>
                 </div>
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.ready_business"/></h5>
@@ -71,8 +71,8 @@
                     </div>
                 </div>
 
-                <div class="card shadow text-white">
-                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">
+                <div class="card shadow">
+<#--                    <img src="/static/img/bg-3.jpg" class="card-img img_rect">-->
                     <!-- d-flex ... justify - это все для выравнивания в центре -->
                     <div class="card-img-overlay d-flex align-items-center justify-content-center">
                         <h5><@spring.message "home.real_estate.buttons.rent"/></h5>
@@ -83,8 +83,19 @@
         </div>
     </div>
 
-    <div class="img_parallax" style="background-image: url('/static/img/bg-2.jpg');">
+    <div class="img_parallax" style="background-image: url('/static/img/bg-4.jpg');">
         <div class="block_container light-50 after_float_block">
+            <div class="container-xl">
+                <div class=" container_right block" id="real_estate_info_block">
+                    <h2><@spring.message "home.income"/></h2>
+                    <@spring.message "home.income.text"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="img_parallax" style="background-image: url('/static/img/bg-2.jpg');">
+        <div class="block_container light-50">
             <div class="container-xl">
                 <div class=" container_right block" id="real_estate_info_block">
                     <h2><@spring.message "home.rent"/></h2>

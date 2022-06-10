@@ -2,7 +2,6 @@ package com.company.realestate.controllers;
 
 import com.company.realestate.services.AliasService;
 import com.company.realestate.services.UserService;
-import com.company.realestate.utils.ControllerUtils;
 import com.company.realestate.utils.CustomSessionLocaleResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

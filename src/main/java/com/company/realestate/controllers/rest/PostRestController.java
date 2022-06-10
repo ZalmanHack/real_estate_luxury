@@ -54,7 +54,6 @@ public class PostRestController {
     //TODO Добавить проверку на доступ к добавлению картинок
 
     @PostMapping("{post}/add_img")
-
     @PreAuthorize("(#authUser.id.equals(#post.author.id) && hasAuthority('USER')) || hasAuthority('ADMIN')")
     public ResponseEntity<Object> addImage(@AuthenticationPrincipal User authUser,
                                            @PathVariable Post post,
